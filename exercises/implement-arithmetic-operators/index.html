@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Implementera aritmetiska operatorer | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Implementera aritmetiska operatorer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/implement-arithmetic-operators/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/implement-arithmetic-operators/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/implement-arithmetic-operators/","headline":"Implementera aritmetiska operatorer","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Implementera aritmetiska operatorer</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        medel, text, aritmetik, funktioner
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1-addition-och-negation">1. Addition och negation</a></li>
+<li class="toc-entry toc-h3"><a href="#2-subtraktion">2. Subtraktion</a></li>
+<li class="toc-entry toc-h3"><a href="#3-multiplikation">3. Multiplikation</a></li>
+<li class="toc-entry toc-h3"><a href="#4-heltalsdivision">4. Heltalsdivision</a></li>
+<li class="toc-entry toc-h3"><a href="#5-exponentiering">5. Exponentiering</a></li>
+<li class="toc-entry toc-h3"><a href="#6-kommentarer">6. Kommentarer</a></li>
+</ul><p>I denna uppgift skall vi undersöka hur vi kan klara oss med enbart addition och negerade tal för att räkna ut olika uttryck och implementera andra operatorer.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python3">http://repl.it/languages/python3</a> (Python 3).</p>
+
+<h3 id="1-addition-och-negation">
+<a id="1-addition-och-negation" class="anchor" href="#1-addition-och-negation" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Addition och negation</h3>
+
+<p>Vi börjar med att implementera funktioner för addition och negation med hjälp av Pythons inbyggda operatorer <code class="highlighter-rouge">+</code> och <code class="highlighter-rouge">-</code>. Vi kallar funktionerna <code class="highlighter-rouge">add</code> och <code class="highlighter-rouge">neg</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">neg</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+  <span class="k">return</span> <span class="o">-</span><span class="n">a</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Skriv in funktionerna ovan. Använd print-satser för att undersöka vad följande uttryck blir:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">add(3, 5)</code></li>
+  <li><code class="highlighter-rouge">neg(7)</code></li>
+  <li><code class="highlighter-rouge">add(add(3, 5), neg(7))</code></li>
+  <li><code class="highlighter-rouge">add(neg(7), add(3, 5))</code></li>
+</ul>
+
+<p><strong>Uppdrag:</strong> Använd <code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">neg</code> och konstanterna <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">5</code> och <code class="highlighter-rouge">10</code> för att skriva ut värdena <code class="highlighter-rouge">4</code>, <code class="highlighter-rouge">7</code> och <code class="highlighter-rouge">8</code>.</p>
+
+<p><strong>Uppdrag:</strong> Kan du hitta (minst) tre olika uttryck där du använder <code class="highlighter-rouge">add</code>, <code class="highlighter-rouge">neg</code> och konstanterna <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">5</code> och <code class="highlighter-rouge">10</code> för att skriva ut värdet <code class="highlighter-rouge">6</code>?</p>
+
+<h3 id="2-subtraktion">
+<a id="2-subtraktion" class="anchor" href="#2-subtraktion" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Subtraktion</h3>
+
+<p>Vi kan subtrahera <code class="highlighter-rouge">b</code> från <code class="highlighter-rouge">a</code> genom att skriva <code class="highlighter-rouge">add(a, neg(b))</code>. Men det vore trevligt att ha en funktion <code class="highlighter-rouge">sub</code> så att vi kan skriva <code class="highlighter-rouge">sub(a, b)</code> i stället:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">return</span> <span class="o">...</span>
+</code></pre></div></div>
+<p><strong>Uppdrag:</strong> Implementera funktionen <code class="highlighter-rouge">sub</code> enbart genom att använda funktionerna <code class="highlighter-rouge">add</code> och <code class="highlighter-rouge">neg</code>. Kontrollera att funktionen fungerar genom att testa den på t.ex. följande exempel:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">sub(100, 3)</code></li>
+  <li><code class="highlighter-rouge">sub(1, 1001)</code></li>
+</ul>
+
+<p>(Vad borde resultatet bli?)</p>
+
+<p><strong>Uppdrag:</strong> Kan du uttrycka värdet <code class="highlighter-rouge">11</code> med hjälp av funktionerna <code class="highlighter-rouge">add</code> och <code class="highlighter-rouge">sub</code> och konstanterna <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">5</code> och <code class="highlighter-rouge">10</code>?</p>
+
+<h3 id="3-multiplikation">
+<a id="3-multiplikation" class="anchor" href="#3-multiplikation" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Multiplikation</h3>
+
+<p>Vi skulle vilja ha en funktion för multiplikation:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="o">...</span>
+  <span class="k">return</span> <span class="o">...</span>
+</code></pre></div></div>
+
+<p>så att om vi t.ex. anropar <code class="highlighter-rouge">mul(3, 5)</code> så får vi värdet <code class="highlighter-rouge">15</code>.</p>
+
+<p>Vi kan implementera <code class="highlighter-rouge">mul</code> genom addera många gånger i en loop!</p>
+
+<p><strong>Uppdrag:</strong> Implementera funktionen <code class="highlighter-rouge">mul</code> genom att använda en loop och anropa <code class="highlighter-rouge">add</code>. Kontrollera att din funktion fungerar för <code class="highlighter-rouge">mul(3, 5)</code>.</p>
+
+<p><em>Tips!</em> Vi kan använda en variabel <code class="highlighter-rouge">result</code> som vi börjar med att sätta till <code class="highlighter-rouge">0</code>. Sedan kan vi loopa <code class="highlighter-rouge">b</code> gånger, och i varje varv lägga till <code class="highlighter-rouge">a</code> till <code class="highlighter-rouge">result</code> med hjälp av <code class="highlighter-rouge">add</code>.</p>
+
+<p><strong>Uppdrag:</strong> Testa din funktion mer. Kontrollera t.ex. att den fungerar för:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">mul(0, 10)</code></li>
+  <li><code class="highlighter-rouge">mul(1000, 1000)</code></li>
+</ul>
+
+<p>(Vad borde resultatet bli?)</p>
+
+<h3 id="4-heltalsdivision">
+<a id="4-heltalsdivision" class="anchor" href="#4-heltalsdivision" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Heltalsdivision</h3>
+
+<p>I Python 3 skrivs vanlig division som <code class="highlighter-rouge">a/b</code> och heltalsdivision som <code class="highlighter-rouge">a//b</code>.  Resultatet av en heltalsdivision är heltalsdelen av vanlig division. Till exempel är <code class="highlighter-rouge">14/3 = 4.666...</code>, medan <code class="highlighter-rouge">14//3 = 4</code>.</p>
+
+<p>Om resultatet går jämnt ut blir resultatet för heltalsdivision detsamma som för vanlig division. Till exempel är både <code class="highlighter-rouge">12/4 = 3</code> och <code class="highlighter-rouge">12//4 = 3</code>.</p>
+
+<p>Vi kan tänka på heltalsdivision som att vi ska räkna ut hur många tegelstenar av längd <code class="highlighter-rouge">b</code> som får plats i en avlångt utrymme av längd <code class="highlighter-rouge">a</code>. När vi har lagt ner så många stenar som möjligt så kanske det finns lite plats över i utrymmet, men den platsen kommer i så fall att vara kortare än <code class="highlighter-rouge">b</code>.</p>
+
+<p>Vi skall implementera en funktion <code class="highlighter-rouge">intdiv(a, b)</code> som räknar ut heltalsdivision enbart med hjälp av våra funktioner <code class="highlighter-rouge">add</code> och <code class="highlighter-rouge">sub</code>, alltså <em>utan</em> att använda den inbyggda operatorn <code class="highlighter-rouge">//</code>.</p>
+
+<p>Ett sätt att implementera <code class="highlighter-rouge">intdiv</code> är att använda en loop som simulerar att vi provar med allt fler tegelstenar ända tills de inte får plats.</p>
+
+<p><strong>Uppdrag:</strong> Implementera <code class="highlighter-rouge">intdiv</code> och prova att den fungerar genom att anropa <code class="highlighter-rouge">intdiv(14, 3)</code> och <code class="highlighter-rouge">intdiv(12, 4)</code>.</p>
+
+<p><em>Tips!</em> Använd en variabel <code class="highlighter-rouge">bricks</code> som håller reda på antalet tegelstenar och en variabel <code class="highlighter-rouge">length</code> som håller reda på sammanlagda längden av tegelstenarna. Börja med att sätta båda till 0. Använd en while-loop som ökar <code class="highlighter-rouge">length</code> med <code class="highlighter-rouge">b</code> och <code class="highlighter-rouge">bricks</code> med 1 så länge som <code class="highlighter-rouge">length</code> är mindre än eller lika med <code class="highlighter-rouge">a</code>. När while-loopen är färdig har vi alltså provat med en tegelsten för mycket, och resultatet av heltalsdivisionen är alltså ett mindre än <code class="highlighter-rouge">bricks</code>.</p>
+
+<details>
+<summary>
+Lösning
+</summary>
+<pre>
+def intdiv(a, b):
+  length = 0
+  bricks = 0
+  while (length &lt;= a):
+    length = add(length, b)
+    bricks = add(bricks, 1)
+  return sub(bricks, 1)
+</pre>
+</details>
+
+<h3 id="5-exponentiering">
+<a id="5-exponentiering" class="anchor" href="#5-exponentiering" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Exponentiering</h3>
+
+<p><em>Exponentiering</em> skrivs matematiskt <i>b<sup>n</sup></i> och i programmeringsspråk som <code class="highlighter-rouge">b**n</code>. Operatorn <code class="highlighter-rouge">**</code> kallas <em>power</em>, eller på svenska <em>potens</em> eller <em>upphöjt-till</em>. Exponentiering motsvarar upprepad multiplikation. Till exempel är <code class="highlighter-rouge">3**5</code> lika med <code class="highlighter-rouge">3*3*3*3*3</code> det vill säga lika med <code class="highlighter-rouge">243</code>.</p>
+
+<p>Vi skall implementera en funktion <code class="highlighter-rouge">power(b, n)</code> som räknar ut exponentiering enbart med hjälp av vår tidigare funktion <code class="highlighter-rouge">mul</code>, alltså utan att använda den inbyggda operatorn <code class="highlighter-rouge">**</code>.</p>
+
+<p>Funktionen skall fungera för heltal <code class="highlighter-rouge">b &gt; 0</code> och <code class="highlighter-rouge">n &gt;= 0</code>, alltså där basen <code class="highlighter-rouge">b</code> är ett positivt heltal och exponenten <code class="highlighter-rouge">n</code> är större än eller lika med <code class="highlighter-rouge">0</code>. Om exponenten <code class="highlighter-rouge">n</code> är <code class="highlighter-rouge">0</code> är resultatet alltid <code class="highlighter-rouge">1</code>. Till exempel är <code class="highlighter-rouge">137**0</code> lika med <code class="highlighter-rouge">1</code>.</p>
+
+<p><strong>Uppdrag:</strong> Implementera <code class="highlighter-rouge">power</code> och kontrollera att den fungerar för till exempel <code class="highlighter-rouge">power(3, 5)</code> och <code class="highlighter-rouge">power(137, 0)</code>.</p>
+
+<p><em>Tips!</em> Vi kan använda en variabel <code class="highlighter-rouge">result</code> som vi börjar med att sätta till <code class="highlighter-rouge">1</code>. Sedan kan vi loopa <code class="highlighter-rouge">n</code> gånger, och i varje varv multiplicera <code class="highlighter-rouge">result</code> med <code class="highlighter-rouge">b</code> med hjälp av funktionen <code class="highlighter-rouge">mul</code>.</p>
+
+<h3 id="6-kommentarer">
+<a id="6-kommentarer" class="anchor" href="#6-kommentarer" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Kommentarer</h3>
+
+<p>I uppgifterna ovan har vi lyckats implementera funktioner för subtraktion, multiplikation, heltalsdivision och exponentiering enbart genom att bygga på addition och negering. Detta illustrerar hur vi både inom matematiken och programmering kan bygga upp komplexa operationer genom att börja med enkla byggstenar och definiera nya operationer i termer av dem.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

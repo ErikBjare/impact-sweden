@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Bråkspel | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Bråkspel" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/fractions/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/fractions/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/fractions/","headline":"Bråkspel","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Bråkspel</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        medel, text, spel, bråkräkning
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#a-förenkla-bråk">A. Förenkla bråk</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#a1-förenkla-ett-bråk">A.1 Förenkla ett bråk</a></li>
+<li class="toc-entry toc-h3"><a href="#a2-förenkla-med-hjälp-av-gcd">A.2 Förenkla med hjälp av gcd</a></li>
+<li class="toc-entry toc-h3"><a href="#a3-programmera-gcd">A.3 Programmera gcd</a></li>
+<li class="toc-entry toc-h3"><a href="#a4-programmera-förenkling-av-bråk">A.4 Programmera förenkling av bråk</a></li>
+<li class="toc-entry toc-h3"><a href="#a5-enkelt-bråkspel">A.5 Enkelt bråkspel</a></li>
+<li class="toc-entry toc-h3"><a href="#a6-intressant-bråkspel">A.6 Intressant Bråkspel</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#b-summera-bråk">B. Summera bråk</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#teoridel">Teoridel</a></li>
+<li class="toc-entry toc-h3"><a href="#b1-programmera-summering-av-två-bråk">B.1 Programmera summering av två bråk</a></li>
+<li class="toc-entry toc-h3"><a href="#b2-spel-som-summerar-två-bråk">B.2 Spel som summerar två bråk</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#c-extra-utöka-spelet">C: Extra. Utöka spelet</a></li>
+</ul><p><img src="brakspel.png" height="100"></p>
+
+<p>I denna uppgift programmerar vi ett spel där datorn kan hjälpa oss att förenkla och summera heltalsbråk, och kontrollera att vi räknar rätt.</p>
+
+<p>Innan du gör uppgiften kan det vara bra att ha gjort uppgiften <a href="exercises/piece-of-cake/python">Piece of cake</a> som också handlar om bråktal.</p>
+
+<h2 id="a-förenkla-bråk">
+<a id="a-förenkla-bråk" class="anchor" href="#a-f%C3%B6renkla-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>A. Förenkla bråk</h2>
+
+<h3 id="a1-förenkla-ett-bråk">
+<a id="a1-förenkla-ett-bråk" class="anchor" href="#a1-f%C3%B6renkla-ett-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.1 Förenkla ett bråk</h3>
+<p>Om vi har ett heltalsbråk, t.ex.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 24
+–––––
+ 210
+</code></pre></div></div>
+
+<p>så kan vi förenkla det om vi kan dela både nämnare och täljare med samma tal. Här kan vi t.ex. dela både 24 och 210 med 2, så då får vi:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 24        12
+–––––  =  –––––
+ 210       105
+</code></pre></div></div>
+
+<p>Och vi ser att vi kan fortsätta att förenkla bråket eftersom både 12 och 105 är delbara med 3, så vi får:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 24        12        4
+–––––  =  –––––  =  ––––
+ 210       105       35
+</code></pre></div></div>
+
+<p>och nu kan vi inte förenkla mer. Varför?</p>
+
+<details>
+  <summary>
+    Svar
+  </summary>
+  <p>
+  Eftersom det inte finns något heltal som både 4 och 35 är jämnt delbara med. Detta kan vi visa genom att primtalsfaktorisera 4 och 35 till 2*2 respektive 5*7. Hade det funnits något tal de var jämnt delbara med så hade det dykt upp som en faktor hos båda faktoriseringarna.
+  </p>
+</details>
+
+<hr>
+
+<h3 id="a2-förenkla-med-hjälp-av-gcd">
+<a id="a2-förenkla-med-hjälp-av-gcd" class="anchor" href="#a2-f%C3%B6renkla-med-hj%C3%A4lp-av-gcd" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.2 Förenkla med hjälp av gcd</h3>
+<p>Ett enkelt sätt att förenkla ett bråk är att först hitta det <em>största</em> heltalet som både täljare och nämnare går att dela med, och sedan helt enkelt dela både täljare och nämnare med detta tal. Då får vi ett bråk som inte kan förenklas mer.</p>
+
+<p>Det största talet som två tal kan delas jämnt med kallas deras <em>största gemensamma delare</em>. På engelska heter det <em>greatest common divisor</em>, förkortat <strong>gcd</strong>. Om vi har två tal a och b kan vi skriva deras gcd som ett funktionsanrop: <code class="highlighter-rouge">gcd(a,b)</code>.</p>
+
+<p>Vad är <code class="highlighter-rouge">gcd(24, 210)</code>?</p>
+
+<details>
+  <summary>
+    Svar
+  </summary>
+  <p>
+  Vi såg ovan att vi kunde förenkla 24/210 till sin enklaste form genom att dela båda talen med 2 och därefter med 3. gcd(24, 210) är alltså 2*3, dvs 6.
+  </p>
+</details>
+
+<hr>
+
+<h3 id="a3-programmera-gcd">
+<a id="a3-programmera-gcd" class="anchor" href="#a3-programmera-gcd" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.3 Programmera gcd</h3>
+
+<p>Det finns många sätt (algoritmer) för att räkna ut gcd. Nedan visas Python-kod för att räkna ut gcd med Euclides algoritm, beskriven i hans bok Elementa (cirka 300 f.Kr.).
+Algoritmen går ut på att ta det största talet och ändra det genom att subtrahera det mindre talet. Genom att göra detta gång på gång tills talen är lika så får man gcd:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>  <span class="c1"># Räkna ut gcd för a och b
+</span>  <span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span> <span class="c1"># Så länge talen inte är lika:
+</span>    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>     <span class="c1"># Om a är större än b
+</span>      <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>   <span class="c1"># Ändra på a genom att subtrahera b
+</span>    <span class="k">else</span><span class="p">:</span>         <span class="c1"># Annars (dvs b är större än a)
+</span>      <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span>   <span class="c1"># Ändra på b genom att subtrahera a
+</span>                <span class="c1"># Nu är while-loopen färdig
+</span>                <span class="c1"># dvs a och b är lika
+</span>  <span class="k">return</span> <span class="n">a</span>      <span class="c1"># Returnera gcd, dvs nuvarande värdet på a
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Klistra in koden för gcd-funktionen ovan. Prova vad resultatet blir för några exempel, t.ex.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">210</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Försök gissa vilket svaret skall bli innan du kör exemplen. Vilka svar får du?</p>
+<details>
+  <summary>
+    Svar
+  </summary>
+  <p>
+  Du borde få följande svar: 6, 2, 12, 12, 5, 1. Prova med några exempel till och övertyga dig om att de stämmer.
+  </p>
+</details>
+
+<hr>
+
+<h3 id="a4-programmera-förenkling-av-bråk">
+<a id="a4-programmera-förenkling-av-bråk" class="anchor" href="#a4-programmera-f%C3%B6renkling-av-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.4 Programmera förenkling av bråk</h3>
+
+<p>Nu när vi har gcd-funktionen är det enkelt att programmera en funktion <code class="highlighter-rouge">simplify</code> som förenklar ett bråk. Funktionen behöver bara dela både täljare och nämnare med deras största gemensamma delare.</p>
+
+<p><strong>Uppdrag:</strong> Skriv en funktion <code class="highlighter-rouge">simplify(t,n)</code> som tar en täljare och nämnare som input och som returnerar en ny täljare och nämnare, motsvarande det förenklade bråket.</p>
+
+<p>Till exempel skall anropet <code class="highlighter-rouge">simplify(24, 210)</code> returnera täljaren 4 och nämnaren 35.</p>
+
+<p><strong>Programmeringstips 1:</strong> För att returnera två resultat från funktionen skriver du dem inom parentes. Till exempel:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">simplify</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+  <span class="n">r1</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="n">r2</span> <span class="o">=</span> <span class="o">...</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Och för att fånga upp båda returvärdena efter ett anrop av funktionen kan man tilldela två variabler på följande sätt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Programmeringstips 2</strong> I denna uppgift skall du använda heltalsdivision vilket skrivs <code class="highlighter-rouge">//</code> i Python. Du får då ett heltal tillbaka. T.ex. ger <code class="highlighter-rouge">4//2</code> resultatet <code class="highlighter-rouge">2</code>. Om du i stället skriver <code class="highlighter-rouge">4/2</code> får du i Python 3 resultatet <code class="highlighter-rouge">2.0</code>, vilket är ett <em>flyttal</em> (<em>float</em> på engelska).</p>
+
+<p>Prova din funktion <code class="highlighter-rouge">simplify</code> på olika bråk och kontrollera att den räknar rätt. Du kan till exempel skriva:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">210</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="a5-enkelt-bråkspel">
+<a id="a5-enkelt-bråkspel" class="anchor" href="#a5-enkelt-br%C3%A5kspel" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.5 Enkelt bråkspel</h3>
+
+<p>Nu skall vi programmera ett spel där spelaren får svara på hur ett bråk kan förenklas. Programmet skall hitta på olika bråk och kontrollera att spelaren räknat rätt.</p>
+
+<p>Vi börjar med en mycket enkel prototyp för spelet, som hela tiden hittar på samma bråk, och som inte ännu kontrollerar om spelaren svarat rätt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">invent_fraction</span><span class="p">():</span>   <span class="c1"># Hitta på ett bråk
+</span>  <span class="k">return</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">str_fraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>   <span class="c1"># Gör om bråket från tal till sträng
+</span>  <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="s">"/"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">game</span><span class="p">():</span>             <span class="c1"># Spelet
+</span>  <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">invent_fraction</span><span class="p">()</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Förenkla "</span> <span class="o">+</span> <span class="n">str_fraction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+  <span class="n">pa</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Vad blir täljaren?"</span><span class="p">))</span>
+  <span class="n">pb</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Vad blir nämnaren?"</span><span class="p">))</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Du svarade: "</span> <span class="o">+</span> <span class="n">str_fraction</span><span class="p">(</span><span class="n">pa</span><span class="p">,</span><span class="n">pb</span><span class="p">))</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Jag vet inte om det är rätt."</span><span class="p">)</span>
+
+<span class="n">game</span><span class="p">()</span>                 <span class="c1"># Kör spelet
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Klistra in koden och provkör spelet. Förbättra funktionen <code class="highlighter-rouge">game</code> så att den kontrollerar om spelaren svarat rätt eller inte, och skriver ut t.ex. “Rätt svarat” respektive “Tyvärr, det var fel. Svaret är …”. <em>Tips!</em> Använd din funktion <code class="highlighter-rouge">simplify</code> för att räkna ut det rätta svaret. Använd en <code class="highlighter-rouge">if</code>-sats för att kontrollera om spelaren svarat rätt.</p>
+
+<p><strong>Programmeringstips:</strong> För att testa om två bråk är lika kan du skriva ett uttryck i följande stil: <code class="highlighter-rouge">(pa==ca) &amp; (pb==cb)</code>. Operatorn <code class="highlighter-rouge">==</code> testar likhet och operatorn <code class="highlighter-rouge">&amp;</code> betyder “och”. Uttrycket betyder alltså att “pa är lika med ca och pb är lika med cb”. Parenteserna är viktiga att ha med i detta fall, för annars tolkas uttrycket på ett annat sätt i Python.</p>
+
+<h3 id="a6-intressant-bråkspel">
+<a id="a6-intressant-bråkspel" class="anchor" href="#a6-intressant-br%C3%A5kspel" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.6 Intressant Bråkspel</h3>
+
+<p>För att spelet skall bli intressant behöver vi ändra funktionen <code class="highlighter-rouge">invent_fraction</code> så att den hittar på ett nytt bråk varje gång. Detta kan vi göra med standard-funktionen <code class="highlighter-rouge">random</code> som drar ett slumptal:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>   <span class="c1"># Returns a random int between 5 and 10
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Ändra funktionen <code class="highlighter-rouge">invent_fraction</code> så att den returnerar ett slumpmässigt bråk. Hur skall du konstruera ett bråk så det blir intressant att förenkla? Prova ditt spel. Kan du svara rätt? Blir det lagom svårt?</p>
+
+<details>
+  <summary>
+    Tips!
+  </summary>
+  <p>
+  För att bråken skall bli intressanta att förenkla krävs det att täljare och nämnare har gemensamma delare. Det kan du åstadkomma genom att dra ett extra slumptal som du multiplicerar både täljare och nämnare med. Prova med att dra slumptal ur olika intervall för att få spelet lagom lätt eller svårt.
+  </p>
+</details>
+
+<hr>
+
+<h2 id="b-summera-bråk">
+<a id="b-summera-bråk" class="anchor" href="#b-summera-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>B. Summera bråk</h2>
+
+<p>Kan du räkna ut följande summa?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 2     1       ?
+––– + –––  =  –––
+ 3     6       ?
+</code></pre></div></div>
+
+<details>
+  <summary>
+    Tips!
+  </summary>
+  <p>
+  För att kunna summera två saker behöver de vara av samma *slag*. I detta fall kan vi göra om tredjedelarna till sjättedelar, dvs två tredjedelar är detsamma som fyra sjättedelar. Vi ser då att summan är 4 sjättedelar plus 1 sjättedel, dvs 5/6.
+  </p>
+</details>
+
+<hr>
+
+<p>Hur kan vi räkna ut en summa av två bråk i det generella fallet? Dvs vad skall resultatet bli om vi inför variablerna
+ <code class="highlighter-rouge">a</code>, <code class="highlighter-rouge">b</code>, <code class="highlighter-rouge">c</code>, <code class="highlighter-rouge">d</code> för de två bråken?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   a     c          ?
+  ––– + –––   =   –––––
+   b     d          ?
+</code></pre></div></div>
+
+<p>Nedan följer en kort teoridel om hur detta går till. Vet du redan hur man gör, så hoppa direkt ner till <a href="B.1-Programmera-summering-av-tv%C3%A5-br%C3%A5k">B1</a>.</p>
+
+<h3 id="teoridel">
+<a id="teoridel" class="anchor" href="#teoridel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Teoridel</h3>
+
+<p>För att få samma nämnare på bråken kan vi multiplicera det vänstra bråket med <code class="highlighter-rouge">d/d</code> och det högra med <code class="highlighter-rouge">b/b</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> a     c         a     d       b     c
+––– + –––   =   ––– . –––  +  ––– . –––
+ b     d         b     d       b     d
+</code></pre></div></div>
+
+<p>Eller förenklat:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ad     bc
+= –––– + ––––
+   bd     bd
+</code></pre></div></div>
+
+<p>Både <code class="highlighter-rouge">d/d</code> och <code class="highlighter-rouge">b/b</code> är ju lika med 1, så vi har inte ändrat bråkens värde. Vi ser nu att bråken har samma nämnare och kan då lägga ihop täljarna:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   ad + bc
+= –––––––––
+     bd
+</code></pre></div></div>
+
+<p>Eller med programmeringssyntax:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> a     c       a*d + b*c
+––– + –––  =   –––––––––
+ b     d          b*d
+</code></pre></div></div>
+
+<p>Om vi provar på exemplet vi hade i början får vi:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 2     1       2*6 + 3*1       12+3       15       5
+––– + –––  =  ––––––––––   =   ––––   =  ––––  =  –––
+ 3     6          3*6           18        18       6
+</code></pre></div></div>
+
+<p>(I sista steget förenklade vi bråket genom att dividera täljare och nämnare med 3.)</p>
+
+<h3 id="b1-programmera-summering-av-två-bråk">
+<a id="b1-programmera-summering-av-två-bråk" class="anchor" href="#b1-programmera-summering-av-tv%C3%A5-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.1 Programmera summering av två bråk</h3>
+
+<p>Utgå från programmet du gjorde i uppgift A. (Spara gärna en kopia först.)</p>
+
+<p><strong>Uppdrag:</strong> Skriv en funktion <code class="highlighter-rouge">sum_fractions(a, b, c, d)</code> som räknar ut summan av <code class="highlighter-rouge">a/b</code> och <code class="highlighter-rouge">c/d</code>. Resultatet skall förenklas och returneras som en täljare och en nämnare.</p>
+
+<p>Prova att anropa <code class="highlighter-rouge">sum_fractions</code> för några exempel och att skriva ut resultatet. T.ex. för att summera 2/3 + 1/6:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">sum_fractions</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">str_fraction</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Här är några exempel du kan testa, så du ser att resultatet blir rätt:</p>
+
+<ul>
+  <li>2/3 + 1/6 = 5/6</li>
+  <li>1/3 + 1/6 = 1/2</li>
+  <li>1/4 + 2/3 = 11/12</li>
+</ul>
+
+<h3 id="b2-spel-som-summerar-två-bråk">
+<a id="b2-spel-som-summerar-två-bråk" class="anchor" href="#b2-spel-som-summerar-tv%C3%A5-br%C3%A5k" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.2 Spel som summerar två bråk</h3>
+
+<p><strong>Uppdrag:</strong>
+Ändra spelet så att det hittar på två bråk och frågar spelaren om vad summan är. Ändra funktionen <code class="highlighter-rouge">invent_fraction</code> så att spelet blir lagom svårt.</p>
+
+<h2 id="c-extra-utöka-spelet">
+<a id="c-extra-utöka-spelet" class="anchor" href="#c-extra-ut%C3%B6ka-spelet" aria-hidden="true"><span class="octicon octicon-link"></span></a>C: Extra. Utöka spelet</h2>
+
+<p><strong>Uppdrag:</strong>
+Fundera ut något sätt att utöka spelet. Några ideer:</p>
+
+<ul>
+  <li>Låt spelaren omväxlande addera och subtrahera bråk</li>
+  <li>Gör om frågan till ett “lästal” i stil med att “Stina äter 2/7 tårta och Lasse äter 1/4. Hur stor del tårta har de ätit sammanlagt?”</li>
+  <li>Låt spelet köra i en loop och räkna ut hur snabb eller bra spelaren är. T.ex. bästa tid, genomsnittstid, längsta rätt lösta sekvens, etc.</li>
+  <li>…</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

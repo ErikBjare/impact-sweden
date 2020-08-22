@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Snabbreferens för Python 3 | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Snabbreferens för Python 3" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/cheatsheet/python/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/cheatsheet/python/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/cheatsheet/python/","headline":"Snabbreferens för Python 3","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Snabbreferens för Python 3</h1>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#kommentarer">Kommentarer</a></li>
+<li class="toc-entry toc-h2"><a href="#variabler-tilldelning-och-utskrift">Variabler, tilldelning och utskrift</a></li>
+<li class="toc-entry toc-h2"><a href="#typer-och-värden">Typer och värden</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#typer">Typer</a></li>
+<li class="toc-entry toc-h3"><a href="#aritmetiska-uttryck">Aritmetiska uttryck</a></li>
+<li class="toc-entry toc-h3"><a href="#logiska-uttryck">Logiska uttryck</a></li>
+<li class="toc-entry toc-h3"><a href="#prioriteter">Prioriteter</a></li>
+<li class="toc-entry toc-h3"><a href="#strängkonkatenering">Strängkonkatenering</a></li>
+<li class="toc-entry toc-h3"><a href="#stränginterpolering">Stränginterpolering</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#standardbiblioteket">Standardbiblioteket</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#math-paketet">Math-paketet</a></li>
+<li class="toc-entry toc-h3"><a href="#random-paketet">Random-paketet</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#inläsning-och-utskrift">Inläsning och utskrift</a></li>
+<li class="toc-entry toc-h2"><a href="#sammansatta-konstruktioner">Sammansatta konstruktioner</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#villkorssatser-if-sats-alternativ">Villkorssatser (if-sats, alternativ)</a></li>
+<li class="toc-entry toc-h3"><a href="#repetition-iteration-loop">Repetition (iteration, loop)</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#for-loop">For-loop</a></li>
+<li class="toc-entry toc-h4"><a href="#while-loop">While-loop</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#funktioner-abstraktion">Funktioner (abstraktion)</a></li>
+<li class="toc-entry toc-h3"><a href="#indentering">Indentering</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#sammansatta-datatyper">Sammansatta datatyper</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#lista">Lista</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#listbyggare-list-comprehension-listomfattning">Listbyggare (list comprehension, listomfattning)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#tupel">Tupel</a></li>
+<li class="toc-entry toc-h3"><a href="#mängd-set">Mängd (set)</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#mängdbyggare-set-comprehension">Mängdbyggare (set comprehension)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#nyckel-värdetabell-mappning-dictionary-lexikon">Nyckel-värdetabell (mappning, dictionary, lexikon)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#assert-satser">Assert-satser</a></li>
+<li class="toc-entry toc-h2"><a href="#konventioner">Konventioner</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#mer-lättläst-med-blanktecken">Mer lättläst med blanktecken</a></li>
+<li class="toc-entry toc-h3"><a href="#beskrivande-namn">Beskrivande namn</a></li>
+<li class="toc-entry toc-h3"><a href="#långa_funktionsnamn">långa_funktionsnamn</a></li>
+<li class="toc-entry toc-h3"><a href="#funktionsnamn-börjar-på-liten-bokstav">Funktionsnamn börjar på liten bokstav</a></li>
+</ul>
+</li>
+</ul><p>Denna snabbreferens innehåller vanliga konstruktioner för Python 3.6. För mer information, se t.ex. <a href="https://docs.python.org/3.6/tutorial/index.html">The Python Tutorial</a>.</p>
+
+<h2 id="kommentarer">
+<a id="kommentarer" class="anchor" href="#kommentarer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kommentarer</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Detta är en kommentar.
+</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Kommentaren fortsätter till radens slut
+</span></code></pre></div></div>
+
+<h2 id="variabler-tilldelning-och-utskrift">
+<a id="variabler-tilldelning-och-utskrift" class="anchor" href="#variabler-tilldelning-och-utskrift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variabler, tilldelning och utskrift</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># variabeln x får värdet 10
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># talet 10 skrivs ut i terminalfönstret
+</span><span class="n">x</span> <span class="o">=</span> <span class="s">"hej"</span> <span class="c1"># variabeln x får ett nytt värde: texten "hej"
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># texten "hej" skrivs ut i terminalfönstret
+</span></code></pre></div></div>
+
+<h2 id="typer-och-värden">
+<a id="typer-och-värden" class="anchor" href="#typer-och-v%C3%A4rden" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typer och värden</h2>
+
+<h3 id="typer">
+<a id="typer" class="anchor" href="#typer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typer</h3>
+<p>Varje värde har en <em>typ</em>, t.ex. sträng (string), heltal (integer), decimaltal (float)
+eller logiskt värde (boolean).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>        <span class="c1"># a är nu ett heltal med värdet 1
+</span><span class="n">a</span> <span class="o">=</span> <span class="s">"1"</span>      <span class="c1"># a är nu en sträng med värdet "1"
+</span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">"1"</span><span class="p">)</span> <span class="c1"># strängen "1" konverteras till heltalet 1
+</span><span class="n">a</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># heltalet 1 konverteras till strängen "1"
+</span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># heltalet 1 konverteras till decimaltalet 1.0
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>      <span class="c1"># resultatet av divisionen är decimaltalet 1.0
+</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&lt;</span><span class="mi">2</span>      <span class="c1"># resultatet av mindre-än-operationen är True
+</span></code></pre></div></div>
+
+<p>Notera att <code class="highlighter-rouge">int("hej")</code> kommer att krascha programmet.
+<code class="highlighter-rouge">int</code> och <code class="highlighter-rouge">float</code>-funktionerna förväntar sig strängar som kan tolkas som tal.</p>
+
+<p>Ta reda på typen för ett värde med funktionen <code class="highlighter-rouge">type</code>:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="aritmetiska-uttryck">
+<a id="aritmetiska-uttryck" class="anchor" href="#aritmetiska-uttryck" aria-hidden="true"><span class="octicon octicon-link"></span></a>Aritmetiska uttryck</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c1"># addition:        x0 == 2
+</span><span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span>   <span class="c1"># subtraktion:     x1 == 0
+</span><span class="n">x2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>   <span class="c1"># multiplikation:  x2 == 6
+</span><span class="n">x3</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">/</span> <span class="mi">5</span>  <span class="c1"># division:        x3 == 2.6
+</span><span class="n">x4</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">//</span> <span class="mi">5</span> <span class="c1"># heltalsdivision: x4 == 2 (största heltalet &lt;= 13/5)
+</span><span class="n">x5</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">%</span> <span class="mi">5</span>  <span class="c1"># rest:            x5 == 3 (13 - (13//5))
+</span><span class="n">x6</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span>  <span class="c1"># upphöjt till:    x6 == 8 (2^3).
+</span></code></pre></div></div>
+
+<h3 id="logiska-uttryck">
+<a id="logiska-uttryck" class="anchor" href="#logiska-uttryck" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logiska uttryck</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Jämförelser
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># lika med                  (False)
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># inte lika med             (True)
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># mindre än                 (True)
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># större än                 (False)
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># mindre än eller lika med  (True)
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># större än eller lika med  (False)
+</span></code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">2</span>      <span class="c1"># True
+</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span>      <span class="c1"># False
+# Booleska operatorer
+</span><span class="k">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span><span class="p">)</span>   <span class="c1"># Negation    (icke a)
+</span><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># Konjunktion (a och b)
+</span><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Disjunktion (a eller b)
+</span></code></pre></div></div>
+
+<h3 id="prioriteter">
+<a id="prioriteter" class="anchor" href="#prioriteter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prioriteter</h3>
+<p>Operatorer har olika prioritet som bestämmer hur ett uttryck med flera operatorer tolkas. T.ex. har <code class="highlighter-rouge">**</code> högre prioritet än <code class="highlighter-rouge">*</code> och <code class="highlighter-rouge">/</code>, som i sin tur har högre prioritet än <code class="highlighter-rouge">+</code> och <code class="highlighter-rouge">-</code>.</p>
+
+<p>Till exempel tolkas <code class="highlighter-rouge">a + b * c</code> som <code class="highlighter-rouge">a + (b * c)</code>, och inte som <code class="highlighter-rouge">(a + b) * c</code>. Om det var den senare tolkningen du ville ha så måste du skriva parenteserna.</p>
+
+<p>De aritmetiska operatorerna har högre prioritet än jämförelseoperatorerna, som i sin tur har högre prioritet än de Booleska operatorerna. Bland de Booleska operatorerna har <code class="highlighter-rouge">not</code> högst prioritet, sedan <code class="highlighter-rouge">and</code>, sedan <code class="highlighter-rouge">or</code>.</p>
+
+<p>Till exempel tolkas <code class="highlighter-rouge">not a and b or c</code> som <code class="highlighter-rouge">((not a) and b) or c</code>.</p>
+
+<p>Är du tveksam om vilka prioriteter operatorerna har, så kan du alltid skriva ut parenteserna.</p>
+
+<h3 id="strängkonkatenering">
+<a id="strängkonkatenering" class="anchor" href="#str%C3%A4ngkonkatenering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strängkonkatenering</h3>
+
+<p>Lägg ihop strängar till en längre sträng.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="s">"hej"</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s">"dig"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="s">" på "</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># Skriver ut "hej på dig"
+</span></code></pre></div></div>
+
+<h3 id="stränginterpolering">
+<a id="stränginterpolering" class="anchor" href="#str%C3%A4nginterpolering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stränginterpolering</h3>
+<p>Sätt ihop en sträng som innehåller tal. Sätt ett litet <code class="highlighter-rouge">f</code> framför strängen så kan man spränga in tal i strängen genom att omgärda talen med <code class="highlighter-rouge">{}</code> parenteser.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Klockan är {a}:{b}."</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Samma resultat kan åstadkommas med typomvandling och konkatenering, men då blir koden lite krångligare:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Klockan är "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="s">"."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="standardbiblioteket">
+<a id="standardbiblioteket" class="anchor" href="#standardbiblioteket" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standardbiblioteket</h2>
+
+<p><a href="https://docs.python.org/3.6/library/index.html">Standardbiblioteket</a> i Python innehåller många användbara paket med funktionalitet.</p>
+
+<h3 id="math-paketet">
+<a id="math-paketet" class="anchor" href="#math-paketet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Math-paketet</h3>
+<p>Många matematiska funktioner, som <code class="highlighter-rouge">sin</code> och <code class="highlighter-rouge">sqrt</code> (square root, d.v.s. roten ur)
+finns i <code class="highlighter-rouge">math</code>-paketet.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># skriver ut 2
+</span></code></pre></div></div>
+
+<h3 id="random-paketet">
+<a id="random-paketet" class="anchor" href="#random-paketet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random-paketet</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># Dra ett slumptal mellan 1 och 6.
+</span></code></pre></div></div>
+
+<p>Om det är bara en funktion man vill ha i ett bibliotek kan den importeras så att man kommer åt den direkt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># Dra ett slumptal mellan 1 och 6.
+</span></code></pre></div></div>
+
+<h2 id="inläsning-och-utskrift">
+<a id="inläsning-och-utskrift" class="anchor" href="#inl%C3%A4sning-och-utskrift" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inläsning och utskrift</h2>
+
+<p>Läs in en sträng och använd i utskrift:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Vad heter du? "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hej "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Läs in ett heltal och använd i utskrift:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ar</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Hur gammal är du? "</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Då är du "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ar</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">" om ett år!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="sammansatta-konstruktioner">
+<a id="sammansatta-konstruktioner" class="anchor" href="#sammansatta-konstruktioner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sammansatta konstruktioner</h2>
+
+<h3 id="villkorssatser-if-sats-alternativ">
+<a id="villkorssatser-if-sats-alternativ" class="anchor" href="#villkorssatser-if-sats-alternativ" aria-hidden="true"><span class="octicon octicon-link"></span></a>Villkorssatser (if-sats, alternativ)</h3>
+
+<p>Gör olika saker beroende på logiska värdet hos ett uttryck:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Enkel if-sats
+</span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är mindre än 10"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># If-else-sats
+</span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är mindre än 10"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är större än eller lika med 10"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># If-sats med många villkor
+</span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är mindre än 10"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är lika med 10"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är lika med 11"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a är större än 11"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="repetition-iteration-loop">
+<a id="repetition-iteration-loop" class="anchor" href="#repetition-iteration-loop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition (iteration, loop)</h3>
+
+<h4 id="for-loop">
+<a id="for-loop" class="anchor" href="#for-loop" aria-hidden="true"><span class="octicon octicon-link"></span></a>For-loop</h4>
+
+<p>Repetera ett bestämt antal gånger.</p>
+
+<p>Omvandla orden i listan till stora bokstäver och skriv ut dem.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="nb">ord</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"hej"</span><span class="p">,</span> <span class="s">"på"</span><span class="p">,</span> <span class="s">"dig"</span><span class="p">]:</span>
+  <span class="k">print</span><span class="p">(</span><span class="nb">ord</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Skriv ut de 4 första naturliga talen,
+dvs 0, 1, 2, 3:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Gå igenom de 10 första naturliga talen och skriv ut de som är udda:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="while-loop">
+<a id="while-loop" class="anchor" href="#while-loop" aria-hidden="true"><span class="octicon octicon-link"></span></a>While-loop</h4>
+
+<p>Repetera så länge ett villkor är True:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">losenord</span> <span class="o">=</span> <span class="s">"sesam"</span>
+<span class="n">forsok</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">raknare</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">forsok</span> <span class="o">!=</span> <span class="n">losenord</span><span class="p">:</span>
+  <span class="n">forsok</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Skriv lösenordet för att komma in: "</span><span class="p">)</span>
+  <span class="n">raknare</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Bravo! Du behövde "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">raknare</span><span class="p">)</span> <span class="o">+</span> <span class="s">" försök för att gissa rätt."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="funktioner-abstraktion">
+<a id="funktioner-abstraktion" class="anchor" href="#funktioner-abstraktion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Funktioner (abstraktion)</h3>
+
+<p>Med en funktion kan du återanvända en beräkning flera gånger. Genom att ge funktionen parametrar kan du anpassa vad funktionen gör eller räknar ut.</p>
+
+<p>Enkel funktion utan parametrar:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">skriv_ut_5_udda_tal</span><span class="p">():</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Funktion med parameter:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">skriv_ut_udda_tal</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Funktion med två parametrar och som returnerar värde:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">triangel_area</span><span class="p">(</span><span class="n">bas</span><span class="p">,</span> <span class="n">hojd</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">bas</span> <span class="o">*</span> <span class="n">hojd</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>Anrop av funktionerna:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">skriv_ut_5_udda_tal</span><span class="p">()</span>
+<span class="n">skriv_ut_udda_tal</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">triangel_area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Arean är: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="indentering">
+<a id="indentering" class="anchor" href="#indentering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Indentering</h3>
+
+<p>Python använder <em>indentering</em> (blanktecken i början på raden) för att tolka strukturen hos sammansatta konstruktioner som if, for, och funktionsdefinitioner.</p>
+
+<p>Det är viktigt att delarna i en struktur har <em>samma</em> indentering. Oftast används 4 blanktecken. Men ibland 2.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Fel: de inre satserna har olika indentering.
+</span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Rätt: de inre satserna har samma indentering.
+</span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>När sammansatta konstruktioner nästlas inne i varandra ökar man antalet blanka för varje nivå. Exempel:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># första FOR
+</span>  <span class="k">print</span><span class="p">(</span><span class="s">"x = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>       <span class="c1"># IF nästlad inuti första FOR
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"x är udda"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span> <span class="c1"># ny FOR nästlad inuti IF
+</span>      <span class="k">print</span><span class="p">(</span><span class="s">"y = "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+      <span class="k">if</span> <span class="n">y</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>       <span class="c1"># ny IF nästlad inuti andra FOR
+</span>        <span class="k">print</span><span class="p">(</span><span class="s">"Både x och y är udda"</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>              <span class="c1"># hör till första IF
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">"x är jämn"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Beräkningen är färdig."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="sammansatta-datatyper">
+<a id="sammansatta-datatyper" class="anchor" href="#sammansatta-datatyper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sammansatta datatyper</h2>
+<h3 id="lista">
+<a id="lista" class="anchor" href="#lista" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lista</h3>
+
+<p>Listor är ordnade. Elementen i listan är oftast av <em>samma</em> typ. Samma värde kan finnas på flera ställen i listan.</p>
+
+<p>Exempel: Löpande band med frukter</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lopande_band</span> <span class="o">=</span> <span class="p">[</span><span class="s">"äpple"</span><span class="p">,</span> <span class="s">"päron"</span><span class="p">,</span> <span class="s">"apelsin"</span><span class="p">,</span> <span class="s">"äpple"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lopande_band</span><span class="p">)</span>        <span class="c1"># Skriv ut hela listan
+</span><span class="k">print</span><span class="p">(</span><span class="n">lopande_band</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>     <span class="c1"># Skriv ut det första elementet
+</span><span class="n">lopande_band</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">"citron"</span> <span class="c1"># Ändra tredje elementet
+</span><span class="n">lopande_band</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">"persika"</span><span class="p">)</span> <span class="c1"># Lägg till ett element sist
+</span><span class="k">print</span><span class="p">(</span><span class="n">lopande_band</span><span class="p">)</span>        <span class="c1"># Skriv ut listan igen
+</span></code></pre></div></div>
+
+<p>Gör något med varje element i listan:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">frukt</span> <span class="ow">in</span> <span class="n">lopande_band</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Nu kom det en frukt av typ: "</span> <span class="o">+</span> <span class="n">frukt</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="listbyggare-list-comprehension-listomfattning">
+<a id="listbyggare-list-comprehension-listomfattning" class="anchor" href="#listbyggare-list-comprehension-listomfattning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Listbyggare (list comprehension, listomfattning)</h4>
+
+<p>Skapa en lista som omfattar vissa värden.</p>
+
+<p>Exempel: Givet det löpande bandet ovan, skapa en lista med fruktnamn omvandlat till stora bokstäver, men bara för de frukter som börjar på <code class="highlighter-rouge">p</code>. T.ex. från listan [“äpple”, “päron”, “citron”, “äpple”, “persika”] vill vi få en lista [“PÄRON”, “PERSIKA”].</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stora_p</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lopande_band</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">"p"</span><span class="p">]</span>
+</code></pre></div></div>
+<p>Ovanstående är ekvivalent med:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stora_p</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Tom lista
+</span><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">lopande_band</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">"p"</span><span class="p">:</span>
+    <span class="n">stora_p</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="tupel">
+<a id="tupel" class="anchor" href="#tupel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tupel</h3>
+
+<p>Tupler är ordnade och kan <em>inte</em> ändras (de är immutable). De används ofta för att gruppera data som hör ihop och som kan vara av <em>olika</em> typer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">person</span> <span class="o">=</span> <span class="p">(</span><span class="s">"Stina"</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s">"Lund"</span><span class="p">)</span> <span class="c1"># Person med namn, ålder och ort
+</span><span class="n">punkt</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># Punkt med x- och y-koordinat
+</span></code></pre></div></div>
+<p>Man kan plocka ut elementen i en tupel med indexering:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namn</span> <span class="o">=</span>  <span class="n">person</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Plocka ut första elementet
+</span><span class="n">alder</span> <span class="o">=</span> <span class="n">person</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Plocka ut andra elementet
+</span><span class="n">ort</span> <span class="o">=</span>   <span class="n">person</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Plocka ut tredje elementet
+</span></code></pre></div></div>
+<p>Men det är ofta trevligare att plocka ut elementen genom att “packa upp” tupeln:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namn</span><span class="p">,</span> <span class="n">alder</span><span class="p">,</span> <span class="n">ort</span> <span class="o">=</span> <span class="n">person</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">punkt</span>
+</code></pre></div></div>
+
+<p>En vanlig användning är när man vill att en funktion skall returnera mer än ett resultat:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">spegla_i_x_axeln</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> <span class="c1"># spegla punkt i x-axeln
+</span>  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">p</span>
+  <span class="k">return</span> <span class="o">-</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="n">sx</span><span class="p">,</span> <span class="n">sy</span> <span class="o">=</span> <span class="n">spegla_i_x_axeln</span><span class="p">(</span><span class="n">punkt</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="mängd-set">
+<a id="mängd-set" class="anchor" href="#m%C3%A4ngd-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mängd (set)</h3>
+
+<p>Mängder är <em>oordnade</em>. Det spelar inte någon roll i vilken ordning vi lägger till saker i en mängd. Om vi försöker lägga till ett värde som redan finns, så ändras inte mängden.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">frukter_1</span> <span class="o">=</span> <span class="p">{</span><span class="s">"äpple"</span><span class="p">,</span> <span class="s">"päron"</span><span class="p">,</span> <span class="s">"persika"</span><span class="p">}</span>
+<span class="n">frukter_2</span> <span class="o">=</span> <span class="p">{</span><span class="s">"päron"</span><span class="p">,</span> <span class="s">"äpple"</span><span class="p">,</span> <span class="s">"persika"</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">frukter_1</span> <span class="o">==</span> <span class="n">frukter_2</span> <span class="c1"># Mängderna är lika
+</span><span class="n">frukter_2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">"äpple"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">frukter_1</span> <span class="o">==</span> <span class="n">frukter_2</span> <span class="c1"># Mängderna är fortfarande lika
+</span></code></pre></div></div>
+
+<p>Vi kan iterera över elementen i en mängd:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukter_1</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="mängdbyggare-set-comprehension">
+<a id="mängdbyggare-set-comprehension" class="anchor" href="#m%C3%A4ngdbyggare-set-comprehension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mängdbyggare (set comprehension)</h4>
+
+<p>Vi kan bygga en mängd på liknande sätt som vi bygger en lista.</p>
+
+<p>Exempel: Skapa mängd av fruktnamn som har högst sex tecken.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">korta_fruktnamn</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">frukter_1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">6</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="nyckel-värdetabell-mappning-dictionary-lexikon">
+<a id="nyckel-värdetabell-mappning-dictionary-lexikon" class="anchor" href="#nyckel-v%C3%A4rdetabell-mappning-dictionary-lexikon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nyckel-värdetabell (mappning, dictionary, lexikon)</h3>
+
+<p>En nyckel-värdetabell är en mappning från en nyckel till ett värde. Med hjälp av en nyckel kan vi slå upp värdet för nyckeln.</p>
+
+<p>Exempel: volleybollföreningens inventarieförteckning:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inventarier</span> <span class="o">=</span> <span class="p">{</span><span class="s">"boll"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span> <span class="s">"vattenflaska"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s">"matchtröja"</span><span class="p">:</span><span class="mi">18</span><span class="p">}</span>
+
+<span class="n">inventarier</span><span class="p">[</span><span class="s">"boll"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>  <span class="c1"># Ändra värdet för nyckeln "boll"
+</span><span class="n">inventarier</span><span class="p">[</span><span class="s">"pokal"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span> <span class="c1"># Sätt värde för nyckeln "pokal"
+</span>
+<span class="c1"># Slå upp ett värde
+</span><span class="n">pokaler</span> <span class="o">=</span> <span class="n">inventarier</span><span class="p">[</span><span class="s">"pokal"</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Vi har "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pokaler</span><span class="p">)</span> <span class="o">+</span> <span class="s">" pokaler"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="assert-satser">
+<a id="assert-satser" class="anchor" href="#assert-satser" aria-hidden="true"><span class="octicon octicon-link"></span></a>Assert-satser</h2>
+
+<p>En assert-sats används för att kontrollera om ett villkor är sant. Om det inte är sant kommer programmet att krascha.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="bp">True</span>        <span class="c1"># Fungerar fint
+</span><span class="k">assert</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">6</span>  <span class="c1"># Fungerar fint
+</span><span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">3</span>  <span class="c1"># Kommer att krascha programmet
+</span></code></pre></div></div>
+
+<p>Exempel på användning: Kontrollera att en funktion bara anropas med positiva tal:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">kelvin_till_celsius</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+  <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+  <span class="k">return</span> <span class="n">k</span> <span class="o">-</span> <span class="mf">273.15</span>
+</code></pre></div></div>
+
+<h2 id="konventioner">
+<a id="konventioner" class="anchor" href="#konventioner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Konventioner</h2>
+
+<h3 id="mer-lättläst-med-blanktecken">
+<a id="mer-lättläst-med-blanktecken" class="anchor" href="#mer-l%C3%A4ttl%C3%A4st-med-blanktecken" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mer lättläst med blanktecken</h3>
+
+<p>Använd blanktecken och blankrader för att göra koden tydligare.</p>
+
+<p>Blanktecken mellan operatorer:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Mindre lättläst:
+</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Mer lättläst:
+</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Men om man har operatorer med olika prioritet kan man ta bort blanka mellan de med högst prioritet:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">d</span>
+</code></pre></div></div>
+
+<p>Blankrader efter importer och mellan funktionsdefinitioner:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Mindre lättläst:
+</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">def</span> <span class="nf">cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">def</span> <span class="nf">cirkel_omkrets</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cirkel_area</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cirkel_omkrets</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Mer lättläst:
+</span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">cirkel_omkrets</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">cirkel_area</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">cirkel_omkrets</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h3 id="beskrivande-namn">
+<a id="beskrivande-namn" class="anchor" href="#beskrivande-namn" aria-hidden="true"><span class="octicon octicon-link"></span></a>Beskrivande namn</h3>
+
+<p>Namnge variabler och parametrar så det är lätt att förstå vad de representerar.</p>
+
+<p>Namnge funktioner så det är lätt att förstå vad de gör.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Dålig namngivning:
+</span><span class="k">def</span> <span class="nf">min_utrakning</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+  <span class="k">return</span> <span class="n">y</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bra namngivning:
+</span><span class="k">def</span> <span class="nf">cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="n">area</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+  <span class="k">return</span> <span class="n">area</span>
+</code></pre></div></div>
+
+<h3 id="långa_funktionsnamn">
+<a id="långa_funktionsnamn" class="anchor" href="#l%C3%A5nga_funktionsnamn" aria-hidden="true"><span class="octicon octicon-link"></span></a>långa<code class="highlighter-rouge">_</code>funktionsnamn</h3>
+
+<p>Vid långa namn på funktioner och variabler, använd understrykningstecken, <code class="highlighter-rouge">_</code>, mellan orden. (I flera andra språk är det i stället vanligt med “camel case”.)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># "camel case" är inte så vanligt på funktioner i Python:
+</span><span class="k">def</span> <span class="nf">cirkelArea</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># I stället rekommenderas `_` mellan orden i ett långt funktionsnamn:
+</span><span class="k">def</span> <span class="nf">cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<h3 id="funktionsnamn-börjar-på-liten-bokstav">
+<a id="funktionsnamn-börjar-på-liten-bokstav" class="anchor" href="#funktionsnamn-b%C3%B6rjar-p%C3%A5-liten-bokstav" aria-hidden="true"><span class="octicon octicon-link"></span></a>Funktionsnamn börjar på liten bokstav</h3>
+
+<p>Namn på funktioner och variabler brukar börja på liten bokstav:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Inte rekommenderat:
+</span><span class="k">def</span> <span class="nf">Cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Rekommenderat:
+</span><span class="k">def</span> <span class="nf">cirkel_area</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Guess the secret number | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Guess the secret number" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/en" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/en" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/en","headline":"Guess the secret number","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Guess the secret number</h1>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#instructions">Instructions</a></li>
+<li class="toc-entry toc-h2"><a href="#extra">Extra</a></li>
+<li class="toc-entry toc-h2"><a href="#cheatsheet">Cheatsheet</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#variables-and-printing">Variables and printing</a></li>
+<li class="toc-entry toc-h3"><a href="#types-of-variables">Types of variables</a></li>
+<li class="toc-entry toc-h3"><a href="#input">Input</a></li>
+<li class="toc-entry toc-h3"><a href="#arithmetic">Arithmetic</a></li>
+<li class="toc-entry toc-h3"><a href="#control-flow">Control flow</a></li>
+<li class="toc-entry toc-h3"><a href="#repetition">Repetition</a></li>
+</ul>
+</li>
+</ul><p>Write a program that randomizes a number and lets you guess which number it is.</p>
+
+<h2 id="instructions">
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h2>
+
+<p>The process will go something like this:</p>
+
+<ol>
+  <li>Randomize a number; In order to make python give you a random number you will have to first import the method randint() from a package called random. You can do this by copying the following code to the editor:</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+ <span class="c1"># Generates a number between 0 and 10 and assigns it to "random_number". "Random_number" will be the variable you will be using, a mystery number.
+</span> <span class="n">random_number</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ol start="2">
+  <li>Now you want code for asking the user to guess the number. Copy the following code to the editor:</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Reads a line of input and converts it to an integer, then assigns this number to "guessed_number".
+</span><span class="n">guessed_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Write something here!"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ol start="3">
+  <li>You want to be able to keep guessing as long as guessed_number isn’t the same value as random_number. In order to do this you can use        something called a while-loop. Check this following example and try to figure out how you can use it for your own program:</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="c1"># This line of code under the while-block will keep repeating it self untill the condition is no longer fullfilled. Since 10 is not 13 the code will repeat itself.
+</span><span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Assign a new value to b with new input"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ol start="4">
+  <li>Now, it is still difficult to just randomly keep guessing numbers. Depending on the intervall it can take a great amount of time. You can make it easier if you can hint on wether to guess higher or lower when comparing to random_number. To do this you can use an if-statement within your while-loop. Check these following exampels:</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">13</span>
+ 
+<span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Try a lower number!"</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Try a higher number!"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ol start="5">
+  <li>Some feedback to when you actually guessed the right number, for that you want to add after the while-loop a line of code that just prints out a string of text. You can try this command for that purpose:</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Here you can write whatever you want and it will show in the terminal!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="extra">
+<a id="extra" class="anchor" href="#extra" aria-hidden="true"><span class="octicon octicon-link"></span></a>Extra</h2>
+
+<p>Write a program that based on a given number and the interval 0 - 100 finds the optimal amount of steps using binary search.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IN      &gt;&gt;&gt; 10
+OUT     6
+
+IN      &gt;&gt;&gt; 50
+OUT     1
+</code></pre></div></div>
+
+<p><em>Binary search:</em>
+https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm</p>
+
+<h2 id="cheatsheet">
+<a id="cheatsheet" class="anchor" href="#cheatsheet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cheatsheet</h2>
+
+<h3 id="variables-and-printing">
+<a id="variables-and-printing" class="anchor" href="#variables-and-printing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables and printing</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># the variable x gets the value 10
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># prints 10
+</span><span class="n">x</span> <span class="o">=</span> <span class="s">"hej"</span> <span class="c1"># x value is changed to "hej"
+</span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># prints "hej"
+</span></code></pre></div></div>
+
+<h3 id="types-of-variables">
+<a id="types-of-variables" class="anchor" href="#types-of-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types of variables</h3>
+
+<ul>
+  <li>Strings - text, such as <code class="highlighter-rouge">"Hello World!"</code>
+</li>
+  <li>Integers - whole numbers, such as <code class="highlighter-rouge">1</code>, <code class="highlighter-rouge">2</code>, <code class="highlighter-rouge">3</code>, <code class="highlighter-rouge">5</code>, <code class="highlighter-rouge">8</code>, <code class="highlighter-rouge">13</code>, …</li>
+  <li>Floats - decimal numbers, such as <code class="highlighter-rouge">3.14</code>, <code class="highlighter-rouge">2.71</code>
+</li>
+  <li>Booleans - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>
+</li>
+</ul>
+
+<p>The type of a variable is determined when a variable is assigned a value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>        <span class="c1"># a is now an integer with the value 1
+</span><span class="n">b</span> <span class="o">=</span> <span class="bp">True</span>     <span class="c1"># b is now an boolean with the value True
+</span><span class="n">c</span> <span class="o">=</span> <span class="bp">False</span>    <span class="c1"># c is now an boolean with the value False
+</span><span class="n">d</span> <span class="o">=</span> <span class="s">"1"</span>      <span class="c1"># d is now a string with the value "1"
+</span></code></pre></div></div>
+
+<p>Integers can turn into floats when divided:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>    <span class="c1"># a is now an integer with the value 3
+</span><span class="n">a</span> <span class="o">/=</span> <span class="mi">2</span>   <span class="c1"># a is now a float with the value 1.5
+</span><span class="n">a</span> <span class="o">*=</span> <span class="mi">2</span>   <span class="c1"># a is now a float with the value 3.0
+</span></code></pre></div></div>
+
+<h3 id="input">
+<a id="input" class="anchor" href="#input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h3>
+
+<p>Read a line of input and print the result:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"What is your name?"</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Name: "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hello, "</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="arithmetic">
+<a id="arithmetic" class="anchor" href="#arithmetic" aria-hidden="true"><span class="octicon octicon-link"></span></a>Arithmetic</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># x0 == 2
+</span><span class="n">x1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># x1 == 0
+</span><span class="n">x2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span>  <span class="c1"># x2 == 6
+</span></code></pre></div></div>
+
+<h3 id="control-flow">
+<a id="control-flow" class="anchor" href="#control-flow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Control flow</h3>
+
+<p>Do different things dependent on expression values:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a is less than 10"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a is equal to 10"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a is not equal to 10"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a is larger than 10"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="repetition">
+<a id="repetition" class="anchor" href="#repetition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition</h3>
+
+<p>Repeat an action while a statement is true</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"a is less than 10"</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

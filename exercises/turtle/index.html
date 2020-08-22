@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Sköldpadda | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Sköldpadda" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/turtle/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/turtle/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/turtle/","headline":"Sköldpadda","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+    padding: 10em 2em 2em 2em;
+    background: linear-gradient(#FFFFFF00, #FFFFFFAA, #FFFFFFEE),
+                url('https://i.imgur.com/YHHBJaS.png');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center
+      
+        25%
+      ;
+    border-radius: 1em;
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Sköldpadda</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        bra första-uppgift, sköldpaddsgrafik, sekvens, for-loop, funktionsdefinitioner och anrop, geometri, vinklar
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1-komma-igång">1. Komma igång</a></li>
+<li class="toc-entry toc-h3"><a href="#2-rektangel">2. Rektangel</a></li>
+<li class="toc-entry toc-h3"><a href="#3-kvadrat">3. Kvadrat</a></li>
+<li class="toc-entry toc-h3"><a href="#4-spiral">4. Spiral</a></li>
+<li class="toc-entry toc-h3"><a href="#5-figur">5. Figur</a></li>
+<li class="toc-entry toc-h3"><a href="#6-hoppa">6. Hoppa</a></li>
+<li class="toc-entry toc-h3"><a href="#7-skalbar-figur">7. Skalbar figur</a></li>
+<li class="toc-entry toc-h3"><a href="#8-neutral-figur">8. Neutral figur</a></li>
+<li class="toc-entry toc-h3"><a href="#9-dekor">9. Dekor</a></li>
+</ul><p>Vill du rita snygga &amp; coola saker med en programmerbar sköldpadda? Då är detta uppdraget för dig!</p>
+
+<h3 id="1-komma-igång">
+<a id="1-komma-igång" class="anchor" href="#1-komma-ig%C3%A5ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Komma igång</h3>
+
+<p>Börja med att öppna två fönster, sida vid sida. Ett för detta uppdrag, och ett för <a href="https://repl.it/languages/python_turtle">Python-turtle</a></p>
+
+<p><em>Tips!</em> För att få fönstren sida vid sida kan du 1) göra detta fönster smalare, som halva skärmbredden, 2) öppna python-turtle i en ny flik, 3) dra fliken till sidan, så blir den ett nytt fönster.</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EQ_qSMKEWJI?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+
+<p><strong>Uppdrag:</strong> Titta igenom videon (1 minut, inget ljud).</p>
+
+<h3 id="2-rektangel">
+<a id="2-rektangel" class="anchor" href="#2-rektangel" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Rektangel</h3>
+<!--Sekvens-->
+
+<p>Vi börjar med att låta paddan göra några saker i <em>sekvens</em>. Här är ett enkelt exempel där paddan går en liten tur:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>
+
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Kör programmet och se vad som händer. Kan du lista ut vad varje rad gör? Prova att ändra ett värde och se hur beteendet förändras. Prova tills du förstår vad <code class="highlighter-rouge">forward</code>, <code class="highlighter-rouge">left</code> och <code class="highlighter-rouge">right</code> gör.</p>
+
+<p><strong>Uppdrag:</strong> Kan du få paddan att rita en rektangel?</p>
+
+<p><img src="fig-rectangle.png" height="70"></p>
+
+<p><em>Tips!</em> Om du tycker paddan ritar för långsamt, lägg till ett anrop <code class="highlighter-rouge">t.speed(10)</code> för att rita snabbare.</p>
+
+<h3 id="3-kvadrat">
+<a id="3-kvadrat" class="anchor" href="#3-kvadrat" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Kvadrat</h3>
+<!-- Repetition -->
+
+<p>Ibland vill vi låta paddan <em>repetera</em> en sekvens av saker. Här är ett enkelt exempel där sköldpaddan repeterar en liten sekvens med hjälp av en <em>for-loop</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Prova programmet och se vad som händer. Prova att ändra olika saker i programmet. Kan du få paddan att repetera fler gånger? Kan du rita en annan slags figur genom att ändra innehållet i for-loopen?</p>
+
+<p><em>Obs!</em> Som du ser är innehållet i loopen <em>indraget</em> några blanksteg. Detta är Pythons sätt att hålla reda på vad som ingår i loopen. Du kan använda hur många blanksteg du vill, det viktiga är att det är lika många blanksteg för varje sats i loopen. Här har vi använt 2 blanksteg.</p>
+
+<p><strong>Uppdrag:</strong> Kan du rita en kvadrat på ett smart sätt med hjälp av en for-loop?</p>
+
+<p><img src="fig-square.png" height="70"></p>
+
+<details>
+  <summary>
+    Tips
+  </summary>
+  <pre>
+for c in range(4):
+  t.forward(75)
+  t.left(90)
+  </pre>
+</details>
+
+<h3 id="4-spiral">
+<a id="4-spiral" class="anchor" href="#4-spiral" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Spiral</h3>
+<!-- Loop variabel -->
+
+<p>Variabeln <code class="highlighter-rouge">c</code> i for-loopen är ett heltal som ändrar värde för varje varv i loopen. Prova att se vad värdet på loop-variabeln är genom att lägga till</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</code></pre></div></div>
+<p>inuti loopen.</p>
+
+<p><strong>Uppdrag:</strong> Kan du rita en fyrkantig spiral på ett smart sätt genom att använda <code class="highlighter-rouge">c</code> för att låta paddan gå lite längre efter varje sväng?</p>
+
+<p><img src="fig-spiral.png" height="70"></p>
+
+<details>
+  <summary>
+    Tips
+  </summary>
+  <pre>
+for c in range(16):
+  t.forward(75+10*c)
+  t.left(90)
+  </pre>
+</details>
+
+<h3 id="5-figur">
+<a id="5-figur" class="anchor" href="#5-figur" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Figur</h3>
+<!-- funktion -->
+
+<p>Genom att definiera en <em>funktion</em> kan du göra egna byggblock som du kan använda på flera ställen.</p>
+
+<p>Här definierar vi en funktion som ritar en liten vimpel, och gör sedan ett anrop av funktionen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">vimpel</span><span class="p">()</span> <span class="p">:</span>   <span class="c1"># Definition av vimpel
+</span>  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">160</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">vimpel</span><span class="p">()</span>         <span class="c1"># Anrop av vimpeln
+</span></code></pre></div></div>
+
+<p><em>Obs!</em> Som du ser är innehållet i definitionen <em>indraget</em> några blanksteg, så att Python skall veta vilka satser som ingår i definitionen. Anropet ingår inte i definitionen, utan ligger ute i vänsterkanten. Blankrader betyder ingenting, utan är bara till för att programmet skall bli lättare att läsa.</p>
+
+<p>Vi kan prova att rita ut vimpeln på flera ställen. För att hoppa till olika ställen får vi be paddan dra upp sin penna.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">vimpel</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">vimpel</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Kan du lägga till en funktion <code class="highlighter-rouge">figur</code> som ritar en enkel figur? T.ex. bokstaven L, eller något du hittar på själv. Prova att rita ut den på flera ställen.</p>
+
+<p><img src="fig-figure.png" height="70"></p>
+
+<p><em>Tips!</em> Om du har flera funktioner kan du lägga dem efter varann, och anropen till funktionerna sist i programmet, i följande stil:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+  <span class="c1"># innehåll i f1
+</span>
+<span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+  <span class="c1"># innehåll i f2
+</span>
+<span class="n">f1</span><span class="p">()</span> <span class="c1"># anrop av f1
+</span><span class="n">f2</span><span class="p">()</span> <span class="c1"># anrop av f2
+</span></code></pre></div></div>
+
+<h3 id="6-hoppa">
+<a id="6-hoppa" class="anchor" href="#6-hoppa" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Hoppa</h3>
+<!-- funktion med parameter -->
+
+<p>Genom att ge en funktion parametrar blir den mer användbar.</p>
+
+<p>För att slippa lyfta och sänka pennan kan vi definiera följande funktion <code class="highlighter-rouge">hop</code> som tar en parameter <code class="highlighter-rouge">length</code> för att hoppa en viss längd:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hop</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="p">:</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Lägg till funktionen <code class="highlighter-rouge">hop</code> ovan. Prova att ersätta din kod som lyfte och sänkte pennan med att anropa <code class="highlighter-rouge">hop</code>, t.ex:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">figur</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">hop</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">figur</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="7-skalbar-figur">
+<a id="7-skalbar-figur" class="anchor" href="#7-skalbar-figur" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Skalbar figur</h3>
+<!-- funktion med parameter -->
+
+<p><strong>Uppdrag:</strong> Ändra din funktion <code class="highlighter-rouge">figur</code> så den tar en parameter <code class="highlighter-rouge">h</code> som representerar höjden på figuren. Rita alla delar skalenligt. Låt <code class="highlighter-rouge">100</code> motsvara att figuren ritas ut i skala 1:1. Anropa din funktion med olika värden på <code class="highlighter-rouge">h</code>.</p>
+
+<p><img src="fig-scaled.png" height="70"></p>
+
+<details>
+  <summary>
+    Tips
+  </summary>
+Multiplicera sträckor med <code>h</code> och dividera med 100. Dvs i stället för att skriva <code>forward(60)</code>, skriv <code>forward(60*h/100.0)</code>.
+</details>
+
+<h3 id="8-neutral-figur">
+<a id="8-neutral-figur" class="anchor" href="#8-neutral-figur" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Neutral figur</h3>
+<!-- funktion med flera parametrar -->
+
+<p>Lägg till nedanstående funktion <code class="highlighter-rouge">jumpTo</code> som flyttar paddan till läget <code class="highlighter-rouge">(x,y)</code>, utan att rita:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">jumpTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">:</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Prova att anropa <code class="highlighter-rouge">jumpTo</code> i stället för <code class="highlighter-rouge">hop</code> för att rita figuren på flera ställen.</p>
+
+<p>Det kan vara praktiskt att en ritfunktion är både <em>rotations-</em> och <em>positionsneutral</em>, dvs att sköldpaddans position och riktning är oförändrad efter ett anrop till funktionen.
+Detta kan du åstadkomma genom att spara positionen och riktningen innan du ritar, och återställa dem efteråt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>     <span class="c1"># spara x-koordinaten i variabeln x
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>     <span class="c1"># spara y-koordinaten i variabeln y
+</span><span class="n">v</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>  <span class="c1"># spara vinkeln i variabeln v
+# rita ...
+</span><span class="n">jumpTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>      <span class="c1"># hoppa tillbaka
+</span><span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>  <span class="c1"># återställ riktningen
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Ändra din funktion <code class="highlighter-rouge">figur</code> så den blir rotations- och positionsneutral.</p>
+
+<p>Prova att du lyckades genom att omväxlande anropa <code class="highlighter-rouge">figur</code> och <code class="highlighter-rouge">right</code>.</p>
+
+<p><img src="fig-neutral.png" height="70"></p>
+
+<h3 id="9-dekor">
+<a id="9-dekor" class="anchor" href="#9-dekor" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. Dekor</h3>
+<!-- Flera funktioner och anrop -->
+
+<p><strong>Uppdrag:</strong> Skriv en funktion <code class="highlighter-rouge">dekor</code> som anropar <code class="highlighter-rouge">figur</code> några gånger för att få ett intressant mönster. Prova med olika vinklar och olika storlekar. Prova att flytta paddan på olika sätt mellan anropen till <code class="highlighter-rouge">figur</code>. Du kan använda loopar och extra funktioner om du vill.</p>
+
+<p><img src="fig-decor.png" height="100"></p>
+
+<p><em>Tips!</em> Figuren ovan har ritats med <code class="highlighter-rouge">fill</code> påslaget:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># rita ...
+</span><span class="n">t</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<!--
+
+# Alternativ
+
+TODO - någon övning på if-satser
+
+
+# Tårta
+
+TODO - en övning för att göra en funktion som ritar en tårta som har en färg för kanten och en för innehållet, och som kan placeras i antingen x eller y-led (så man kan rita flera tårtor bredvid varandra). Att användas i Piece-of-cake-uppdraget.
+
+# Rita en blomma
+
+TODO - en övning för att göra en funktion som ritar en liten enkel blomma. Ge funktionen x o y-parametrar så man kan dekorera tårtan genom att rita blommor på den. Att användas i Piece-of-cake-uppdraget.
+
+# Rita koordinataxlar
+
+TODO - övning för att göra en funktion som ritar en x och en y-axel. Att användas senare i uppdrag om att rita matematiska funktioner.
+
+# Färgglad sköldpadda
+
+Kör följande i varje steg i loopen (glöm inte att lägga till `import random` längst upp i filen!)
+
+```py
+t.color(random.choice(['red', 'green', 'magenta', 'orange', 'blue']))
+```
+
+-->
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

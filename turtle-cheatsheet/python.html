@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Snabbreferens för Python-turtle | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Snabbreferens för Python-turtle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/python" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/python" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/python","headline":"Snabbreferens för Python-turtle","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Snabbreferens för Python-turtle</h1>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#kom-igång">Kom igång</a></li>
+<li class="toc-entry toc-h1"><a href="#styr-sköldpaddan">Styr sköldpaddan</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#styr-med-relativa-kommandon">Styr med relativa kommandon</a></li>
+<li class="toc-entry toc-h2"><a href="#hoppa-framåt">Hoppa framåt</a></li>
+<li class="toc-entry toc-h2"><a href="#styr-med-absoluta-koordinater">Styr med absoluta koordinater</a></li>
+<li class="toc-entry toc-h2"><a href="#sätt-färger-penntjocklek-etc">Sätt färger, penntjocklek, etc.</a></li>
+<li class="toc-entry toc-h2"><a href="#låt-paddan-skriva-text">Låt paddan skriva text</a></li>
+<li class="toc-entry toc-h2"><a href="#sätt-hastigheten-på-paddan">Sätt hastigheten på paddan</a></li>
+<li class="toc-entry toc-h2"><a href="#sparasätt-position-och-riktning">Spara/sätt position och riktning</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#annat-du-kan-göra-i-python-turtle">Annat du kan göra i Python-turtle</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#läs-in-och-skriv-ut">Läs in och skriv ut</a></li>
+<li class="toc-entry toc-h2"><a href="#sätta-ihop-strängar">Sätta ihop strängar</a></li>
+<li class="toc-entry toc-h2"><a href="#dra-slumptal">Dra slumptal</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#mer-information">Mer information</a></li>
+</ul><p>Denna kod är provkörd på online-miljön <a href="http://repl.it/languages/python-turtle">python-turtle på repl.it</a> för Python 2.7.</p>
+
+<h1 id="kom-igång">
+<a id="kom-igång" class="anchor" href="#kom-ig%C3%A5ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kom igång</h1>
+
+<p>Python-turtle är en online-miljö för programspråket Python 2.7 och med stöd för “turtle graphics”. Här är ett program som ritar en liten figur.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>        <span class="c1"># Importera biblioteket för sköldpaddan
+</span><span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>  <span class="c1"># Skapa en ny padda som vi kallar t
+</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>        <span class="c1"># t går framåt 20 steg
+</span><span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>          <span class="c1"># t svänger höger 60 grader
+</span><span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>        <span class="c1"># t går framåt 30 steg
+</span></code></pre></div></div>
+
+<p><em>Obs!</em> I exemplen nedan förutsätter vi att du har med de två första raderna ovan (<code class="highlighter-rouge">import</code>… och <code class="highlighter-rouge">t =</code>) först i varje program.</p>
+
+<h1 id="styr-sköldpaddan">
+<a id="styr-sköldpaddan" class="anchor" href="#styr-sk%C3%B6ldpaddan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr sköldpaddan</h1>
+
+<h2 id="styr-med-relativa-kommandon">
+<a id="styr-med-relativa-kommandon" class="anchor" href="#styr-med-relativa-kommandon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr med relativa kommandon</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Paddan går 20 steg framåt
+</span><span class="n">t</span><span class="o">.</span><span class="n">back</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>    <span class="c1"># Paddan går 20 steg framåt
+</span><span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>   <span class="c1"># Paddan vrider sig 45 grader åt höger
+</span><span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>    <span class="c1"># Paddan vrider sig 45 grader åt vänster
+</span><span class="n">t</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>  <span class="c1"># Paddan ritar en cirkel med radien 50
+</span><span class="n">t</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">extent</span> <span class="o">=</span> <span class="mi">90</span><span class="p">)</span> <span class="c1"># Paddan ritar en båge med radien 50 och vinkeln 90
+</span></code></pre></div></div>
+
+<h2 id="hoppa-framåt">
+<a id="hoppa-framåt" class="anchor" href="#hoppa-fram%C3%A5t" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hoppa framåt</h2>
+
+<p>Det är praktiskt att låta paddan kunna hoppa framåt utan att rita. För att göra detta, klistra in följande funktion som lyfter pennan, går framåt, och sedan sänker pennan igen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Hoppa framåt utan att rita
+</span><span class="k">def</span> <span class="nf">hop</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Sedan kan du hoppa framåt. T.ex.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">hop</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="styr-med-absoluta-koordinater">
+<a id="styr-med-absoluta-koordinater" class="anchor" href="#styr-med-absoluta-koordinater" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr med absoluta koordinater</h2>
+
+<p>För att flytta paddan till en viss <code class="highlighter-rouge">(x,y)</code>-position är följande funktion användbar att klistra in:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Hoppa till (x,y) utan att rita
+</span><span class="k">def</span> <span class="nf">jumpTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Du kan också sätta vinkeln på paddan:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Paddan vrider nosen till vinkeln 45 grade
+</span></code></pre></div></div>
+
+<h2 id="sätt-färger-penntjocklek-etc">
+<a id="sätt-färger-penntjocklek-etc" class="anchor" href="#s%C3%A4tt-f%C3%A4rger-penntjocklek-etc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätt färger, penntjocklek, etc.</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"pink"</span><span class="p">)</span>       <span class="c1"># Sätter pennans färg till rosa
+</span><span class="n">t</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s">"purple"</span><span class="p">)</span> <span class="c1"># Sätter ifyllnadfärgen till lila
+</span><span class="n">t</span><span class="o">.</span><span class="n">width</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>           <span class="c1"># Sätter pennans bredd till 20
+</span></code></pre></div></div>
+
+<p>För att rita en fylld form slår man först på fyllning, och stänger sedan av det igen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="låt-paddan-skriva-text">
+<a id="låt-paddan-skriva-text" class="anchor" href="#l%C3%A5t-paddan-skriva-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Låt paddan skriva text</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello"</span><span class="p">)</span>      <span class="c1"># Paddan skriver texten "hello"
+</span><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">"hello"</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s">"Arial"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s">"normal"</span><span class="p">))</span>  <span class="c1"># Skriv med ett visst typsnitt
+</span></code></pre></div></div>
+
+<h2 id="sätt-hastigheten-på-paddan">
+<a id="sätt-hastigheten-på-paddan" class="anchor" href="#s%C3%A4tt-hastigheten-p%C3%A5-paddan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätt hastigheten på paddan</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># Paddan ritar väldigt långsamt
+</span><span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>    <span class="c1"># Paddan ritar väldigt snabbt
+</span><span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>     <span class="c1"># Paddan ritar så snabbt som möjligt
+</span></code></pre></div></div>
+
+<h2 id="sparasätt-position-och-riktning">
+<a id="sparasätt-position-och-riktning" class="anchor" href="#sparas%C3%A4tt-position-och-riktning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spara/sätt position och riktning</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">xcor</span><span class="p">()</span>     <span class="o">//</span> <span class="n">Spara</span> <span class="n">paddans</span> <span class="n">x</span><span class="o">-</span><span class="n">position</span> <span class="n">i</span> <span class="n">variabeln</span> <span class="n">x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">ycor</span><span class="p">()</span>     <span class="o">//</span> <span class="n">Spara</span> <span class="n">paddans</span> <span class="n">y</span><span class="o">-</span><span class="n">position</span> <span class="n">i</span> <span class="n">variabeln</span> <span class="n">y</span>
+<span class="n">t</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>    <span class="o">//</span> <span class="n">S</span><span class="err">ä</span><span class="n">tt</span> <span class="n">paddans</span> <span class="n">position</span> <span class="n">till</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">heading</span><span class="p">()</span>  <span class="o">//</span> <span class="n">Spara</span> <span class="n">paddans</span> <span class="n">riktning</span> <span class="n">i</span> <span class="n">variabeln</span> <span class="n">h</span>
+<span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>  <span class="o">//</span> <span class="n">S</span><span class="err">ä</span><span class="n">tt</span> <span class="n">paddans</span> <span class="n">riktning</span> <span class="n">till</span> <span class="n">h</span>
+</code></pre></div></div>
+
+<h1 id="annat-du-kan-göra-i-python-turtle">
+<a id="annat-du-kan-göra-i-python-turtle" class="anchor" href="#annat-du-kan-g%C3%B6ra-i-python-turtle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Annat du kan göra i Python-turtle</h1>
+
+<h2 id="läs-in-och-skriv-ut">
+<a id="läs-in-och-skriv-ut" class="anchor" href="#l%C3%A4s-in-och-skriv-ut" aria-hidden="true"><span class="octicon octicon-link"></span></a>Läs in och skriv ut</h2>
+
+<p>Du kan skriva ut text i paddans “console”-fönster:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hello!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Använd funktionen <code class="highlighter-rouge">input</code> för att läsa in något som användaren skriver i console-fönstret. Det inlästa värdet blir en sträng: Om användaren skriver <code class="highlighter-rouge">42</code> så ger <code class="highlighter-rouge">input</code> strängvärdet <code class="highlighter-rouge">"42"</code>. Funktionen <code class="highlighter-rouge">int</code> gör om en sträng till ett heltal, t.ex. <code class="highlighter-rouge">"42"</code> till <code class="highlighter-rouge">42</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Write a string: "</span><span class="p">)</span>       <span class="c1"># läs in en sträng
+</span><span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Write a number: "</span><span class="p">))</span>  <span class="c1"># läs in ett heltal
+</span></code></pre></div></div>
+
+<p><em>Obs!</em> Python-turtle klarar inte svenska tecken som <code class="highlighter-rouge">åäö</code> i sina strängar. Därför är frågorna ovan på engelska.</p>
+
+<h2 id="sätta-ihop-strängar">
+<a id="sätta-ihop-strängar" class="anchor" href="#s%C3%A4tta-ihop-str%C3%A4ngar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätta ihop strängar</h2>
+
+<p>När du skriver ut är det ofta praktiskt att sätta ihop strängar. Det kan man göra med <code class="highlighter-rouge">+</code>. Men tal och andra värden som inte är strängar från början behöver då omvandlas till strängar med hjälp av funktionen <code class="highlighter-rouge">str</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"En vecka har "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="s">" dagar."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="dra-slumptal">
+<a id="dra-slumptal" class="anchor" href="#dra-slumptal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dra slumptal</h2>
+
+<p>För att dra slumptal behöver du importera funktionen randint från biblioteket random:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>       <span class="c1"># Ger ett slumptal mellan 1 och 9
+</span></code></pre></div></div>
+
+<h1 id="mer-information">
+<a id="mer-information" class="anchor" href="#mer-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mer information</h1>
+
+<ul>
+  <li>
+<a href="/schoolprog/cheatsheet/python/">Snabbreferens för Python</a> (Mer tips om hur du skriver python-kod.)</li>
+  <li><a href="https://docs.python.org/2/library/turtle.html">Dokumentation för Python 2.7’s turtle-bibliotek</a></li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

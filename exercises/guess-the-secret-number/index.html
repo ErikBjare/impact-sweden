@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Gissa det hemliga numret | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Gissa det hemliga numret" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/guess-the-secret-number/","headline":"Gissa det hemliga numret","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Gissa det hemliga numret</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        medel, text, spel, while-sats, elif i if-sats, slump, intervallhalvering
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-gissa-en-gång">1. Gissa en gång</a></li>
+<li class="toc-entry toc-h2"><a href="#2-gissa-flera-gånger">2. Gissa flera gånger</a></li>
+<li class="toc-entry toc-h2"><a href="#3-gissa-med-återkoppling">3. Gissa med återkoppling</a></li>
+<li class="toc-entry toc-h2"><a href="#4-räkna-antalet-gissningar">4. Räkna antalet gissningar</a></li>
+<li class="toc-entry toc-h2"><a href="#5-låt-programmet-gissa-utmaning">5. Låt programmet gissa! (Utmaning!)</a></li>
+<li class="toc-entry toc-h2"><a href="#6-hur-många-gissningar-behövs">6. Hur många gissningar behövs?</a></li>
+<li class="toc-entry toc-h2"><a href="#7-lägg-till-en-variabel-för-största-talet">7. Lägg till en variabel för största talet</a></li>
+</ul><!--**Note:** This exercise is also available [in english](/schoolprog/exercises/guess-the-secret-number/en).-->
+
+<p>Här skriver vi ett litet spel där programmet väljer ett slumpmässigt tal och låter dig gissa dig fram till vilket talet är.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python3">http://repl.it/languages/python3</a> (Python 3).</p>
+
+<h2 id="1-gissa-en-gång">
+<a id="1-gissa-en-gång" class="anchor" href="#1-gissa-en-g%C3%A5ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Gissa en gång</h2>
+
+<p>Vi börjar med att programmet låter dig gissa en enda gång. Programmet skall alltså:</p>
+
+<ul>
+  <li>skapa ett slumptal</li>
+  <li>skriva ut vilka gränser talet ligger mellan</li>
+  <li>låta dig gissa ett tal</li>
+  <li>kontrollera om du gissat rätt</li>
+  <li>skriva ut vilket slumptalet var</li>
+</ul>
+
+<p>Nedan visar vi vilka byggblock du behöver:</p>
+
+<p>Använd <code class="highlighter-rouge">random</code> för att dra ett slumptal:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Skapa ett slumptal mellan 1 och 3
+</span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="n">random_number</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Använd <code class="highlighter-rouge">print</code> för att skriva ut något:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Jag tänker på ett tal mellan 1 och 3"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Använd <code class="highlighter-rouge">input</code> för att läsa in ett tal med en ledtext:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Låt programmet be dig gissa ett tal.
+# Det du svarar hamnar i variabeln "guess"
+</span><span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Gissa vilket tal jag tänker på!"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Använd en <code class="highlighter-rouge">if</code>-sats för att kontrollera ett villkor:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Låt programmet kontrollera om du gissat rätt.
+</span><span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Snyggt jobbat! Det var rätt!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Tyvärr, det var fel."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Använd <code class="highlighter-rouge">str</code> för att göra om ett tal till en sträng och <code class="highlighter-rouge">+</code> för att slå ihop två strängar till en:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Jag tänkte på "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">random_number</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Sätt ihop byggblocken till ett program. Provkör det några gånger och se om du kan gissa rätt tal. Lyckas du gissa rätt?</p>
+
+<h2 id="2-gissa-flera-gånger">
+<a id="2-gissa-flera-gånger" class="anchor" href="#2-gissa-flera-g%C3%A5nger" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Gissa flera gånger</h2>
+
+<p>För att göra programmet lite mer spännande skall vi ändra det så du kan gissa flera gånger. I stället för att använda en <code class="highlighter-rouge">if</code>-sats skall vi använda en <code class="highlighter-rouge">while</code>-loop som ber om en ny gissning tills du svarat rätt.</p>
+
+<p>Du kan använda följande byggblock med en while-loop:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">found</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+  <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Gissa vilket tal jag tänker på!"</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Snyggt jobbat! Det var rätt!"</span><span class="p">)</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="bp">True</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Tyvärr. Det var fel."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Gör om programmet så att du får gissa flera gånger. <em>Tips:</em> Byt ut <code class="highlighter-rouge">if</code>-satsen mot en <code class="highlighter-rouge">while</code>-loop enligt ovan. Provkör ditt program så du ser att det fungerar. Hur många gånger behöver du gissa innan du gissar rätt?</p>
+
+<h2 id="3-gissa-med-återkoppling">
+<a id="3-gissa-med-återkoppling" class="anchor" href="#3-gissa-med-%C3%A5terkoppling" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Gissa med återkoppling</h2>
+<p>Det är svårt att bara slumpmässigt gissa nummer. Om intervallet är lite större, t.ex. mellan 1 och 100 kan det ta otroligt mycket tid.</p>
+
+<p>Det skulle underlätta om programmet gav dig återkoppling och berättade om talet du gissade var för högt eller för lågt. Det kan du göra genom att bygga ut <code class="highlighter-rouge">if</code>-satsen enligt följande mönster:</p>
+
+<p>Använd <code class="highlighter-rouge">elif</code> för att testa ytterligare ett villkor i en <code class="highlighter-rouge">if</code>-sats:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Snyggt jobbat! Det var rätt!"</span><span class="p">)</span>
+  <span class="n">stillGuessing</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">elif</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">random_number</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Tyvärr. Det var för lågt."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Tyvärr. Det var för högt."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att det ger dig återkoppling på om det gissade talet var för stort eller för litet. Ändra också gränserna så att du får gissa ett tal mellan 1 och 100. Provkör ditt program.</p>
+
+<h2 id="4-räkna-antalet-gissningar">
+<a id="4-räkna-antalet-gissningar" class="anchor" href="#4-r%C3%A4kna-antalet-gissningar" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Räkna antalet gissningar</h2>
+
+<p>Du kan låta programmet hålla reda på hur många gissningar du gör. Det kan du göra genom att:</p>
+
+<ul>
+  <li>Införa en variabel <code class="highlighter-rouge">tries</code> som sätts till 0 i början av programmet.</li>
+  <li>Lägg till 1 till variabeln för varje gissning inuti while-loopen.</li>
+  <li>Skriv ut på slutet hur många försök det blev.</li>
+</ul>
+
+<p>Här är byggblocken du behöver:</p>
+
+<p>Lägg till en ny variabel som du sätter till 0:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>Öka en variabel med ett:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tries</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Skriv ut variabeln:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Du gjorde "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tries</span><span class="p">)</span> <span class="o">+</span> <span class="s">" gissningar!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Använd byggblocken ovan för att hålla reda på och skriva ut antalet gissningar. Prova ditt program.</p>
+
+<p><strong>Uppdrag:</strong> Fundera på hur du skall göra för att gissa rätt tal med så få gissningar som möjligt!</p>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+<p>Den bästa strategin är att gissa i mitten hela tiden! Börja alltså med att gissa på 50. Om det var för litet gissar du sedan på 75 (mitten av intervallet 50-100). Om det var för stort gissar du på 62 (mitten av intervallet 50-75), och så vidare. Detta kallas <i>intervall-halvering</i>.
+</p>
+</details>
+
+<h2 id="5-låt-programmet-gissa-utmaning">
+<a id="5-låt-programmet-gissa-utmaning" class="anchor" href="#5-l%C3%A5t-programmet-gissa-utmaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Låt programmet gissa! (Utmaning!)</h2>
+
+<p>Vi kan undersöka hur många gissningar som behövs genom att låta programmet självt gissa med hjälp av intervallhalvering.</p>
+
+<p>I stället för att programmet ska be oss om en gissning ska vi alltså låta det självt räkna ut en gissning!</p>
+
+<p>För att programmera detta behöver vi en variabel <code class="highlighter-rouge">low</code> som håller reda på den lägre gränsen för intervallet och en annan <code class="highlighter-rouge">high</code> som håller reda på den högre gränsen. Vi börjar med att låta <code class="highlighter-rouge">low</code> vara 1 och <code class="highlighter-rouge">high</code> vara 101 (ett mer än 100), och flyttar sedan en av gränserna efter varje gissning.</p>
+
+<p>En ny gissning kan då räknas ut som:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">guess</span> <span class="o">=</span> <span class="n">low</span> <span class="o">+</span> <span class="p">(</span><span class="n">high</span><span class="o">-</span><span class="n">low</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+</code></pre></div></div>
+<p>där <code class="highlighter-rouge">//</code> är heltalsdivision. (Heltalsdivision är som vanlig division, men avrundar nedåt till närmsta heltal. T.ex. är <code class="highlighter-rouge">7//2</code> lika med <code class="highlighter-rouge">3</code> i stället för <code class="highlighter-rouge">3.5</code>.)</p>
+
+<p>Anledningen till att vi sätter high till 101 från början, och inte 100, är att gissningen annars aldrig kan bli 100, eftersom heltalsdivisionen alltid avrundar nedåt. Vi vill ju att programmet skall fungera även om slumptalet som dras råkar vara 100.</p>
+
+<p><strong>Uppdrag:</strong> Ändra så att programmet självt gissar med hjälp av intervallhalvering, och skriver ut hur många gissningar som behövdes. Här är ett exempel på output från en programkörning:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Slumptalet är: 78
+Gissning: 50
+Gissning: 75
+Gissning: 88
+Gissning: 81
+Gissning: 78
+Det behövdes 5 gissningar
+</code></pre></div></div>
+
+<h2 id="6-hur-många-gissningar-behövs">
+<a id="6-hur-många-gissningar-behövs" class="anchor" href="#6-hur-m%C3%A5nga-gissningar-beh%C3%B6vs" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Hur många gissningar behövs?</h2>
+<p>Som du kanske märkt verkar det som mest behövas 7 gissningar för att gissa ett tal mellan 1 och 100. Hur många gissningar tror du det behövs som mest för att gissa ett tal mellan 1 och 200?</p>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att det gissar ett tal mellan 1 och 200. Kör programmet några gånger. Hur många gissningar verkar behövas som mest?</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>Det behövs bara en till: max 8 gissningar behövs.
+</p>
+</details>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att det gissar ett tal mellan 1 och 1 miljard (1000000000). Hur många gissningar tror du kan behövas som mest? Provkör några gånger och se vad du får för resultat!</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>Det behövs max 30 gissningar.
+</p>
+</details>
+
+<h2 id="7-lägg-till-en-variabel-för-största-talet">
+<a id="7-lägg-till-en-variabel-för-största-talet" class="anchor" href="#7-l%C3%A4gg-till-en-variabel-f%C3%B6r-st%C3%B6rsta-talet" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Lägg till en variabel för största talet</h2>
+<p>I stället för att skriva 100 eller 1 miljard på flera ställen i programmet är det praktiskt att införa en variabel. Då slipper du ändra på mer än ett ställe om du vill prova ett annat intervall.</p>
+
+<p><strong>Uppdrag:</strong> Lägg till en variabel <code class="highlighter-rouge">max_number</code> för det största talet som skall kunna dras. Snygga också till ditt program så det blir lättläst. Prova programmet med olika värden på <code class="highlighter-rouge">max_number</code>.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

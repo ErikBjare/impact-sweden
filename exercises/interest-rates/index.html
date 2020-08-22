@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Låna pengar | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Låna pengar" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/interest-rates/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/interest-rates/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/interest-rates/","headline":"Låna pengar","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Låna pengar</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        medel, text, plottning, procent, ränta
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-kostnad-efter-en-månad">1. Kostnad efter en månad</a></li>
+<li class="toc-entry toc-h2"><a href="#2-skulden-växer">2. Skulden växer…</a></li>
+<li class="toc-entry toc-h2"><a href="#3-effektiv-ränta">3. Effektiv ränta</a></li>
+<li class="toc-entry toc-h2"><a href="#4-plotta-skulden">4. Plotta skulden</a></li>
+</ul><p>Det är lätt att låna pengar, t.ex. med ett sms-lån, men hur mycket kostar det egentligen?
+Vi skall skriva ett program som räknar ut det.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python3">http://repl.it/languages/python3</a> (Python 3).</p>
+
+<p>Vi vill kunna jämföra erbjudanden om lån från olika firmor. En firma <em>Buffel&amp;Båg</em> lånar ut med en månadsränta på 29% och en månadsavgift på 149 kr. En annan firma <em>Lurendrejarna</em> lånar ut utan månadsavgift men med 39% månadsränta.</p>
+
+<h2 id="1-kostnad-efter-en-månad">
+<a id="1-kostnad-efter-en-månad" class="anchor" href="#1-kostnad-efter-en-m%C3%A5nad" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Kostnad efter en månad</h2>
+
+<p>Funktionen</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cost_after_one_month</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">month_rate</span><span class="p">,</span> <span class="n">month_fee</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+<p>ska returnera kostnaden för att låna <code class="highlighter-rouge">loan</code> kronor med en månadsränta på <code class="highlighter-rouge">month_rate</code> procent och en månadsavgift på <code class="highlighter-rouge">month_fee</code> kronor. Till exempel blir</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">cost_after_one_month(1000, 11, 0)</code> = <code class="highlighter-rouge">110</code>
+</li>
+  <li>
+<code class="highlighter-rouge">cost_after_one_month(1000, 0, 42)</code> = <code class="highlighter-rouge">42</code>
+</li>
+  <li>
+<code class="highlighter-rouge">cost_after_one_month(1000, 11, 42)</code>= <code class="highlighter-rouge">152</code>
+</li>
+</ul>
+
+<p><strong>Uppdrag:</strong></p>
+<ul>
+  <li>Skriv funktionen <code class="highlighter-rouge">cost_after_one_month</code>.
+<!--* Lägg till *asserts* för att kontrollera att funktionen räknar rätt i testfallen ovan.-->
+</li>
+  <li>Anropa funktionen för att se till att den fungerar för testfallen ovan.</li>
+  <li>Anropa funktionen för att räkna ut vad det kostar att låna 1000 kr i en månad hos firman <em>Buffel&amp;Båg</em> respektive hos <em>Lurendrejarna</em>.</li>
+  <li>Skriv ut resultatet på ett begripligt sätt. T.ex. “1000 kr lån i 1 månad hos Buffel&amp;Båg kostar … kronor.”</li>
+</ul>
+
+<details>
+<summary>
+Tips för att skriva funktionen!
+</summary>
+<p>För att räkna ut räntekostnaden i kronor skall du multiplicera lånet med månadsräntan och sedan dividera med 100 (eftersom månadsräntan anges i procent). Funktionen skall returnera hela kostnaden. För att få den behöver du lägga ihop räntekostnaden och månadsavgiften.
+</p>
+</details>
+
+<!--*Mer tips!* För att använda *asserts*, se övningen [Avlusning](exercises/debugging).-->
+
+<!--
+## 2. Skuld efter en månad
+
+I förra uppdraget räknade vi bara ut kostnaden för att få låna. Själva lånet skall ju också betalas. Vi ska lägga till en ny funktion
+
+```python
+def debt_after_one_month(loan, month_rate, month_fee):
+  ...
+```
+
+som räknar ut vad skulden är efter en månad. Till exempel blir
+
+* `debt_after_one_month(1000, 11, 0)` = `1110`
+* `debt_after_one_month(1000, 0, 42)` = `1042`
+* `debt_after_one_month(1000, 11, 42)`= `1152`
+
+**Uppdrag:**
+* Skriv funktionen `debt_after_one_month`
+* Anropa funktionen för att se till att den fungerar för testfallen ovan.
+* Anropa funktionen för att räkna ut vad skulden är efter en månad om man lånar 1000 kr hos *Buffel&Båg* respektive *Lurendrejarna*.
+* Skriv ut resultatet på ett begripligt sätt.
+
+<details>
+<summary markdown="span">
+Tips för att skriva funktionen!
+</summary>
+<p>Du räknar lätt ut resultatet genom att anropa <code>cost_after_one_month</code> och sedan lägga till den tidigare skulden.
+</p>
+</details>
+-->
+
+<h2 id="2-skulden-växer">
+<a id="2-skulden-växer" class="anchor" href="#2-skulden-v%C3%A4xer" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Skulden växer…</h2>
+
+<p>Om man inte betalar skulden så växer den varje månad. Vi antar att långivarna vid varje månadsskifte räknar ut räntan på hela skulden, och sedan ökar på skulden med både räntan och månadsavgiften.</p>
+
+<p>Vi skall skriva en funktion som räknar ut vad skulden är efter <em>m</em> månader:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">debt_after_m_months</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">month_rate</span><span class="p">,</span> <span class="n">month_fee</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+  <span class="o">...</span>
+</code></pre></div></div>
+
+<p>Här är några exempel på resultat efter 1 månad:</p>
+<ul>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 11, 0, 1)</code>  = <code class="highlighter-rouge">1110</code>
+</li>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 0, 42, 1)</code>  = <code class="highlighter-rouge">1042</code>
+</li>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 11, 42, 1)</code> = <code class="highlighter-rouge">1152</code>
+</li>
+</ul>
+
+<p>Och här är några exempel på resultat efter 2 månader:</p>
+<ul>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 11, 0, 2)</code>  = <code class="highlighter-rouge">1232.1</code>
+</li>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 0, 42, 2)</code>  = <code class="highlighter-rouge">1084.0</code>
+</li>
+  <li>
+<code class="highlighter-rouge">debt_after_m_months(1000, 11, 42, 2)</code> = <code class="highlighter-rouge">1320.72</code>
+</li>
+</ul>
+
+<p><strong>Uppdrag:</strong></p>
+<ul>
+  <li>Skriv funktionen <code class="highlighter-rouge">debt_after_m_months</code>.</li>
+  <li>Anropa funktionen så att du ser att den fungerar för testfallen ovan.</li>
+  <li>Anropa funktionen för att räkna ut vad man är skyldig efter en månad om man lånar 1000 kr hos <em>Buffel&amp;Båg</em> respektive <em>Lurendrejarna</em>.</li>
+  <li>Anropa funktionen för att räkna ut vad man är skyldig efter ett år om man lånar 1000 kr hos <em>Buffel&amp;Båg</em> respektive <em>Lurendrejarna</em>.</li>
+  <li>Skriv ut resultaten på ett begripligt sätt.</li>
+  <li>Hade du velat låna pengar hos någon av dessa firmor?</li>
+</ul>
+
+<details>
+<summary>
+Tips för att skriva funktionen!
+</summary>
+<p>För att räkna ut skulden kan du loopa <code>m</code> gånger och i varje varv anropa <code>cost_after_one_month</code> för att räkna ut hur mycket skulden ökar. Du kan hålla reda på hur stor skulden är med en variabel `debt`. Glöm inte att anropa <code>cost_after_one_month</code> med aktuellt värde på skulden.
+</p>
+</details>
+
+<details>
+<summary>
+Kommentar om resultatet (spoiler)
+</summary>
+<p>Om du programmerat rätt ser du att skulden blir väldigt stor efter ett år: över 30.000 för Buffel&amp;Båg och över 50.000 för Lurendrejarna.
+</p>
+</details>
+
+<h2 id="3-effektiv-ränta">
+<a id="3-effektiv-ränta" class="anchor" href="#3-effektiv-r%C3%A4nta" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Effektiv ränta</h2>
+
+<p>Många långivare försöker dölja hur mycket det kostar att låna genom att ha olika avgifter förutom räntan. En del påstår till och med att de inte har någon ränta alls, men har många olika avgifter i stället. Därför infördes en lag år 2010 som säger att om lånet är på mer än 3 månader så måste långivaren tala om vad den <em>effektiva räntan</em> är.</p>
+
+<p>Den effektiva räntan är vad det kostar att låna under ett år, uttryckt som en årsränta i procent. Om man tar ett banklån för ett hus är den effektiva räntan ofta runt 2-5% idag (2018). Tar man ett sms-lån kan den effektiva räntan bli väldigt mycket högre…</p>
+
+<p>Du kan räkna ut den effektiva räntan genom att</p>
+<ul>
+  <li>räkna ut vad skulden är efter ett år (med hjälp av <code class="highlighter-rouge">debt_after_m_months</code>)</li>
+  <li>subtrahera storleken på det ursprungliga lånet (då har du kvar årskostnaden för lånet)</li>
+  <li>dividera årskostnaden med lånestorleken</li>
+  <li>multiplicera med hundra för att få det i procent</li>
+</ul>
+
+<p><strong>Uppdrag:</strong> Skriv en funktion <code class="highlighter-rouge">effective_rate</code> som räknar ut den effektiva räntan, givet lånestorlek, månadsränta och månadsavgift. Vad är den effektiva räntan hos <em>Buffel&amp;Båg</em> respektive <em>Lurendrejarna</em>? Skriv ut resultatet på ett begripligt sätt.</p>
+
+<details>
+<summary>
+Kommentar om resultatet (spoiler)
+</summary>
+<p>Den effektiva räntan blir över 3000% för Buffel&amp;Båg och över 5000% för Lurendrejarna!
+</p>
+</details>
+
+<h2 id="4-plotta-skulden">
+<a id="4-plotta-skulden" class="anchor" href="#4-plotta-skulden" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Plotta skulden</h2>
+
+<p>För att åskådliggöra hur skulden stiger skall vi skriva ett program som plottar vad skulden är vid olika tidpunkter. Vi skall använda matplotlib, precis som i övningen <a href="exercises/plot">Plotta funktioner</a>.</p>
+
+<p>Till vår hjälp kan vi använda följande funktion <code class="highlighter-rouge">intplot</code> som plottar y-värden för en funktion <code class="highlighter-rouge">f</code> för x-värdena 1 till och med m:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">intplot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lbl</span><span class="p">):</span>
+  <span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+  <span class="n">ys</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">lbl</span><span class="p">)</span>
+</code></pre></div></div>
+<p>(Parametern <code class="highlighter-rouge">lbl</code> är en sträng som används som etikett på kurvan.)</p>
+
+<p>Som exempel kan vi plotta ett 100-kronors lån hos en firma med 10% månadsränta och 0 kronor i avgift på följande sätt: Skapa först en funktion som ger y-värdena för olika värden på m:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">example_loan</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">debt_after_m_months</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Anropa sedan <code class="highlighter-rouge">intplot</code> med denna funktion som argument, t.ex. för att se hur skulden växer de första 24 månaderna:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">intplot</span><span class="p">(</span><span class="n">example_loan</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s">"exempel-firma"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sätt sedan etiketter på x och y-axeln, skriv ut funktionsetiketterna (<em>legend</em>), sätt på ett rutnät och spara plotten i en fil:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"månader"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"kronor"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"sms-lån"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s">"upper center"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">"plot.png"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Nu kan vi titta på kurvan i filen <code class="highlighter-rouge">plot.png</code></p>
+
+<p><strong>Uppdrag:</strong> Prova att plotta exempel-lånet enligt exemplet ovan. Kör programmet och titta på det resulterande filen <code class="highlighter-rouge">plot.png</code>.</p>
+
+<p><em>Tips!</em> Det kan vara bra att först ha kört igenom uppgiften <a href="exercises/plot">Plotta funktioner</a> för att förstå hur plottning fungerar.</p>
+
+<p><strong>Uppdrag:</strong> Plotta hur skulden växer de första 5 månaderna när man lånat 1000 kronor hos Buffel&amp;Båg och Lurendrejarna. Vilken firma är minst dålig i början? Vilken är minst dålig i slutet av perioden?</p>
+
+<p><strong>Uppdrag:</strong> Plotta hur skulden växer det första året.</p>
+
+<details>
+<summary>
+Kommentar om resultaten (spoiler)
+</summary>
+<p>Du bör se att kurvorna korsar varandra vid cirka 3.5 månader. Om du tittar på 12-månaders sikt ser du att skulden växer i allt snabbare takt (så kallad *exponentiell* tillväxt).
+</p>
+</details>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Avlusning | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Avlusning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/debugging/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/debugging/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/debugging/","headline":"Avlusning","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Avlusning</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        nybörjare, text, debugging
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-kompileringsfel">1. Kompileringsfel</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#11-indenteringsfel">1.1 Indenteringsfel</a></li>
+<li class="toc-entry toc-h3"><a href="#12-glömma-kolon">1.2 Glömma kolon</a></li>
+<li class="toc-entry toc-h3"><a href="#13-andra-kompileringsfel">1.3 Andra kompileringsfel</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#2-exekveringsfel">2. Exekveringsfel</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#21-division-med-noll">2.1 Division med noll</a></li>
+<li class="toc-entry toc-h3"><a href="#22-typfel">2.2 Typfel</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#3-logiska-fel">3. Logiska fel</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#31-refaktorisering">3.1 Refaktorisering</a></li>
+<li class="toc-entry toc-h3"><a href="#32-hitta-felet">3.2 Hitta felet</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#4-testning">4. Testning</a></li>
+<li class="toc-entry toc-h2"><a href="#5-debugga-som-en-detektiv">5. Debugga som en detektiv</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#51-hitta-felet-med-print-debugging">5.1 Hitta felet med Print-debugging</a></li>
+<li class="toc-entry toc-h3"><a href="#52-prova-en-debugger">5.2 Prova en debugger</a></li>
+<li class="toc-entry toc-h3"><a href="#53-titta-på-stacken">5.3 Titta på stacken</a></li>
+<li class="toc-entry toc-h3"><a href="#54-titta-på-en-stack-trace">5.4 Titta på en stack-trace</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#6-extra-automatisk-testning">6. Extra: Automatisk testning</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#61-automatisk-testning-med-assert">6.1 Automatisk testning med assert</a></li>
+<li class="toc-entry toc-h3"><a href="#62-refaktorisera-mera">6.2 Refaktorisera mera</a></li>
+</ul>
+</li>
+</ul><p>När man programmerar kan det bli fel på många olika sätt. Felen kallas <em>buggar</em> eller <em>bugs</em> på engelska. Buggar är en naturlig del av all programmering. I den här uppgiften skall vi skapa lite olika slags buggar så att vi lättare kan hantera dem när de senare händer på riktigt.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python3">http://repl.it/languages/python3</a> (Python 3).</p>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+<p>Ordet "bug" är en term för tekniska fel av olika slag, och det finns belägg för den sedan åtminstone 1870-talet (<a href="https://en.wikipedia.org/wiki/Software_bug#Etymology">Wikipedia, Software bug</a>). I programmeringssammanhang säger man ibland "lus" på svenska, men det försvenskade "bugg" är vanligare.
+</p>
+</details>
+
+<h2 id="1-kompileringsfel">
+<a id="1-kompileringsfel" class="anchor" href="#1-kompileringsfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Kompileringsfel</h2>
+
+<p>Vi skall börja med att skapa buggar som kallas <em>kompileringsfel</em>. Det är fel som kan upptäckas med en analys av programmet, utan att man behöver köra det.</p>
+
+<p>Många av dessa fel handlar om att strukturen på programmet är fel, dvs att programmet inte följer språkets <em>syntax</em>.</p>
+
+<p>Andra kompileringsfel kan handla om att man använder namn som inte är definierade, eller att man har för många eller för få parametrar till en funktion.</p>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+<p>Att <i>kompilera</i> ett program betyder att det översätts till någon form av maskinkod, alltså primitiv kod som en dator kan förstå, t.ex. med nollor och ettor. I samband med detta upptäcks olika fel. Python brukar dock inte kompileras till maskinkod, utan i stället <i>interpreteras</i> programmen, dvs de tolkas direkt av Python. Det betyder att Python-program normalt går långsammare än program i andra programspråk som t.ex. Java och C.</p>
+<p>Även om Python är ett interpreterat språk så kan vi ändå prata om kompileringsfel, eftersom det står för fel som <i>kan</i> upptäckas innan man kör programmet. En vanlig Python-interpretator ger inte dessa fel förrän man försöker köra programmet. Men i Python 3 på repl.it kontrolleras dessa fel av editorn, innan man kör programmet. Försöker man köra programmet får man samma fel av interpretatorn.
+</p>
+</details>
+
+<p><strong>Uppdrag:</strong> Klistra in följande (korrekta program) i Python-editorn och prova att köra det. Det bör fungera utan fel.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+  <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Resultatet är "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</code></pre></div></div>
+<h3 id="11-indenteringsfel">
+<a id="11-indenteringsfel" class="anchor" href="#11-indenteringsfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1 Indenteringsfel</h3>
+
+<p>Vi börjar med att skapa indenteringsfel, alltså att antalet blanktecken i början av raderna inte stämmer med vad Python förväntar sig.</p>
+
+<p><strong>Uppdrag:</strong> Prova att ändra indenteringen genom att lägga till ett blanktecken i början av första raden. Vilket felmeddelande får du? Ändra tillbaka, och prova på något annat ställe. Notera att du inte alltid får samma felmeddelande och inte alltid på samma rad som du ändrat. Varför kan det vara så? Försök förstå felmeddelandena.</p>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+Ett fel kan ofta rättas på flera olika sätt.
+Det viktiga för Python är att satserna som hör till en def är indragna lika mycket, inte att det är just 2. Det går lika bra med 3.
+</details>
+
+<h3 id="12-glömma-kolon">
+<a id="12-glömma-kolon" class="anchor" href="#12-gl%C3%B6mma-kolon" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2 Glömma kolon</h3>
+
+<p>Det är lätt att glömma ett kolon efter en <code class="highlighter-rouge">def</code> eller en <code class="highlighter-rouge">for</code>.</p>
+
+<p><strong>Uppdrag:</strong> Prova att ta bort kolon i slutet av <code class="highlighter-rouge">def</code>-raden. Kan du förstå felmeddelandet?</p>
+
+<h3 id="13-andra-kompileringsfel">
+<a id="13-andra-kompileringsfel" class="anchor" href="#13-andra-kompileringsfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3 Andra kompileringsfel</h3>
+
+<p>Det finns många andra kompileringsfel man kan göra.</p>
+
+<p><strong>Uppdrag:</strong> Försök skapa ett annat kompileringsfel. Prova till exempel att ta bort sista parentesen på raden <code class="highlighter-rouge">y = square(3)</code>, eller att ändra namnet från <code class="highlighter-rouge">y</code> till <code class="highlighter-rouge">z</code>. Vilka andra kompileringsfel kan du komma på att göra?</p>
+
+<h2 id="2-exekveringsfel">
+<a id="2-exekveringsfel" class="anchor" href="#2-exekveringsfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Exekveringsfel</h2>
+
+<p>Vissa fel upptäcks inte förrän man kör programmet. Sådana fel kallas <em>exekveringsfel</em> eller <em>runtime-fel</em> eller <em>runtime exception</em>. Man kan också säga att programmet <em>kraschar</em>.</p>
+
+<p>Det blir exekveringsfel i de lägen när det inte finns något rimligt beteende för programmet. Här skall vi titta på ett par exempel.</p>
+
+<h3 id="21-division-med-noll">
+<a id="21-division-med-noll" class="anchor" href="#21-division-med-noll" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1 Division med noll</h3>
+
+<p>Vad händer när man dividerar ett tal med noll?</p>
+
+<p><strong>Uppdrag:</strong> Skriv in följande program och provkör det. Vad händer?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="o">/</span><span class="mi">0</span>
+</code></pre></div></div>
+<details>
+<summary>
+Svar
+</summary>
+Att dividera med noll ger inte något definierat värde. Programmet kraschar och skriver ut ett felmeddelande.
+</details>
+
+<h3 id="22-typfel">
+<a id="22-typfel" class="anchor" href="#22-typfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 Typfel</h3>
+
+<p>Ett vanligt exekveringsfel i Python är <em>typfel</em>, det vill säga att en operation förväntade sig ett värde av en viss typ, t.ex. sträng, men fick ett värde av en annan typ, t.ex. heltal.</p>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+Många programmeringsspråk gör mycket analys av programmen för att upptäcka så många typfel som möjligt innan man kör. Men Python gör förhållandevis lite analys, och typfel upptäcks i stället när man kör programmet.
+</details>
+
+<p><strong>Uppdrag:</strong> Prova att köra följande program. Vad blir det för fel? Förstår du felmeddelandet?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">"hej"</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</code></pre></div></div>
+
+<details>
+<summary>
+Kommentar:
+</summary>
+Programmet försöker addera ett heltal och en sträng. Det går bra att addera två heltal, och det går bra att addera två strängar (det betyder konkatenering av strängarna). Men när man adderar ett heltal till en sträng finns det ingen rimlig tolkning, och programmet kraschar.
+</details>
+
+<h2 id="3-logiska-fel">
+<a id="3-logiska-fel" class="anchor" href="#3-logiska-fel" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Logiska fel</h2>
+<p>Även om programmet inte kraschar så kan det finnas <em>logiska</em> fel i programmet, det vill säga att det inte räknar ut det man tänkte sig.</p>
+
+<p>Ett viktigt sätt att försöka undvika logiska fel är att skriva så tydlig kod som möjligt, med bra namn på variabler och funktioner, och att undvika onödigt krångel.</p>
+
+<h3 id="31-refaktorisering">
+<a id="31-refaktorisering" class="anchor" href="#31-refaktorisering" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1 Refaktorisering</h3>
+
+<p>Att förenkla sin kod kallas att <em>refaktorisera</em> den. Det betyder att man gör koden tydligare och mer lättläst, utan att man ändrar vad den gör. Till exempel kan man byta namn på variabler så att man bättre förstår vad de representerar. Och man kan införa en ny funktion för att sätta ett bra namn på en beräkning.</p>
+
+<p><strong>Uppdrag:</strong> Titta på följande program. Kan du lista ut vad det gör? Kan du refaktorisera programmet så att det blir tydligare vad koden gör?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Skriv in antal minuter: "</span><span class="p">))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">60</span>
+  <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Det blir {p} timmar och {x} minuter"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><em>Tips!</em> Kan du hitta på bättre namn på variablerna? Kan du införa en funktion som gör beräkningen och som du namnger så att man förstår vad den gör?</p>
+
+<p>Se nästa uppgift för exempel på hur koden kan refaktoriseras.</p>
+
+<h3 id="32-hitta-felet">
+<a id="32-hitta-felet" class="anchor" href="#32-hitta-felet" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2 Hitta felet</h3>
+
+<p>Här är en refaktoriserad version av koden i förra uppgiften. Förhoppningsvis tycker du också att koden är lättare att förstå nu.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">):</span>
+  <span class="n">timmar</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">minuter_kvar</span> <span class="o">=</span> <span class="n">minuter</span>
+  <span class="k">while</span> <span class="n">minuter_kvar</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="n">minuter_kvar</span> <span class="o">=</span> <span class="n">minuter_kvar</span><span class="o">-</span><span class="mi">60</span>
+    <span class="n">timmar</span> <span class="o">=</span> <span class="n">timmar</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">timmar</span><span class="p">,</span> <span class="n">minuter_kvar</span><span class="p">)</span>
+
+<span class="n">minuter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Skriv in antal minuter: "</span><span class="p">))</span>
+<span class="p">(</span><span class="n">timdel</span><span class="p">,</span> <span class="n">minutdel</span><span class="p">)</span> <span class="o">=</span> <span class="n">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Det blir {timdel} timmar och {minutdel} minuter"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Nu när koden är lite tydligare kanske du kan upptäcka ett litet logiskt fel i den?</p>
+
+<p><em>Tips!</em> Vad händer om du kör programmet och skriver in talet 60 eller 120?</p>
+
+<details>
+<summary>
+Svar
+</summary>
+Jämförelsen i while-satsen borde ändras från &gt; till &gt;= så att om det är 60 minuter kvar så omvandlas de också till en timme.
+</details>
+
+<details>
+<summary>
+Kommentar
+</summary>
+Det finns ytterligare ett problem med programmet: det hanterar inte felaktig indata. Prova att svara en text, t.ex "hej", i stället för ett tal när du kör programmet. Programmet kraschar med ett typfel. Det finns olika sätt att komma till rätta med detta, men det får vi diskutera en annan gång.
+</details>
+
+<h2 id="4-testning">
+<a id="4-testning" class="anchor" href="#4-testning" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Testning</h2>
+
+<p>Ett annat viktigt sätt att försöka undvika logiska fel är <em>testning</em>, dvs att köra programmet med olika indata för att försöka se att det fungerar i alla möjliga situationer.</p>
+
+<p>Att testa alla möjliga indata tar normalt alldeles för lång tid. I stället försöker man fundera ut vilka <em>typiska</em> indata som programmet skall klara av, och vilka indata som kan leda till någon liten <em>svårighet</em> för programmet.</p>
+
+<p><strong>Uppdrag:</strong> Vilka indata skulle du vilja prova på programmet i förra uppgiften för att vara rätt så säker på att det fungerar som det skall? Kör programmet med dessa indata och kontrollera att det fungerar. (Rätta det logiska felet också.)</p>
+
+<details>
+<summary>
+Tips
+</summary>
+Några typiska värden skulle kunna vara t.ex. 52 (mindre än en timme), 74 (mer än en timme), 325 (mer än flera timmar). Några värden som kanske kan vara lite svåra för programmet kan vara 60 (precis en timme) och 0. Kanske vill vi också prova med 59 och 61 eftersom de är nära precis en timme.
+</details>
+
+<h2 id="5-debugga-som-en-detektiv">
+<a id="5-debugga-som-en-detektiv" class="anchor" href="#5-debugga-som-en-detektiv" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Debugga som en detektiv</h2>
+<p>När man får ett exekveringsfel, eller när programmet inte fungerar som man tänkt sig, så kan det ibland vara svårt att inse vad som är fel även om man funderar en stund.</p>
+
+<p>Här är ett program som innehåller ett fel! Programmet skall leta reda på det största talet i en lista och skriva ut det, alltså 5 i detta fall.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hitta_max</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+  <span class="n">maximum</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">maximum</span><span class="p">:</span>
+      <span class="n">maximum</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="k">return</span> <span class="n">maximum</span>
+
+<span class="n">min_lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hitta_max</span><span class="p">(</span><span class="n">min_lista</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Kör programmet. Vilket värde skrivs ut? Fundera en liten stund på vad som kan vara fel.</p>
+
+<p>Att debugga är som att vara en detektiv. Något är fel, men vad? Vi försöker komma på vem kan tänkas vara skurken. Kan det vara <code class="highlighter-rouge">print</code>-satsen? <code class="highlighter-rouge">return</code>-satsen? <code class="highlighter-rouge">for</code>-loopen?</p>
+
+<p>När vi kommit på några misstänkta kan vi samla bevis både för att försöka hitta skurken och för att kunna fria oskyldiga.</p>
+
+<h3 id="51-hitta-felet-med-print-debugging">
+<a id="51-hitta-felet-med-print-debugging" class="anchor" href="#51-hitta-felet-med-print-debugging" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 Hitta felet med Print-debugging</h3>
+
+<p>Ett primitivt men mycket användbart sätt att samla bevis är att lägga in <code class="highlighter-rouge">print</code>-satser i programmet på misstänkta ställen.</p>
+
+<p>Till att börja med kan vi fundera på om programmet överhuvudtaget kommer in i <code class="highlighter-rouge">for</code>-loopen. Vi tror att det gör det, men vi lägger in en print-sats för att kontrollera saken:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hitta_max</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+  <span class="n">maximum</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"x = {x}, max = {maximum}"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">maximum</span><span class="p">:</span>
+      <span class="n">maximum</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="k">return</span> <span class="n">maximum</span>
+
+<span class="n">min_lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hitta_max</span><span class="p">(</span><span class="n">min_lista</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Lägg till print-satsen ovan och kör programmet för att kontrollera att vi kommer in i loopen.</p>
+
+<p>Förhoppningsvis ser du att man kommer in i for-loopen en gång för varje element i listan. Så själva for-loopen kan avskrivas från brottsutredningen: den fungerar som den skall.</p>
+
+<p>Har du en ny misstänkt? Kommer programmet in i if-satsen?</p>
+
+<p><strong>Uppdrag:</strong> Lägg till en print-sats inuti if-satsen:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"inne i if-satsen nu"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Provkör igen. Hittar du felet?</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+Programmet kommer aldrig in i if-satsen. Det beror på att det testar om x är <i>mindre</i> i stället för större än maximum.
+</details>
+
+<p><strong>Uppdrag:</strong> Förhoppningsvis har du hittat felet nu. Rätta felet och kontrollera att programmet fungerar som det ska.</p>
+
+<h3 id="52-prova-en-debugger">
+<a id="52-prova-en-debugger" class="anchor" href="#52-prova-en-debugger" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2 Prova en debugger</h3>
+
+<p>En debugger är ett verktyg där man kan köra programmet stegvis. För repl.it finns en väldigt enkel debugger. Här är det rättade programmet från förra uppgiften, och med några extra print-satser:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hitta_max</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+  <span class="n">maximum</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"x = {x}"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">maximum</span><span class="p">:</span>
+      <span class="n">maximum</span> <span class="o">=</span> <span class="n">x</span>
+      <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"max = {maximum}"</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">maximum</span>
+
+<span class="n">min_lista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hitta_max</span><span class="p">(</span><span class="n">min_lista</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>För att köra programmet med debuggern öppnar man först debug-vyn (1). Därefter startar man programmet med debuggerns run-symbol (2). Tryck sedan på <code class="highlighter-rouge">step into</code>-knappen (3) så kör programmet ett steg. Vilken rad man är på visas med ljusblått i editorn (4).</p>
+
+<p><img src="debug.png" height="250"></p>
+
+<p><strong>Uppdrag:</strong> Kör igenom programmet stegvis. Tryck på <code class="highlighter-rouge">step into</code> om och om igen och se hur den blåa raden flyttar sig. Är du med på vad som händer när programmet körs?</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>
+Här är en lista på vad som händer när vi kör programmet:
+</p>
+<ul>
+<li>Python läser igenom definitionen av <i>hitta_max</i>, utan att köra funktionen</li>
+<li>Python sätter värdet på variabeln <i>min_lista</i>
+</li>
+<li>Python anropar <i>hitta_max</i>-funktionen</li>
+<li>... många satser utförs inuti <i>hitta_max</i>
+</li>
+<li>Python hoppar tillbaka till huvudprogrammet och skriver ut resultatet från <i>hitta_max</i>
+</li>
+</ul>
+
+</details>
+
+<p>Förutom <code class="highlighter-rouge">step into</code> finns det tre andra knappar man kan trycka på. Från vänster till höger är de: <code class="highlighter-rouge">resume</code>, <code class="highlighter-rouge">step over</code>, <code class="highlighter-rouge">step into</code> och <code class="highlighter-rouge">step out</code>.</p>
+
+<p>Kommandot <code class="highlighter-rouge">step into</code> betyder att man går in i funktioner som anropas. Om man har ett stort program kan man vilja hoppa över vissa anrop, och då gör man <code class="highlighter-rouge">step over</code> i stället.</p>
+
+<p><strong>Uppdrag:</strong> Kör igenom programmet med debuggern igen, men använd nu <code class="highlighter-rouge">step over</code> i stället. Ser du skillnaden?</p>
+
+<p>Om man gjort <code class="highlighter-rouge">step into</code> och kommit in i en funktion som har många steg så kan man göra <code class="highlighter-rouge">step out</code> för att köra färdigt funktionen och komma ut till anropet igen.</p>
+
+<p><strong>Uppdrag:</strong> Kör igenom programmet med debuggern igen, och använd <code class="highlighter-rouge">step into</code>. Men när du kört något varv i loopen, tryck en gång på <code class="highlighter-rouge">step out</code>.</p>
+
+<p>Det finn också ett kommando <code class="highlighter-rouge">resume</code>. Det betyder helt enkelt att man kör vidare i programmet, utan att stega alls.</p>
+
+<p>Debuggern i repl.it är väldigt enkel. I en mer avancerad debugger kan man också titta på variabelvärden och köra fram till en given punkt, en så kallad <em>brytpunkt</em>.</p>
+
+<h3 id="53-titta-på-stacken">
+<a id="53-titta-på-stacken" class="anchor" href="#53-titta-p%C3%A5-stacken" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3 Titta på stacken</h3>
+
+<p>När en funktion anropas så körs den funktionen, och när den kört klart så hoppar exekveringen tillbaka till precis efter anropet.</p>
+
+<p>Anta nu att vi anropar en funktion <code class="highlighter-rouge">f</code> som anropar en annan funktion <code class="highlighter-rouge">g</code> som i sin tur anropar en tredje funktion <code class="highlighter-rouge">h</code>. När <code class="highlighter-rouge">h</code> är klar hoppar exekveringen tillbaka till <code class="highlighter-rouge">g</code>, och när <code class="highlighter-rouge">g</code> är klar hoppar exekveringen tillbaka till <code class="highlighter-rouge">f</code>, och när <code class="highlighter-rouge">f</code> är klar hoppar exekveringen tillbaka till vårt första anrop. Detta kallas en <em>stack</em> av anrop. För varje anrop läggs lite information om funktionen på stacken, och för varje funktion som är klar så tas informationen bort igen.</p>
+
+<p>Vi kan titta på stacken i debuggern. Från början innehåller stacken bara huvudmodulen. Men om vi kör stegvis ser vi att stacken växer för varje funktionsanrop, och krymper varje gång en funktion kört klart.</p>
+
+<p><strong>Uppdrag:</strong> Klistra in nedanstående program och kör det med <code class="highlighter-rouge">step in</code> i debuggern. Lägg märke till hur stacken växer och krymper. Hur stor är stacken när den är som djupast?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gubbe</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Denna gubben har"</span><span class="p">)</span>
+  <span class="n">huvud</span><span class="p">()</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Gubben har också"</span><span class="p">)</span>
+  <span class="n">kropp</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">huvud</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"ett huvud med"</span><span class="p">)</span>
+  <span class="n">oga</span><span class="p">(</span><span class="s">"blått"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"och"</span><span class="p">)</span>
+  <span class="n">oga</span><span class="p">(</span><span class="s">"brunt"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"och"</span><span class="p">)</span>
+  <span class="n">mun</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">kropp</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"en kropp med"</span><span class="p">)</span>
+  <span class="n">armar</span><span class="p">(</span><span class="s">"två"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"och"</span><span class="p">)</span>
+  <span class="n">ben</span><span class="p">(</span><span class="s">"två"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">oga</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"ett {color} öga"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">mun</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"en mun"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">armar</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s">" armar"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ben</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s">" ben"</span><span class="p">)</span>
+
+<span class="n">gubbe</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Kan du ändra programmet så du får en ännu djupare stack? Kör stegvis i debuggern igen.</p>
+
+<p><em>Tips!</em> Ändra t.ex. definitionen av <code class="highlighter-rouge">oga</code> så den anropar en ny funktion med fler detaljer om ögon.</p>
+
+<h3 id="54-titta-på-en-stack-trace">
+<a id="54-titta-på-en-stack-trace" class="anchor" href="#54-titta-p%C3%A5-en-stack-trace" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.4 Titta på en stack-trace</h3>
+
+<p>När ett program kraschar brukar felmeddelandet innehålla inte bara vad som gick fel, utan också en utskrift av stacken, en så kallad <em>stack-trace</em>. Det är jättebra information, för då ser man vilka anrop som gjorts och kan lättare lista ut vad som har gått fel.</p>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att det blir fel genom att ändra anropet <code class="highlighter-rouge">ben("två")</code> till <code class="highlighter-rouge">ben(2)</code>. Kör programmet som vanligt, utan debuggern. Kan du tolka felmeddelandet? Kan du lista ut vilka funktioner som är inblandade i felet?</p>
+
+<details>
+<summary>
+Kommentar
+</summary>
+Du ser att programmet kraschade med ett typ-fel inne i ben-funktionen. Du ser också att huvudprogrammet anropade <code>gubbe</code> som anropade <code>kropp</code> som anropade <code>ben</code> när det gick fel. Du ser också vilka rader anropen gjordes från. Skulle du kunnat hitta felet om du inte redan visste vad som var fel?
+</details>
+
+<h2 id="6-extra-automatisk-testning">
+<a id="6-extra-automatisk-testning" class="anchor" href="#6-extra-automatisk-testning" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Extra: Automatisk testning</h2>
+
+<p>Vi utgår från programmet som omvandlar från minuter till timmar och minuter igen (fast nu den rättade versionen):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">):</span>
+  <span class="n">timmar</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">minuter_kvar</span> <span class="o">=</span> <span class="n">minuter</span>
+  <span class="k">while</span> <span class="n">minuter_kvar</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="n">minuter_kvar</span> <span class="o">=</span> <span class="n">minuter_kvar</span><span class="o">-</span><span class="mi">60</span>
+    <span class="n">timmar</span> <span class="o">=</span> <span class="n">timmar</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">timmar</span><span class="p">,</span> <span class="n">minuter_kvar</span><span class="p">)</span>
+
+<span class="n">minuter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Skriv in antal minuter: "</span><span class="p">))</span>
+<span class="p">(</span><span class="n">timdel</span><span class="p">,</span> <span class="n">minutdel</span><span class="p">)</span> <span class="o">=</span> <span class="n">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Det blir {timdel} timmar och {minutdel} minuter"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="61-automatisk-testning-med-assert">
+<a id="61-automatisk-testning-med-assert" class="anchor" href="#61-automatisk-testning-med-assert" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1 Automatisk testning med assert</h3>
+
+<p>I stället för att testa programmet för hand, genom att köra det om och om igen och mata in olika indata varje gång, så kan vi lägga till programkod som <em>automatiskt</em> testar programmet.</p>
+
+<p>Ett enkelt sätt att göra detta är att lägga till <code class="highlighter-rouge">assert</code>-satser. Engelska <em>assert</em> betyder <em>hävda</em>. När man t.ex. skriver</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="n">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+<p>så kan vi läsa det som att <em>jag hävdar att</em> <code class="highlighter-rouge">omvandla_till_timmar_och_minuter(70)</code> <em>är lika med</em> <code class="highlighter-rouge">(1, 10)</code> (alltså 1 timme och 10 minuter).</p>
+
+<p>När Python kör en assert-sats så blir det exekveringsfel om det man hävdar inte stämmer.</p>
+
+<p><strong>Uppdrag:</strong> Prova att köra assert-satsen ovan. Prova att ändra i assert-satsen eller i programmet för att få fram ett exekveringsfel, så du ser hur det fungerar.</p>
+
+<p><strong>Uppdrag:</strong> Lägg till assert-satser som motsvarar de värden du testade programmet med i den tidigare uppgiften. Kan du få alla assert-satserna att exekvera utan fel?</p>
+
+<p><em>Kommentar:</em> Assert-satser är ett enkelt sätt att lägga till testkod som körs av programmet själv. I professionell programmering lägger man oftast testkoden på ett separat ställe så att man kan välja när den skall köras.</p>
+
+<h3 id="62-refaktorisera-mera">
+<a id="62-refaktorisera-mera" class="anchor" href="#62-refaktorisera-mera" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2 Refaktorisera mera</h3>
+
+<p>Refaktorisering är en naturlig del av all programmering. När man löst ett problem upptäcker man ofta att man kan formulera det på ett enklare och tydligare sätt.</p>
+
+<p>När man lärt sig lite mer Python-konstruktioner kan man t.ex. upptäcka att programmet ovan kan formuleras enklare så här:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">):</span>
+  <span class="n">timdel</span> <span class="o">=</span> <span class="n">minuter</span><span class="o">//</span><span class="mi">60</span>
+  <span class="n">minutdel</span> <span class="o">=</span> <span class="n">minuter</span><span class="o">%</span><span class="mi">60</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">timdel</span><span class="p">,</span> <span class="n">minutdel</span><span class="p">)</span>
+
+<span class="n">minuter</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Skriv in antal minuter: "</span><span class="p">))</span>
+<span class="p">(</span><span class="n">timdel</span><span class="p">,</span> <span class="n">minutdel</span><span class="p">)</span> <span class="o">=</span> <span class="n">omvandla_till_timmar_och_minuter</span><span class="p">(</span><span class="n">minuter</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Det blir {timdel} timmar och {minutdel} minuter"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Här har vi använt heltalsdivision <code class="highlighter-rouge">//</code> och rest <code class="highlighter-rouge">%</code> för att räkna ut timmar och minuter.</p>
+
+<p>När man refaktoriserar är det jättebra att ha automatiska testfall. Då kan man enkelt testa att man inte råkat förstöra något som fungerade tidigare.</p>
+
+<p><strong>Uppdrag:</strong> Prova att refaktorisera programmet enligt exemplet ovan. Förhoppningsvis fungerar alla dina testfall (assert-satser) fortfarande!</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

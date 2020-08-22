@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Kvadrera talet | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Kvadrera talet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/square-the-number/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/square-the-number/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/square-the-number/","headline":"Kvadrera talet","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Kvadrera talet</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        nybörjare, text, input/output, typer, sträng-konkatenering, enkla beräkningar, kvadrat, hypotenusa
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#1-hello-world">1. Hello world!</a></li>
+<li class="toc-entry toc-h2"><a href="#2-inläsning">2. Inläsning</a></li>
+<li class="toc-entry toc-h2"><a href="#3-strängar-och-konkatenering">3. Strängar och konkatenering</a></li>
+<li class="toc-entry toc-h2"><a href="#4-om-typer">4. Om typer</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#41-typfel">4.1 Typfel</a></li>
+<li class="toc-entry toc-h3"><a href="#42-typomvandling-till-sträng">4.2 Typomvandling till sträng</a></li>
+<li class="toc-entry toc-h3"><a href="#43-sträng-interpolering-skriv-strängar-som-innehåller-tal">4.3 Sträng-interpolering: skriv strängar som innehåller tal</a></li>
+<li class="toc-entry toc-h3"><a href="#44-typomvandling-till-heltal">4.4 Typomvandling till heltal</a></li>
+<li class="toc-entry toc-h3"><a href="#45-logiska-värden-boolean">4.5 Logiska värden (Boolean)</a></li>
+<li class="toc-entry toc-h3"><a href="#46-floats-är-inte-exakta">4.6 Floats är inte exakta</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#5-kvadrera-talet">5. Kvadrera talet</a></li>
+<li class="toc-entry toc-h2"><a href="#6-beräkna-hypotenusan-av-en-rätvinklig-triangel">6. Beräkna hypotenusan av en rätvinklig triangel</a></li>
+<li class="toc-entry toc-h2"><a href="#7-extra-hitta-på-en-egen-beräkning">7. Extra: Hitta på en egen beräkning</a></li>
+</ul><p>I denna uppgift får du träna på att låta programmet skriva ut och läsa in text. Vi experimenterar också med typer på värden.
+Sedan har vi tillräckligt med kunskaper för att programmera enkla matte-tal med in och utdata, t.ex. kvadrera ett tal.</p>
+
+<p>Vi kör Python 3 i denna uppgift, och har inte tillgång till någon sköldpadda. Koden är provkörd på <a href="http://repl.it/languages/python3">http://repl.it/languages/python3</a> (Python 3).</p>
+
+<h2 id="1-hello-world">
+<a id="1-hello-world" class="anchor" href="#1-hello-world" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Hello world!</h2>
+
+<p>Det enklaste program man kan tänka sig är ett som skriver ut en text när man kör det, t.ex. <em>Hello world!</em>. Så här ser detta program ut i Python 3:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hello world!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Skriv in programmet och kör det. Var dyker texten upp? Ändra texten som skrivs ut till något annat, t.ex. “Hej svejs i lingonskogen!”</p>
+
+<p>Texten dyker upp i den så kallade <em>console</em>-vyn. Kärt barn har många namn, och denna vy kallas också för t.ex. <em>terminalfönstret</em>, eller <em>kommandoraden</em>.</p>
+
+<p>(Dessa termer härstammar från datorns barndom innan det fanns grafiska skärmar med fönster och pixlar. Då styrde man datorn från en “console” eller “terminal” som hade en enkel textskärm och där man skrev kommandon som text-rader.)</p>
+
+<h2 id="2-inläsning">
+<a id="2-inläsning" class="anchor" href="#2-inl%C3%A4sning" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Inläsning</h2>
+
+<p>Nu skall vi ändra programmet så det kan <em>läsa in</em>, och inte bara <em>skriva ut</em> något. Följande program frågar vad du heter, och hejar sedan på dig:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Vad heter du?"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hejsan "</span> <span class="o">+</span> <span class="n">namn</span><span class="p">)</span>
+</code></pre></div></div>
+<p><strong>Uppdrag:</strong> Skriv in programmet och kör det. Fundera sedan över vad som händer när programmet körs och i vilken ordning. Titta sedan på svaret nedan.</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<ol>
+<li>
+<i>input</i>-funktionen skriver ut texten "Vad heter du?" och väntar på svar.</li>
+<li>Användaren skriver in ett svar, t.ex. "Lisa", och trycker på return.</li>
+<li>Programmet fortsätter köra och lagrar svaret ("Lisa") i variabeln <i>namn</i>.</li>
+<li>Programmet lägger ihop texten "Hejsan " med texten i variabeln <i>namn</i> till den längre texten: "Hejsan Lisa".</li>
+<li>
+<i>print</i>-funktionen anropas och skriver ut den längre texten, "Hejsan Lisa".</li>
+</ol>
+</details>
+
+<p><em>Kommentar:</em> Texten som <code class="highlighter-rouge">input</code>-funktionen skriver ut kallas <em>ledtext</em> eller <em>prompt</em>.</p>
+
+<h2 id="3-strängar-och-konkatenering">
+<a id="3-strängar-och-konkatenering" class="anchor" href="#3-str%C3%A4ngar-och-konkatenering" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Strängar och konkatenering</h2>
+
+<p>Texter, som t.ex. “Hejsan” och “Vad heter du?”, kallas <em>strings</em> på engelska, och på svenska säger vi <em>strängar</em>.</p>
+
+<p>Observera att strängar kan <em>läggas ihop</em> med plustecknet. Det betyder att de läggs efter varann till en längre sträng. Om vi t.ex. lägger ihop</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Hej"</span> <span class="o">+</span> <span class="s">"Svejs"</span>
+</code></pre></div></div>
+<p>så blir resultatet:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"HejSvejs"</span>
+</code></pre></div></div>
+
+<p>Att lägga ihop två strängar kallas också att man <em>konkatenerar</em> dem.</p>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att det skriver ut t.ex. “Hejsan Lisa! Kul att träffas!” (när du svarat “Lisa”).</p>
+
+<p>Det programmet skriver ut kallas <em>utdata</em>. Det programmet läser in kallas <em>indata</em>.</p>
+
+<h2 id="4-om-typer">
+<a id="4-om-typer" class="anchor" href="#4-om-typer" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Om typer</h2>
+
+<p>Värden i datorn kan vara av olika <em>typer</em>. T.ex. <em>sträng</em>, <em>heltal</em>, och <em>decimaltal</em>. På engelska kallas de <em>string</em>, <em>integer</em> och <em>float</em>.</p>
+
+<p>När man anropar en funktion med en parameter, så förväntar sig oftast funktionen att parametern skall ha en särskild typ, t.ex. heltal. Råkar man skicka in ett värde av fel typ, t.ex. en sträng i detta fall, så kan funktionen krascha eller räkna ut fel sak.</p>
+
+<p>I Python kan man ta reda på typen på ett värde med funktionen <code class="highlighter-rouge">type</code>. T.ex. kan man skriva ut typen på värdet <code class="highlighter-rouge">7+3</code> på följande sätt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">7</span><span class="o">+</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>I Python 3 representeras typerna av något som kallas <em>klasser</em>, och ovanstående program skriver ut</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s">'&gt;</span><span class="err">
+</span></code></pre></div></div>
+
+<p>vilket betyder att <code class="highlighter-rouge">7</code> har typen <em>int</em>, vilket är kort för <em>integer</em>, alltså ett heltal.</p>
+
+<p>För att förstå typer bättre skall vi experimentera lite:</p>
+
+<p><strong>Uppdrag:</strong> Använd <code class="highlighter-rouge">print</code> och <code class="highlighter-rouge">type</code> för att ta reda på typen för följande uttryck:</p>
+<ul>
+  <li><code class="highlighter-rouge">5.2</code></li>
+  <li><code class="highlighter-rouge">3</code></li>
+  <li><code class="highlighter-rouge">3 + 3</code></li>
+  <li><code class="highlighter-rouge">5.2 + 5.2</code></li>
+  <li><code class="highlighter-rouge">3 + 5.2</code></li>
+  <li><code class="highlighter-rouge">"hej"</code></li>
+  <li><code class="highlighter-rouge">"hej" + "svejs"</code></li>
+</ul>
+
+<p>Som du ser kan man ibland lägga ihop värden som är av <em>olika</em> typ, t.ex. (<code class="highlighter-rouge">3 + 5.2</code>). När detta uttryck beräknas kommer Python att först göra om heltalet <code class="highlighter-rouge">3</code> till decimaltalet <code class="highlighter-rouge">3.0</code>, och sedan lägga ihop det med <code class="highlighter-rouge">5.2</code>. Resultatet blir ett decimaltal (en <em>float</em>).</p>
+
+<h3 id="41-typfel">
+<a id="41-typfel" class="anchor" href="#41-typfel" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1 Typfel</h3>
+
+<p>Det är inte alltid man kan kombinera värden av olika typer.</p>
+
+<p><strong>Uppdrag:</strong> Ta reda på typen för följande uttryck:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span> <span class="o">+</span> <span class="s">"vligt"</span>
+</code></pre></div></div>
+<details>
+<summary>
+Svar:
+</summary>
+<p>När du försöker köra ett program med ovanstående uttryck i Python 3 så får du följande fel:
+</p>
+<pre>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+</pre>
+Det betyder alltså att Python 3 <i>inte</i> stödjer att man lägger ihop heltal med strängar. Programmet kraschar när man försöker göra detta.
+
+</details>
+
+<h3 id="42-typomvandling-till-sträng">
+<a id="42-typomvandling-till-sträng" class="anchor" href="#42-typomvandling-till-str%C3%A4ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2 Typomvandling till sträng</h3>
+
+<p>Om du hade tänkt dig att uttrycket ovan skulle räknas ut till strängen <code class="highlighter-rouge">"3vligt"</code>, så måste du själv först göra om heltalet <code class="highlighter-rouge">3</code> till strängen <code class="highlighter-rouge">"3"</code>. Det kan du gära med hjälp av funktionen <code class="highlighter-rouge">str</code> som gör om heltal eller decimaltal (eller andra typer) till strängar:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">str</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="s">"vligt"</span>
+</code></pre></div></div>
+<p><strong>Uppdrag:</strong> Ta reda på värdet och typen av detta uttryck.</p>
+
+<details>
+<summary>
+Tips:
+</summary>
+<p>Du kan skriva ut värdet med:
+</p>
+<pre>
+print(...)
+</pre>
+och typen med
+<pre>
+print(type(...))
+</pre>
+
+
+</details>
+
+<h3 id="43-sträng-interpolering-skriv-strängar-som-innehåller-tal">
+<a id="43-sträng-interpolering-skriv-strängar-som-innehåller-tal" class="anchor" href="#43-str%C3%A4ng-interpolering-skriv-str%C3%A4ngar-som-inneh%C3%A5ller-tal" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3 Sträng-interpolering: skriv strängar som innehåller tal</h3>
+
+<p>Följande program skriver ut vad klockan är (på den dator där programmet körs):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Klockan är "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span> <span class="o">+</span> <span class="s">" på den här datorn!"</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Det kan kännas lite krångligt att behöva omvandla talen till strängar och använda strängkonkatering. Men det finns ett enklare sätt:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Klockan är {now.hour}:{now.minute} på den här datorn!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Detta kallas <em>stränginterpolering</em>, det vill säga att en text ändras genom att andra värden stoppas in på olika ställen i den. De andra värdena, som <code class="highlighter-rouge">now.hour</code> och <code class="highlighter-rouge">now.minute</code>, omvandlas automatiskt till strängar. För att denna formattering skall fungera behöver man skriva ett litet <code class="highlighter-rouge">f</code> framför strängen: <code class="highlighter-rouge">f"..."</code>. På engelska kallas detta <em>string interpolation</em>.</p>
+
+<p><strong>Uppdrag:</strong> Skriv ett program som använder stränginterpolering för att skriva ut vad klockan är, inklusive sekunder. (Använd <code class="highlighter-rouge">now.second</code>.)</p>
+
+<h3 id="44-typomvandling-till-heltal">
+<a id="44-typomvandling-till-heltal" class="anchor" href="#44-typomvandling-till-heltal" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4 Typomvandling till heltal</h3>
+
+<p>Ibland kan man behöva omvandla strängar till tal, t.ex. när man läser in med <code class="highlighter-rouge">input</code>-funktionen.</p>
+
+<p>Man kan omvandla strängar till heltal med funktionen <code class="highlighter-rouge">int</code>.</p>
+
+<p><strong>Uppdrag:</strong> Ta reda på typen för</p>
+<ul>
+  <li><code class="highlighter-rouge">"42"</code></li>
+  <li><code class="highlighter-rouge">int("42")</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">int</code>-funktionen är praktisk t.ex. när man vill läsa in ett tal med <code class="highlighter-rouge">input</code>-funktionen. Resultatet av <code class="highlighter-rouge">input</code>-funktionen är alltid en sträng.</p>
+
+<p><strong>Uppdrag:</strong> Ta reda på typen på <code class="highlighter-rouge">x</code> respektive <code class="highlighter-rouge">y</code> i nedanstående program.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Skriv ett tal: "</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Skriv ett tal"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>
+<code>x</code> är en sträng. <code>y</code> är ett heltal.
+</p>
+</details>
+
+<h3 id="45-logiska-värden-boolean">
+<a id="45-logiska-värden-boolean" class="anchor" href="#45-logiska-v%C3%A4rden-boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.5 Logiska värden (Boolean)</h3>
+
+<p>Om man jämför två tal får man ett <em>logiskt</em> värde, som antingen är sant (<code class="highlighter-rouge">True</code>) eller falskt (<code class="highlighter-rouge">False</code>). Sådana värden kallas också <em>Booleska</em> värden (eller <em>Boolean</em> på engelska) efter matematikern George Boole (1815-1864).</p>
+
+<p><strong>Uppdrag:</strong> Ta reda på vad typen är på följande uttryck: <code class="highlighter-rouge">4 &lt; 5</code>. Ta också reda på vad värdet är.</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>
+Typen är <i>bool</i>, alltså boolean. Värdet är <i>True</i>, alltså sant.
+</p>
+<pre>
+print(type(4&lt;5))
+print(4&lt;5)
+</pre>
+
+
+</details>
+
+<h3 id="46-floats-är-inte-exakta">
+<a id="46-floats-är-inte-exakta" class="anchor" href="#46-floats-%C3%A4r-inte-exakta" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6 Floats är inte exakta</h3>
+
+<p>Decimaltal representeras med <em>flyttal</em> (floats) i datorn. Floats är inte exakta, utan approximativa värden. Anledningen är att de representeras av ett fixt antal <em>bitar</em> där varje bit är noll eller ett.</p>
+
+<p><strong>Uppdrag:</strong> Prova vad <code class="highlighter-rouge">7.2 - 7.1</code> har för värde.</p>
+
+<details>
+<summary>
+Svar:
+</summary>
+<p>
+Du kan göra:
+</p>
+<pre>
+print(7.2 - 7.1)
+</pre>
+Du ser att 7.2 - 7.1 inte är exakt 0.1.
+
+</details>
+
+<h2 id="5-kvadrera-talet">
+<a id="5-kvadrera-talet" class="anchor" href="#5-kvadrera-talet" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Kvadrera talet</h2>
+
+<p>Nu när vi har ett hum om hur in och utdata och typer fungerar kan vi programmera enkla matte-tal.</p>
+
+<p><strong>Uppdrag:</strong> Skriv ett program som frågar efter ett tal och skriver ut vad kvadraten av talet är.</p>
+
+<p>Här är exempel på körning, med utdata i blått och indata i rött.</p>
+
+<p>
+<font color="blue">Skriv ett tal jag skall kvadrera: </font><font color="red">5</font><br>
+<font color="blue">Kvadraten av 5 är 25</font>
+</p>
+
+<details>
+<summary>
+Lösning:
+</summary>
+<pre>
+tal = int(input("Skriv ett tal jag skall kvadrera: "))
+kvadrat = tal * tal
+print(f"Kvadraten av {tal} är {kvadrat}")
+</pre>
+</details>
+
+<h2 id="6-beräkna-hypotenusan-av-en-rätvinklig-triangel">
+<a id="6-beräkna-hypotenusan-av-en-rätvinklig-triangel" class="anchor" href="#6-ber%C3%A4kna-hypotenusan-av-en-r%C3%A4tvinklig-triangel" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Beräkna hypotenusan av en rätvinklig triangel</h2>
+
+<p><strong>Uppdrag:</strong> Skriv ett program som frågar användaren efter längden på två kateter hos en rätvinklig triangel och skriver ut hypotenusan som svar.</p>
+
+<p>Exempel på ett par körningar, med utdata i blått och indata i rött:</p>
+
+<p>
+<font color="blue">Jag kan räkna ut hypotenusan för en rätvinklig triangel.<br>
+Hur lång är den ena kateten?</font> <font color="red">3</font><br>
+<font color="blue">Och hur lång är den andra?</font> <font color="red">4</font><br>
+<font color="blue">Enkelt! Hypotenusan är 5.0</font>
+</p>
+
+<p>
+<font color="blue">Jag kan räkna ut hypotenusan för en rätvinklig triangel.<br>
+Hur lång är den ena kateten?</font> <font color="red">5</font><br>
+<font color="blue">Och hur lång är den andra?</font> <font color="red">3</font><br>
+<font color="blue">Enkelt! Hypotenusan är 5.830951894845301</font>
+</p>
+
+<p><em>Tips</em> För att räkna ut en kvadratrot kan du använda Pythons bibliotek <code class="highlighter-rouge">math</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="o">...</span>
+<span class="o">...</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">...</span><span class="p">)</span><span class="o">...</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<h2 id="7-extra-hitta-på-en-egen-beräkning">
+<a id="7-extra-hitta-på-en-egen-beräkning" class="anchor" href="#7-extra-hitta-p%C3%A5-en-egen-ber%C3%A4kning" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Extra: Hitta på en egen beräkning</h2>
+
+<p><strong>Uppdrag:</strong> Hitta på en egen beräkning där användaren skriver in tal och programmet räknar ut något. Några ideer:</p>
+<ul>
+  <li>Arean på en rätvinklig triangel</li>
+  <li>Omkretsen på en cirkel (använd <code class="highlighter-rouge">math.pi</code>)</li>
+  <li>Volymen på ett rätblock</li>
+  <li>…</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

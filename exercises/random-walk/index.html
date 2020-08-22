@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Slumpvandring | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Slumpvandring" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/random-walk/" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/random-walk/" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/random-walk/","headline":"Slumpvandring","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Slumpvandring</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        nybörjare, sköldpaddsgrafik, if-sats, block-struktur, slump, geometri, vinklar
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1-alternativa-färger">1. Alternativa färger</a></li>
+<li class="toc-entry toc-h3"><a href="#2-slumpfärger">2. Slumpfärger</a></li>
+<li class="toc-entry toc-h3"><a href="#3-slumpsväng">3. Slumpsväng</a></li>
+<li class="toc-entry toc-h3"><a href="#4-slumpvandring">4. Slumpvandring</a></li>
+</ul><p><img src="fig-randomwalk.png" height="100"></p>
+
+<p>I denna uppgift får du träna på if-satser och block-struktur i program.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python-turtle">http://repl.it/languages/python-turtle</a> (Python 2.7).</p>
+
+<h3 id="1-alternativa-färger">
+<a id="1-alternativa-färger" class="anchor" href="#1-alternativa-f%C3%A4rger" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Alternativa färger</h3>
+
+<p>I följande program ritas antingen ett rött eller grönt streck, beroende på värdet på <code class="highlighter-rouge">r</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>               <span class="c1"># r får värdet 1
+</span><span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>            <span class="c1"># testa om r har värdet 1
+</span>  <span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>    <span class="c1">#  i så fall, sätt färgen till röd
+</span><span class="k">else</span><span class="p">:</span>               <span class="c1"># i annat fall
+</span>  <span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">"green"</span><span class="p">)</span>  <span class="c1">#  sätt färgen till grön
+</span><span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>       <span class="c1"># gå sedan framåt
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Prova programmet. Vilken färg ritas? Prova att ändra <code class="highlighter-rouge">r = 1</code> till <code class="highlighter-rouge">r = 2</code>. Vilken färg ritas nu? Hur fungerar if-satsen?</p>
+
+<p>(Om du har svårt att se skillnad på färgerna, ändra dem till andra färger.)</p>
+
+<h3 id="2-slumpfärger">
+<a id="2-slumpfärger" class="anchor" href="#2-slumpf%C3%A4rger" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Slumpfärger</h3>
+
+<p>I stället för att sätta värdet på <code class="highlighter-rouge">r</code> till <code class="highlighter-rouge">1</code> eller <code class="highlighter-rouge">2</code> kan du använda ett slumptal:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Uttrycket <code class="highlighter-rouge">randint(1,2)</code> ger värdet <code class="highlighter-rouge">1</code> eller <code class="highlighter-rouge">2</code> med samma sannolikhet (50%).</p>
+
+<p><strong>Uppdrag:</strong> Ändra programmet så att värdet på <code class="highlighter-rouge">r</code> sätts genom att dra ett slumptal. Kör programmet några gånger. Får du fram olika färger?</p>
+
+<details>
+<summary>
+Lösning
+</summary>
+<pre>
+import turtle
+t = turtle.Turtle()
+
+from random import randint
+r = randint(1,2)
+
+if r==1:
+  t.color("red")
+else:
+  t.color("green")
+t.forward(50)
+</pre>
+</details>
+
+<h3 id="3-slumpsväng">
+<a id="3-slumpsväng" class="anchor" href="#3-slumpsv%C3%A4ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Slumpsväng</h3>
+
+<p>Nu vill vi att paddan skall svänga till vänster när färgen sätts till röd, och till höger när färgen sätts till grön.</p>
+
+<p><strong>Uppdrag:</strong> Lägg till kod inuti if-satsen så att paddan svänger till vänster respektive höger förutom att sätta färgen. Kör programmet några gånger. Får du paddan att göra rätt?</p>
+
+<p>(Du kan själv bestämma hur många grader paddan skall svänga.)</p>
+
+<details>
+<summary>
+Lösning
+</summary>
+<pre>
+import turtle
+t = turtle.Turtle()
+
+from random import randint
+r = randint(1,2)
+
+if r==1:
+  t.color("red")
+  t.left(45)
+else:
+  t.color("green")
+  t.right(45)
+t.forward(50)
+</pre>
+</details>
+
+<h3 id="4-slumpvandring">
+<a id="4-slumpvandring" class="anchor" href="#4-slumpvandring" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Slumpvandring</h3>
+
+<p>Nu skall vi utöka programmet med en funktion <code class="highlighter-rouge">randomwalk</code> som tar ett antal steg och slumpmässigt svänger vänster med röd färg eller höger med grön färg.</p>
+
+<p>I funktionen definierar vi ett antal parametrar så vi enkelt kan välja hur många steg paddan skall ta (<code class="highlighter-rouge">steps</code>), hur många grader den skall svänga (<code class="highlighter-rouge">angle</code>) och hur långa stegen skall vara (<code class="highlighter-rouge">steplength</code>). Vi provar att anropa den med 30 steg, vinkel 100, och steglängd 20:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="k">def</span> <span class="nf">randomwalk</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">steplength</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c1"># lägg till en if-sats här för att svänga och byta färg
+</span>    <span class="c1"># beroende på värdet på r
+</span>    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">steplength</span><span class="p">)</span>
+
+<span class="n">randomwalk</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Men funktionen är inte riktigt klar än.</p>
+
+<p><strong>Uppdrag:</strong> Lägg till en if-sats så att funktionen för varje steg svänger slumpmässigt till vänster med röd färg eller till höger med grön färg. Prova programmet med olika parametrar.</p>
+
+<p><em>Tips!</em> När du nästlar funktionsdefinitioner (<code class="highlighter-rouge">def</code>), loopar (<code class="highlighter-rouge">for</code>) och if-satser (<code class="highlighter-rouge">if</code>) inuti varandra får du en <em>block-struktur</em> där de inre delarna av varje konstruktion skall vara indragna ett antal blanksteg, som i följande exempel:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># Kommando på yttersta nivån
+</span>
+<span class="k">def</span> <span class="nf">p</span><span class="p">():</span>  <span class="c1"># funktionen p är definierad på yttersta nivån
+</span>  <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>               <span class="c1"># Kommando inuti p-definitionen
+</span>  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>  <span class="c1"># For-loop inuti p-definitionen
+</span>    <span class="n">c</span> <span class="o">=</span> <span class="mi">3</span>             <span class="c1">#   Kommando inuti for-loopen
+</span>    <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span>             <span class="c1">#   Kommando inuti for-loopen
+</span>    <span class="k">if</span> <span class="n">c</span><span class="o">==</span><span class="n">d</span><span class="p">:</span>          <span class="c1">#   if-sats inuti for-loopen
+</span>      <span class="n">e</span> <span class="o">=</span> <span class="mi">5</span>           <span class="c1">#     Kommando inuti if-satsens "then"-gren
+</span>      <span class="n">f</span> <span class="o">=</span> <span class="mi">6</span>           <span class="c1">#     Kommando inuti if-satsens "then"-gren
+</span>    <span class="k">else</span><span class="p">:</span>             <span class="c1">#   "else" skall ha samma indragning som "if"
+</span>      <span class="n">g</span> <span class="o">=</span> <span class="mi">7</span>           <span class="c1">#     Kommando inuti if-satsens "else"-gren
+</span>    <span class="n">h</span> <span class="o">=</span> <span class="mi">8</span>             <span class="c1">#   Kommando inuti for-loopen
+</span>  <span class="n">j</span> <span class="o">=</span> <span class="mi">9</span>               <span class="c1"># Kommando inuti p-definitionen
+</span>  <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>              <span class="c1"># Kommando inuti p-definitionen
+</span>
+<span class="n">p</span><span class="p">()</span>       <span class="c1"># Kommando på yttersta nivån (anrop av p)
+</span></code></pre></div></div>
+
+<p>Observera att <code class="highlighter-rouge">if</code> och <code class="highlighter-rouge">else</code> skall vara indragna lika mycket för att Python skall förstå att de hänger ihop. Delen direkt efter <code class="highlighter-rouge">if</code> kallas “then”-grenen. Delen direkt efter <code class="highlighter-rouge">else</code> kallas “else-grenen”.</p>
+
+<details>
+<summary>
+Lösning
+</summary>
+<p>Programmet bör se ut så här:</p>
+<pre>
+import turtle
+t = turtle.Turtle()
+t.speed(10)
+
+from random import randint
+
+def randomwalk(steps, angle, steplength):
+ for i in range(steps):
+   r = randint(1,2)
+   if r == 1:
+     t.color("red")
+     t.left(angle)
+   else:
+     t.color("green")
+     t.right(angle)
+   t.forward(steplength)
+
+randomwalk(30,100,20)
+</pre>
+</details>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

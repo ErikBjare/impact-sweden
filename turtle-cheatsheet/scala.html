@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Snabbreferens för Scala-turtle | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Snabbreferens för Scala-turtle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/scala" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/scala" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/turtle-cheatsheet/scala","headline":"Snabbreferens för Scala-turtle","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Snabbreferens för Scala-turtle</h1>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#kom-igång">Kom igång</a></li>
+<li class="toc-entry toc-h1"><a href="#styr-sköldpaddan">Styr sköldpaddan</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#styr-med-relativa-kommandon">Styr med relativa kommandon</a></li>
+<li class="toc-entry toc-h2"><a href="#styr-med-absoluta-koordinater">Styr med absoluta koordinater</a></li>
+<li class="toc-entry toc-h2"><a href="#sätt-färger-penntjocklek-etc">Sätt färger, penntjocklek, etc.</a></li>
+<li class="toc-entry toc-h2"><a href="#låt-paddan-skriva-text">Låt paddan skriva text</a></li>
+<li class="toc-entry toc-h2"><a href="#sätt-hastigheten-på-paddan">Sätt hastigheten på paddan</a></li>
+<li class="toc-entry toc-h2"><a href="#sparaåterställ-position-och-riktning">Spara/återställ position och riktning</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#annat-du-kan-göra-i-kojo">Annat du kan göra i Kojo</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#läs-in-och-skriv-ut">Läs in och skriv ut</a></li>
+<li class="toc-entry toc-h2"><a href="#sätta-ihop-strängar">Sätta ihop strängar</a></li>
+<li class="toc-entry toc-h2"><a href="#dra-slumptal">Dra slumptal</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#konstruktioner-i-scala">Konstruktioner i Scala</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#definiera-en-funktion">Definiera en funktion</a></li>
+<li class="toc-entry toc-h2"><a href="#deklarera-värden-och-variabler">Deklarera värden och variabler</a></li>
+<li class="toc-entry toc-h2"><a href="#repetition">Repetition</a></li>
+<li class="toc-entry toc-h2"><a href="#alternativ">Alternativ</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#mer-information">Mer information</a></li>
+</ul><p>Denna kod är provkörd på online-miljön <a href="http://kojojs.kogics.net">kojo-js</a> för Scala.</p>
+
+<h1 id="kom-igång">
+<a id="kom-igång" class="anchor" href="#kom-ig%C3%A5ng" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kom igång</h1>
+
+<p>Kojo är en miljö för programspråket Scala och med stöd för “turtle graphics”. Här är ett program som ritar en liten figur.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">forward</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>   <span class="c1">// Paddan går 20 steg framåt
+</span><span class="n">right</span><span class="o">(</span><span class="mi">60</span><span class="o">)</span>     <span class="c1">// Paddan vrider sig 60 grader åt höger
+</span><span class="n">forward</span><span class="o">(</span><span class="mi">30</span><span class="o">)</span>   <span class="c1">// Paddan går 20 steg framåt
+</span></code></pre></div></div>
+
+<h1 id="styr-sköldpaddan">
+<a id="styr-sköldpaddan" class="anchor" href="#styr-sk%C3%B6ldpaddan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr sköldpaddan</h1>
+
+<h2 id="styr-med-relativa-kommandon">
+<a id="styr-med-relativa-kommandon" class="anchor" href="#styr-med-relativa-kommandon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr med relativa kommandon</h2>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">forward</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span> <span class="c1">// Paddan går 20 steg framåt
+</span><span class="n">back</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>    <span class="c1">// Paddan går 20 steg framåt
+</span><span class="n">right</span><span class="o">(</span><span class="mi">45</span><span class="o">)</span>   <span class="c1">// Paddan vrider sig 45 grader åt höger
+</span><span class="n">left</span><span class="o">(</span><span class="mi">45</span><span class="o">)</span>    <span class="c1">// Paddan vrider sig 45 grader åt vänster
+</span><span class="n">hop</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>     <span class="c1">// Paddan hoppar 20 steg framåt, utan att rita
+</span><span class="n">hop</span><span class="o">(-</span><span class="mi">20</span><span class="o">)</span>    <span class="c1">// Paddan hoppar -20 steg framåt, dvs 20 steg bakåt, utan att rita
+</span><span class="n">arc</span><span class="o">(</span><span class="mi">50</span><span class="o">,</span> <span class="mi">90</span><span class="o">)</span> <span class="c1">// Paddan ritar en båge med radien 50 och vinkeln 90
+</span><span class="n">circle</span><span class="o">(</span><span class="mi">50</span><span class="o">)</span>  <span class="c1">// Paddan ritar en cirkel med radien 50
+</span></code></pre></div></div>
+
+<h2 id="styr-med-absoluta-koordinater">
+<a id="styr-med-absoluta-koordinater" class="anchor" href="#styr-med-absoluta-koordinater" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styr med absoluta koordinater</h2>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">setPosition</span><span class="o">(</span><span class="mi">50</span><span class="o">,</span><span class="mi">80</span><span class="o">)</span> <span class="c1">// Paddan hoppar till läget (50, 80) utan att rita
+</span><span class="n">setHeading</span><span class="o">(</span><span class="mi">45</span><span class="o">)</span>     <span class="c1">// Paddan vrider nosen till vinkeln 45 grade
+</span><span class="n">moveTo</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span><span class="mi">10</span><span class="o">)</span>      <span class="c1">// Paddan vrider sig och går till läget (10, 10)
+</span></code></pre></div></div>
+
+<h2 id="sätt-färger-penntjocklek-etc">
+<a id="sätt-färger-penntjocklek-etc" class="anchor" href="#s%C3%A4tt-f%C3%A4rger-penntjocklek-etc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätt färger, penntjocklek, etc.</h2>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">setPenColor</span><span class="o">(</span><span class="n">pink</span><span class="o">)</span>    <span class="c1">// Sätter pennans färg till rosa
+</span><span class="n">setFillColor</span><span class="o">(</span><span class="n">purple</span><span class="o">)</span> <span class="c1">// Sätter ifyllnadfärgen till lila
+</span><span class="n">setPenThickness</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>  <span class="c1">// Sätter pennans bredd till 20
+</span></code></pre></div></div>
+
+<h2 id="låt-paddan-skriva-text">
+<a id="låt-paddan-skriva-text" class="anchor" href="#l%C3%A5t-paddan-skriva-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Låt paddan skriva text</h2>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">write</span><span class="o">(</span><span class="s">"hello"</span><span class="o">)</span>      <span class="c1">// Paddan skriver texten "hello"
+</span><span class="n">setPenFontSize</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>  <span class="c1">// Paddan kommer nästa gång att skriva text med storlek 20
+</span></code></pre></div></div>
+
+<h2 id="sätt-hastigheten-på-paddan">
+<a id="sätt-hastigheten-på-paddan" class="anchor" href="#s%C3%A4tt-hastigheten-p%C3%A5-paddan" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätt hastigheten på paddan</h2>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">setAnimationDelay</span><span class="o">(</span><span class="mi">0</span><span class="o">)</span>     <span class="c1">// Paddan ritar så snabbt som möjligt
+</span><span class="n">setAnimationDelay</span><span class="o">(</span><span class="mi">10000</span><span class="o">)</span> <span class="c1">// Paddan ritar väldigt långsamt
+</span></code></pre></div></div>
+
+<h2 id="sparaåterställ-position-och-riktning">
+<a id="sparaåterställ-position-och-riktning" class="anchor" href="#spara%C3%A5terst%C3%A4ll-position-och-riktning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spara/återställ position och riktning</h2>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">savePosHe</span><span class="o">()</span>     <span class="c1">// Spara paddans position och riktning
+</span><span class="n">restorePosHe</span><span class="o">()</span>  <span class="c1">// Återställ tidigare sparad position och riktning
+</span></code></pre></div></div>
+
+<h1 id="annat-du-kan-göra-i-kojo">
+<a id="annat-du-kan-göra-i-kojo" class="anchor" href="#annat-du-kan-g%C3%B6ra-i-kojo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Annat du kan göra i Kojo</h1>
+
+<h2 id="läs-in-och-skriv-ut">
+<a id="läs-in-och-skriv-ut" class="anchor" href="#l%C3%A4s-in-och-skriv-ut" aria-hidden="true"><span class="octicon octicon-link"></span></a>Läs in och skriv ut</h2>
+
+<p>Du kan skriva ut text i paddans fönster:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">println</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>Du kan läsa in inmatning från användaren med följande funktioner. De skriver alla ut en ledtext och väntar sedan på inmatning. Det som användaren skrev hamnar i värdet <code class="highlighter-rouge">s</code> respektive <code class="highlighter-rouge">i</code> och <code class="highlighter-rouge">d</code>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="n">readln</span><span class="o">(</span><span class="s">"Skriv en sträng: "</span><span class="o">)</span>        <span class="c1">// läs in en sträng
+</span><span class="k">val</span> <span class="n">i</span> <span class="k">=</span> <span class="n">readInt</span><span class="o">(</span><span class="s">"Skriv ett heltal: "</span><span class="o">)</span>      <span class="c1">// läs in ett heltal
+</span><span class="k">val</span> <span class="n">d</span> <span class="k">=</span> <span class="n">readDouble</span><span class="o">(</span><span class="s">"Skriv ett double-tal"</span><span class="o">)</span> <span class="c1">// läs in ett decimaltal
+</span></code></pre></div></div>
+
+<p>Typen double används för decimaltal. Man använder punkt i stället för komma: <code class="highlighter-rouge">3.14</code> i stället för <code class="highlighter-rouge">3,14</code>.</p>
+
+<p><em>Obs!</em> I kojo-js kommer du inte att se vad paddan ritar eller vad <code class="highlighter-rouge">println</code> skrivit ut förrän programmet kört klart, dvs efter alla reads.</p>
+
+<h2 id="sätta-ihop-strängar">
+<a id="sätta-ihop-strängar" class="anchor" href="#s%C3%A4tta-ihop-str%C3%A4ngar" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sätta ihop strängar</h2>
+
+<p>När du skriver ut är det ofta praktiskt att sätta ihop strängar. Det kan man göra med <code class="highlighter-rouge">+</code>. Men tal och andra värden som inte är strängar från början behöver då omvandlas till strängar med hjälp av funktionen <code class="highlighter-rouge">toString</code>:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">println</span><span class="o">(</span><span class="s">"En vecka har "</span> <span class="o">+</span> <span class="mf">7.</span><span class="n">toString</span> <span class="o">+</span> <span class="s">" dagar."</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="dra-slumptal">
+<a id="dra-slumptal" class="anchor" href="#dra-slumptal" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dra slumptal</h2>
+
+<p>Du kan använda slumptal på följande sätt:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">random</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span>       <span class="c1">// Ger ett slumptal mellan 0 och 99
+</span><span class="n">randomDouble</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="c1">// Ger ett slumptal mellan 0 och 99.9999
+</span><span class="n">randomBoolean</span>     <span class="c1">// Ger slumpmässigt värdet true eller false
+</span><span class="n">randomFrom</span><span class="o">(</span><span class="nc">Seq</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">3</span><span class="o">,</span><span class="mi">5</span><span class="o">))</span> <span class="c1">// Drar ett värde slumpmässigt från sekvensen
+</span></code></pre></div></div>
+
+<h1 id="konstruktioner-i-scala">
+<a id="konstruktioner-i-scala" class="anchor" href="#konstruktioner-i-scala" aria-hidden="true"><span class="octicon octicon-link"></span></a>Konstruktioner i Scala</h1>
+
+<p>Kojo är en miljö för språket Scala. Här är några enkla exempel på Scala-konstruktioner.</p>
+
+<h2 id="definiera-en-funktion">
+<a id="definiera-en-funktion" class="anchor" href="#definiera-en-funktion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Definiera en funktion</h2>
+
+<p>Med en <code class="highlighter-rouge">def</code> kan du göra egna funktioner som kan användas som byggblock:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="n">step</span><span class="o">(</span><span class="n">length</span><span class="k">:</span><span class="kt">Int</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span>   <span class="c1">// Definera funktionen step
+</span>  <span class="n">forward</span><span class="o">(</span><span class="n">length</span><span class="o">)</span>
+  <span class="n">left</span><span class="o">(</span><span class="mi">90</span><span class="o">)</span>
+  <span class="n">forward</span><span class="o">(</span><span class="n">length</span><span class="o">)</span>
+  <span class="n">right</span><span class="o">(</span><span class="mi">90</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="n">step</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span>                  <span class="c1">// Anropa funktionen
+</span><span class="n">step</span><span class="o">(</span><span class="mi">30</span><span class="o">)</span>                  <span class="c1">// med olika parametrar
+</span></code></pre></div></div>
+
+<h2 id="deklarera-värden-och-variabler">
+<a id="deklarera-värden-och-variabler" class="anchor" href="#deklarera-v%C3%A4rden-och-variabler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deklarera värden och variabler</h2>
+
+<p><code class="highlighter-rouge">val</code> används för att namnge värden. <code class="highlighter-rouge">var</code> används för att namnge variabler. Man kan ändra värdet på en variabel.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="n">v</span> <span class="k">=</span> <span class="mi">10</span>       <span class="c1">// v är ett namn på värdet 10
+</span><span class="n">println</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>       <span class="c1">// 10 skrivs ut
+</span><span class="k">var</span> <span class="n">w</span> <span class="k">=</span> <span class="mi">20</span>       <span class="c1">// w är en variabel som ges värdet 10
+</span><span class="n">println</span><span class="o">(</span><span class="n">w</span><span class="o">)</span>       <span class="c1">// 20 skrivs ut
+</span><span class="n">w</span> <span class="k">=</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">1</span>        <span class="c1">// värdet på w ändras till 20 + 1
+</span><span class="n">println</span><span class="o">(</span><span class="n">w</span><span class="o">)</span>       <span class="c1">// 21 skrivs ut
+</span></code></pre></div></div>
+
+<h2 id="repetition">
+<a id="repetition" class="anchor" href="#repetition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repetition</h2>
+
+<p>Med en for-loop kan vi repetera ett visst antal varv:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">a</span> <span class="k">=</span> <span class="mi">0</span>           <span class="c1">// deklarera en loop-variabel a
+</span><span class="k">for</span><span class="o">(</span> <span class="n">a</span> <span class="k">&lt;-</span> <span class="mi">1</span> <span class="n">to</span> <span class="mi">5</span><span class="o">){</span>  <span class="c1">// repetera 5 gånger
+</span>   <span class="n">println</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>       <span class="c1">// a har olika värden i varje varv
+</span><span class="o">}</span>
+</code></pre></div></div>
+
+<p>Med en while-loop kan vi repetera tills ett uttryck är sant:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="n">a</span> <span class="k">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// loopa så länge a är mindre eller lika med 5
+</span>  <span class="n">println</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+  <span class="n">a</span> <span class="k">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>         <span class="c1">// öka a med 1
+</span><span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="alternativ">
+<a id="alternativ" class="anchor" href="#alternativ" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alternativ</h2>
+
+<p>Med en if-sats kan man göra alternativa saker beroende på värdet på ett uttryck:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">readInt</span><span class="o">(</span><span class="s">"Skriv ett heltal: "</span><span class="o">)</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"Det var mindre än 10"</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">10</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"Det var lika med 10"</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">else</span> <span class="o">{</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"Det var större än 10"</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="mer-information">
+<a id="mer-information" class="anchor" href="#mer-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mer information</h1>
+
+<ul>
+  <li>
+<a href="https://bitbucket.org/lalit_pant/kojo/downloads/KojoQuickref-301014.pdf">Lalit Pants snabbreferens till Kojo</a> <em>Obs!</em> Alla kommandon i kojo fungerar inte ännu på kojo-js miljön.</li>
+</ul>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Piece of cake | LU Skolprogrammering</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Piece of cake" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/piece-of-cake/python" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/exercises/piece-of-cake/python" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/exercises/piece-of-cake/python","headline":"Piece of cake","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Piece of cake</h1>
+    
+      <small style="text-style: italic">
+        <i class="fa fa-tag"></i>
+        medel, sköldpaddsgrafik, bråkräkning
+      </small>
+    
+  </header>
+
+  <div class="post-content">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#a-tredjedelar-och-fjärdedelar">A: Tredjedelar och fjärdedelar</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#a1-rita-en-tårta">A.1 Rita en tårta</a></li>
+<li class="toc-entry toc-h3"><a href="#a2-rita-två-tårtor">A.2 Rita två tårtor</a></li>
+<li class="toc-entry toc-h3"><a href="#a3-extra-snygga-till-tårtorna">A.3 Extra: snygga till tårtorna</a></li>
+<li class="toc-entry toc-h3"><a href="#a4-skär-upp-tårtorna">A.4 Skär upp tårtorna</a></li>
+<li class="toc-entry toc-h3"><a href="#a5-lägg-till-konstanter">A.5 Lägg till konstanter</a></li>
+<li class="toc-entry toc-h3"><a href="#a6-ät-tårta">A.6 Ät tårta</a></li>
+<li class="toc-entry toc-h3"><a href="#a7-hur-mycket-har-du-ätit">A.7 Hur mycket har du ätit?</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#b-godtyckliga-tårtbitar">B: Godtyckliga tårtbitar</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#b1-generalisera-programmet">B.1 Generalisera programmet</a></li>
+<li class="toc-entry toc-h3"><a href="#b2-skriv-ut-ekvationen">B.2 Skriv ut ekvationen</a></li>
+<li class="toc-entry toc-h3"><a href="#b3-testa-olika-tårtbitar">B.3 Testa olika tårtbitar</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#c-snitta-tårtorna-smartare">C: Snitta tårtorna smartare</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#c1-räkna-ut-största-gemensamma-delaren">C.1 Räkna ut största gemensamma delaren</a></li>
+<li class="toc-entry toc-h3"><a href="#c2-skär-tårtorna-smartare">C.2 Skär tårtorna smartare</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#d-extra-bygg-ut-programmet">D: Extra. Bygg ut programmet</a></li>
+</ul><p><img src="finalcake.png" height="150"></p>
+
+<p>Denna uppgift går ut på att illustrera heltalsbråk som delar av tårtor.</p>
+
+<p>Innan du gör uppgiften bör du ha lite koll på “turtle graphics”, t.ex. genom att göra uppgiften <a href="../turtle">Turtle</a>.</p>
+
+<p>Koden i denna uppgift är provkörd på <a href="http://repl.it/languages/python-turtle">http://repl.it/languages/python-turtle</a> (Python 2.7).</p>
+
+<h2 id="a-tredjedelar-och-fjärdedelar">
+<a id="a-tredjedelar-och-fjärdedelar" class="anchor" href="#a-tredjedelar-och-fj%C3%A4rdedelar" aria-hidden="true"><span class="octicon octicon-link"></span></a>A: Tredjedelar och fjärdedelar</h2>
+
+<h3 id="a1-rita-en-tårta">
+<a id="a1-rita-en-tårta" class="anchor" href="#a1-rita-en-t%C3%A5rta" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.1 Rita en tårta</h3>
+
+<p>Rita en avlång rektangulär tårta med “turtle graphics”. Kanten på tårtan skall vara i en färg och den skall vara fylld med en annan färg. T.ex.:</p>
+
+<p><img src="cake.png" height="70"></p>
+
+<p>Till din hjälp, deklarera en turtle som du kallar <code class="highlighter-rouge">t</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Klistra in följande funktioner i ditt script för att kunna hoppa till en given plats och för kunna att rita en fylld rektangel:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Jump to a position without drawing anything
+</span><span class="k">def</span> <span class="nf">jumpTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">setx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">sety</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Draw a filled rectangle
+</span><span class="k">def</span> <span class="nf">drawRect</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">begin_fill</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">width</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">end_fill</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Tips: Så här kan du sätta pennbredden, pennfärgen, och fyllningsfärgen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">t</span><span class="o">.</span><span class="n">width</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>            <span class="c1"># Sätt bredden på pennan
+</span>  <span class="n">t</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s">'green'</span><span class="p">)</span>      <span class="c1"># Sätt färgen på pennan
+</span>  <span class="n">t</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s">'red'</span><span class="p">)</span>    <span class="c1"># Sätt fyllningsfärgen
+</span></code></pre></div></div>
+
+<p>Och så här kan du sätta riktningen på sköldpaddan:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">t</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Sätt riktningen till 0 grader (dvs mot öster)
+</span></code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Rita tårtan!</p>
+
+<p>Prova med olika färger, t.ex. <code class="highlighter-rouge">blue</code>, <code class="highlighter-rouge">violet</code>, <code class="highlighter-rouge">pink</code>, <code class="highlighter-rouge">gold</code>, <code class="highlighter-rouge">orange</code>, <code class="highlighter-rouge">brown</code>, <code class="highlighter-rouge">red</code>, <code class="highlighter-rouge">green</code>, <code class="highlighter-rouge">white</code>, <code class="highlighter-rouge">black</code>.  <a href="https://www.tcl.tk/man/tcl8.4/TkCmd/colors.htm">Här</a> finns en lista på fler färger som kan användas.</p>
+
+<p>Prova att placera tårtan på olika ställen genom att anropa <code class="highlighter-rouge">jumpTo</code> innan du anropar <code class="highlighter-rouge">drawRect</code></p>
+
+<h3 id="a2-rita-två-tårtor">
+<a id="a2-rita-två-tårtor" class="anchor" href="#a2-rita-tv%C3%A5-t%C3%A5rtor" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.2 Rita två tårtor</h3>
+
+<p><strong>Uppdrag:</strong> Rita två tårtor snyggt placerade bredvid varann. Tårtorna skall vara lika stora. T.ex. så här:</p>
+
+<p><img src="twocakes.png" height="130"></p>
+
+<h3 id="a3-extra-snygga-till-tårtorna">
+<a id="a3-extra-snygga-till-tårtorna" class="anchor" href="#a3-extra-snygga-till-t%C3%A5rtorna" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.3 Extra: snygga till tårtorna</h3>
+
+<p><strong>Uppdrag:</strong> Om du tycker om snygga tårtor, skriv kod som dekorerar dem. Kanske med en ros i mitten på varje tårta?</p>
+
+<h3 id="a4-skär-upp-tårtorna">
+<a id="a4-skär-upp-tårtorna" class="anchor" href="#a4-sk%C3%A4r-upp-t%C3%A5rtorna" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.4 Skär upp tårtorna</h3>
+
+<p>Nu ska vi skära upp tårtorna.</p>
+
+<p>Till din hjälp, klistra in följande kod i ditt script.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Hop forward without drawing
+</span><span class="k">def</span> <span class="nf">hop</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+
+<span class="c1"># Slice a rectangle in a number of pieces
+</span><span class="k">def</span> <span class="nf">sliceRect</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">pieces</span><span class="p">):</span>
+  <span class="n">pieceWidth</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">width</span><span class="p">)</span><span class="o">/</span><span class="n">pieces</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pieces</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">hop</span><span class="p">(</span><span class="n">pieceWidth</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+    <span class="n">hop</span><span class="p">(</span><span class="o">-</span><span class="n">height</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+  <span class="n">hop</span><span class="p">(</span><span class="o">-</span><span class="n">pieceWidth</span><span class="o">*</span><span class="p">(</span><span class="n">pieces</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># Go back to original pos
+</span></code></pre></div></div>
+
+<p>Funktionen <code class="highlighter-rouge">sliceRect</code> skär upp en rektangel i ett antal lika stora bitar genom att rita streck över rektangeln.</p>
+
+<p><strong>Uppdrag:</strong> Skär upp översta tårtan i tredjedelar och nedersta tårtan i fjärdedelar. Använd en annan färg till snitten än du hade tidigare. Den tredelade tårtan borde se ut ungefär så här:</p>
+
+<p><img src="cutcake.png" height="70"></p>
+
+<p><em>Obs!</em> Du måste hoppa till rätt ställe innan du anropar <code class="highlighter-rouge">sliceRect</code>, och du måste anropa den med samma bredd och höjd som du ritade rektanglarna med tidigare.</p>
+
+<p><em>Tips:</em> Går det långsamt att rita? Du kan ställa in hastigheten på paddan så här:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># Rita så fort som möjligt
+</span></code></pre></div></div>
+
+<h3 id="a5-lägg-till-konstanter">
+<a id="a5-lägg-till-konstanter" class="anchor" href="#a5-l%C3%A4gg-till-konstanter" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.5 Lägg till konstanter</h3>
+<p>Du använder nu troligen samma värden för position, bredd och höjd på flera ställen i ditt program. Då blir koden svårläst. Det blir också jobbigt att t.ex. flytta en tårta eftersom du måste ändra värdena på flera ställen i ditt program.</p>
+
+<p>Det vore enklare om du hade namn på dessa värden, t.ex. <code class="highlighter-rouge">cake1pos</code>, <code class="highlighter-rouge">cake2pos</code>, <code class="highlighter-rouge">cakewidth</code>, <code class="highlighter-rouge">cakeheight</code>, så slipper du skriva numeriska värden på många ställen i programmet.</p>
+
+<p>Börja med att lägga till en funktion som gör det möjligt att hoppa till en position som är sparad som ett par av koordinater:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Jump to a position given as a pair of coordinates
+</span><span class="k">def</span> <span class="nf">jumpToPos</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+  <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">pos</span>
+  <span class="n">jumpTo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Inför sedan konstanter för dina värden, t.ex.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cake1pos</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">cake2pos</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">cakewidth</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">cakeheight</span> <span class="o">=</span> <span class="mi">50</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Inför konstanter för tårtpositioner och bredd och höjd på tårtorna. Ändra dina anrop så de använder konstanterna i stället för numeriska värden. Prova att ändra konstanterna och kontrollera att ditt program fortfarande fungerar.</p>
+
+<h3 id="a6-ät-tårta">
+<a id="a6-ät-tårta" class="anchor" href="#a6-%C3%A4t-t%C3%A5rta" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.6 Ät tårta</h3>
+
+<p>Nu skall vi illustrera att du äter en bit av den ena tårtan och en bit av den andra.</p>
+
+<p><strong>Uppdrag:</strong> Färga tårtbiten längst till vänster på vardera tårtan. Resultatet borde bli ungefär så här för den tredelade tårtan:</p>
+
+<p><img src="eatencake.png" height="70"></p>
+
+<p><em>Tips</em>: Anropa <code class="highlighter-rouge">drawRect</code> med en tredjedel av bredden för den första tårtan och en fjärdedel av bredden för den andra tårtan. Till exempel så här:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">drawRect</span><span class="p">(</span><span class="n">cakewidth</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">cakeheight</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="a7-hur-mycket-har-du-ätit">
+<a id="a7-hur-mycket-har-du-ätit" class="anchor" href="#a7-hur-mycket-har-du-%C3%A4tit" aria-hidden="true"><span class="octicon octicon-link"></span></a>A.7 Hur mycket har du ätit?</h3>
+
+<p>Nu har du ju ätit 1/3 tårta plus 1/4 tårta. Hur mycket tårta blir det sammanlagt?</p>
+
+<p>Om vi hade delat varje tårta i tolftedelar (delbart med både 3 och 4), så hade vi lätt kunnat se hur mycket tårta det blir.</p>
+
+<p>Nu skall vi illustrera detta. Till din hjälp, klistra in följande funktion:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Slice each piece into a number of slices
+</span><span class="k">def</span> <span class="nf">slicePieces</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">pieces</span><span class="p">,</span> <span class="n">slices</span><span class="p">):</span>
+  <span class="n">pieceWidth</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">width</span><span class="p">)</span><span class="o">/</span><span class="n">pieces</span>
+  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pieces</span><span class="p">):</span>
+    <span class="n">sliceRect</span><span class="p">(</span><span class="n">pieceWidth</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">slices</span><span class="p">)</span>
+    <span class="n">hop</span><span class="p">(</span><span class="n">pieceWidth</span><span class="p">)</span>
+  <span class="n">hop</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">pieceWidth</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">pieces</span><span class="p">))</span> <span class="c1"># Go back to original pos
+</span></code></pre></div></div>
+
+<p>Denna funktion skär upp en tårta som redan är delad i <code class="highlighter-rouge">pieces</code> bitar, så att varje bit delas ytterligare i <code class="highlighter-rouge">slices</code> delar.</p>
+
+<p><strong>Uppdrag:</strong> Skär upp de båda tårtorna i tolftedelar.</p>
+
+<p><em>Tips:</em> Anropa <code class="highlighter-rouge">slicePieces</code> så du skär upp bitarna i den tredelade tårtan i fjärdedelar och bitarna i den fyra-delade tårtan i tredjedelar. Den tredelade tårtan borde nu se ut så här:</p>
+
+<p><img src="slicedcake.png" height="70"></p>
+
+<p><strong>Quiz:</strong> Hur många tolftedelar tårta är uppätna totalt?</p>
+
+<details>
+  <summary>
+    Svar
+  </summary>
+  <p>
+  7
+  </p>
+</details>
+
+<hr>
+
+<h2 id="b-godtyckliga-tårtbitar">
+<a id="b-godtyckliga-tårtbitar" class="anchor" href="#b-godtyckliga-t%C3%A5rtbitar" aria-hidden="true"><span class="octicon octicon-link"></span></a>B: Godtyckliga tårtbitar</h2>
+
+<h3 id="b1-generalisera-programmet">
+<a id="b1-generalisera-programmet" class="anchor" href="#b1-generalisera-programmet" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.1 Generalisera programmet</h3>
+
+<p>Ditt program illustrerar hur</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1     1       7
+––– + –––  =  ––––
+ 3     4       12
+</code></pre></div></div>
+
+<p>Vi skall nu generalisera programmet så att du kan prova med andra bråk.</p>
+
+<p><em>Tips:</em> Spara en kopia av ditt fungerande program innan du börjar ändra något.</p>
+
+<p><strong>Uppdrag:</strong> Kapsla in koden för att rita, dela, äta, och skära tårtorna i en ny funktion <code class="highlighter-rouge">showFractionAdd(n,m)</code> så att du kan anropa den för att illustrera ekvationen:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1     1       n+m
+––– + –––  =  ––––-
+ n     m       n*m
+</code></pre></div></div>
+
+<p>Om du t.ex. anropar <code class="highlighter-rouge">showFractionAdd(2,5)</code> så skall du få följande resultat:</p>
+
+<p><img src="showfractions.png" height="130"></p>
+
+<p><em>Tips:</em> Börja med att lägga in din kod i den nya funktionen, och kolla att den fungerar när du anropar den med <code class="highlighter-rouge">showFractionAdd(3,4)</code>. Generalisera sedan funktionen så att den använder parametrarna <code class="highlighter-rouge">n</code> och <code class="highlighter-rouge">m</code> i stället för <code class="highlighter-rouge">3</code> och <code class="highlighter-rouge">4</code>.</p>
+
+<h3 id="b2-skriv-ut-ekvationen">
+<a id="b2-skriv-ut-ekvationen" class="anchor" href="#b2-skriv-ut-ekvationen" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.2 Skriv ut ekvationen</h3>
+
+<p><strong>Uppdrag:</strong> Utöka koden i <code class="highlighter-rouge">showFractionAdd</code> så att den skriver ut ekvationen under tårtorna. När du nu anropar <code class="highlighter-rouge">showFractionAdd(2,5)</code> så skall du få följande resultat:</p>
+
+<p><img src="finalcake.png" height="150"></p>
+
+<p><em>Tips:</em> Här är lite kod du kan använda för att skriva ut ekvationen:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s1</span> <span class="o">=</span> <span class="s">"1/"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s">"1/"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s">"/"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="p">)</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">" + "</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="s">" = "</span> <span class="o">+</span> <span class="n">s3</span>
+<span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s4</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s">"Arial"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s">"normal"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><em>Förklaring av koden:</em> Plustecknet ovan sätter ihop strängar (snarare än att addera tal). Ett tal som skall skrivas ut, t.ex., <code class="highlighter-rouge">n</code> behöver då först göras om till en sträng, vilket görs med standardfunktionen <code class="highlighter-rouge">str</code>.</p>
+
+<h3 id="b3-testa-olika-tårtbitar">
+<a id="b3-testa-olika-tårtbitar" class="anchor" href="#b3-testa-olika-t%C3%A5rtbitar" aria-hidden="true"><span class="octicon octicon-link"></span></a>B.3 Testa olika tårtbitar</h3>
+
+<p>Prova din funktion med olika värden på <code class="highlighter-rouge">n</code> och <code class="highlighter-rouge">m</code> för att räkna ut <code class="highlighter-rouge">1/n + 1/m</code>. Kontrollera t.ex. att</p>
+<ul>
+  <li>1/2 + 1/5 = 7/10</li>
+</ul>
+
+<p><strong>Uppdrag:</strong> Prova fler exempel. T.ex.:</p>
+
+<ul>
+  <li>1/3 + 1/4 = 7/12</li>
+  <li>1/5 + 1/7 = 12/35</li>
+</ul>
+
+<p>Fungerar programmet bra för alla exempel? Vilka exempel kan du komma på som verkar intressanta att testa?</p>
+<details>
+  <summary>
+    Tips
+  </summary>
+  <p>
+  Låt n eller m vara lika med 1 eller 0 eller negativt. Prova med större värden. Prova med värden som har gemensamma faktorer, t.ex. 2 och 4.
+  </p>
+</details>
+
+<hr>
+
+<p>Fungerade programmet bra för alla exemplen? Kanske det kan förbättras?</p>
+
+<h2 id="c-snitta-tårtorna-smartare">
+<a id="c-snitta-tårtorna-smartare" class="anchor" href="#c-snitta-t%C3%A5rtorna-smartare" aria-hidden="true"><span class="octicon octicon-link"></span></a>C: Snitta tårtorna smartare</h2>
+
+<p>Hur hanterar ditt program fallet med <code class="highlighter-rouge">n=2</code> och <code class="highlighter-rouge">m=4</code>? Skärs tårtorna upp med onödigt många snitt? För detta exempel borde det räcka att snitta tårtorna i fjärdedelar. Men ditt program kanske snittar dem i åttondelar?</p>
+
+<p>Kan du räkna ut det smartaste sättet att snitta tårtorna (fjärdedelar i detta fall)?</p>
+
+<details>
+  <summary>
+    Tips
+  </summary>
+  <p>
+  Vi behöver hitta det minsta talet som går att dela med både n och m. Det kan vi göra genom att först hitta det största talet d som både n och m kan delas med. Det kallas den största gemensamma delaren till n och m, och motsvarar alla de onödiga snitten. Vi behöver inte snitta tårtorna n*m gånger. Det räcker med (n*m)/d gånger.
+  </p>
+</details>
+
+<hr>
+
+<h3 id="c1-räkna-ut-största-gemensamma-delaren">
+<a id="c1-räkna-ut-största-gemensamma-delaren" class="anchor" href="#c1-r%C3%A4kna-ut-st%C3%B6rsta-gemensamma-delaren" aria-hidden="true"><span class="octicon octicon-link"></span></a>C.1 Räkna ut största gemensamma delaren</h3>
+
+<p>Det finns flera olika sätt att räkna ut största gemensamma delaren till två tal. Här är <a href="https://sv.wikipedia.org/wiki/Euklides">Euclides</a> ursprungliga algoritm:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Compute greatest common divisor
+</span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+  <span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span>
+  <span class="k">return</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<p><strong>Uppdrag:</strong> Klistra in koden ovan för <code class="highlighter-rouge">gcd</code>-funktionen (Greatest Common Divisor) och kontrollera att den fungerar på några exempel, t.ex.:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">t.write(gcd(2,4))</code> borde ge <code class="highlighter-rouge">2</code>
+</li>
+  <li>
+<code class="highlighter-rouge">t.write(gcd(15,6))</code> borde ge <code class="highlighter-rouge">3</code>
+</li>
+</ul>
+
+<details>
+  <summary>
+    Kommentar om gcd-algoritmen
+  </summary>
+  <p>
+  gcd-algoritmen ovan fungerar bara för positiva tal. Fler algoritmer diskuteras på wikipedia-sidan <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a>.
+  </p>
+</details>
+
+<hr>
+
+<h3 id="c2-skär-tårtorna-smartare">
+<a id="c2-skär-tårtorna-smartare" class="anchor" href="#c2-sk%C3%A4r-t%C3%A5rtorna-smartare" aria-hidden="true"><span class="octicon octicon-link"></span></a>C.2 Skär tårtorna smartare</h3>
+
+<p><strong>Uppdrag:</strong> Ändra ditt program så att <code class="highlighter-rouge">gcd</code> används för att skära tårtorna med så få snitt som möjligt.</p>
+
+<p>T.ex. borde du kunna få följande resultat:</p>
+
+<p><img src="smartcake.png" height="150"></p>
+
+<p>Testa fler exempel, t.ex. att:</p>
+
+<ul>
+  <li>
+<code class="highlighter-rouge">1/2 + 1/4 = 3/4</code> (i stället för <code class="highlighter-rouge">6/8</code>)</li>
+  <li>
+<code class="highlighter-rouge">1/6 + 1/15 = 7/30</code> (i stället för <code class="highlighter-rouge">21/90</code>)</li>
+</ul>
+
+<p>Kommer du inte på hur du skall göra?</p>
+
+<details>
+  <summary>
+    Tips
+  </summary>
+  <p>
+  Som vi nämnde tidigare så behöver tårtorna bara snittas (n*m)/d gånger. För tårtan med n bitar behöver vi alltså skära varje bit i m/d skivor. Och för tårtan med m bitar behöver vi skära varje bit i n/d skivor. Båda dessa tal kommer att vara heltal eftersom både m och n kan delas jämnt med d.
+  </p>
+</details>
+
+<hr>
+
+<h2 id="d-extra-bygg-ut-programmet">
+<a id="d-extra-bygg-ut-programmet" class="anchor" href="#d-extra-bygg-ut-programmet" aria-hidden="true"><span class="octicon octicon-link"></span></a>D: Extra. Bygg ut programmet</h2>
+
+<p>Hur skulle du kunna förbättra och utöka programmet? Kanske:</p>
+
+<ul>
+  <li>äta mer än en bit från varje tårta</li>
+  <li>ha fler än två tårtor</li>
+  <li>illustrera subtraktion mellan bråk</li>
+  <li>rita cirkulära tårtor i stället för rektangulära</li>
+  <li>…</li>
+</ul>
+
+<p>Du kan också gå vidare med uppdraget <a href="../fractions">Bråkspel</a> som också handlar om bråk, och där du får göra ett spel.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

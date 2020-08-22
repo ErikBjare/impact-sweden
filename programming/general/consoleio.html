@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>LU Skolprogrammering | Programmering för lärare och elever, utvecklat på Lunds universitet.</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="LU Skolprogrammering" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<meta property="og:description" content="Programmering för lärare och elever, utvecklat på Lunds universitet." />
+<link rel="canonical" href="https://lunduniversity.github.io/schoolprog//schoolprog/programming/general/consoleio.html" />
+<meta property="og:url" content="https://lunduniversity.github.io/schoolprog//schoolprog/programming/general/consoleio.html" />
+<meta property="og:site_name" content="LU Skolprogrammering" />
+<script type="application/ld+json">
+{"description":"Programmering för lärare och elever, utvecklat på Lunds universitet.","@type":"WebPage","url":"https://lunduniversity.github.io/schoolprog//schoolprog/programming/general/consoleio.html","headline":"LU Skolprogrammering","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/schoolprog/assets/main.css">
+  <link type="application/atom+xml" rel="alternate" href="https://lunduniversity.github.io/schoolprog//schoolprog/feed.xml" title="LU Skolprogrammering" />
+  
+    <script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113639419-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/schoolprog/">LU Skolprogrammering</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/schoolprog/exercises/">Uppdrag</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/programming/">Hjälp</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/for-teachers/">För lärare</a>
+            
+          
+            
+            
+            <a class="page-link" href="/schoolprog/about/">Om sidan</a>
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
+<style>
+.post-header {
+  
+}
+</style>
+
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title"></h1>
+    
+  </header>
+
+  <div class="post-content">
+    <h1 id="inläsning-och-utskrifter">Inläsning och utskrifter</h1>
+
+<p>Här kommer lite tips om hur man läser in och skriver ut text på “console-fönstret”<sup>1</sup>.</p>
+
+<h2 id="utskrift">Utskrift</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">Scala</th>
+      <th style="text-align: left">Python</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Skriv ut text</td>
+      <td style="text-align: left"><code class="highlighter-rouge">println("hej")</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">print("hej")</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Skriv ut tal</td>
+      <td style="text-align: left"><code class="highlighter-rouge">println(5)</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">print(5)</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Skriv ut variabel</td>
+      <td style="text-align: left"><code class="highlighter-rouge">println(x)</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">print(x)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Man kan också blanda olika slags värden i en utskrift.</p>
+
+<p>I Scala så kan man konkatenera ihop strängar och tal direkt genom att “plussa”:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Scala
+</span><span class="n">println</span><span class="o">(</span><span class="s">"Jag är "</span> <span class="o">+</span> <span class="mi">172</span> <span class="o">+</span> <span class="s">" cm lång."</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>I Python behöver tal explicit göras om till strängar med <code class="highlighter-rouge">str</code> innan man “plussar” för att konkatenera:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Python
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Jag är "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">172</span><span class="p">)</span> <span class="o">+</span> <span class="s">" cm lång."</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="inläsning">Inläsning</h2>
+
+<p>Ofta startar man ett program genom att klicka på en ikon, t.ex. på en mobiltelefon eller på en vanlig dator. Man kan också starta ett program genom att skriva dess namn i ett “terminalfönster” på datorn, eller genom att klicka RUN inifrån en programmeringsmiljö.</p>
+
+<p>Terminalfönstret kallas ofta “console”, och även om man startar programmet genom att klicka igång det, så har man ofta ett “console-fönster” där programmet kan skriva ut och läsa in text.</p>
+
+<h2 id="python">Python</h2>
+
+<p>Läs in en text:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Vad heter du?"</span><span class="p">)</span>
+<span class="n">namn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Hej "</span> <span class="o">+</span> <span class="n">namn</span> <span class="o">+</span> <span class="s">"!"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Läs in ett heltal:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Hur gammal är du?"</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h2 id="scala">Scala</h2>
+
+<p><strong>Notera:</strong> Inläsning i Scala fungerar tyvärr för närvarande inte i online-miljöer som kojojs eller scalafiddle (Februari 2018), utan bara om man har laddat ner en Scala-miljö på sin dator.</p>
+
+<p>Läs in en text:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">val</span> <span class="n">namn</span> <span class="k">=</span> <span class="n">scala</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="nc">StdIn</span><span class="o">.</span><span class="n">readLine</span><span class="o">()(</span><span class="s">"Vad heter du? "</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="s">"Hej "</span> <span class="o">+</span> <span class="n">namn</span> <span class="o">+</span> <span class="s">"!"</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>Läs in ett heltal:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">print</span><span class="o">(</span><span class="s">"Hur gammal är du?"</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">age</span> <span class="k">=</span> <span class="n">scala</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="nc">StdIn</span><span class="o">.</span><span class="n">readInt</span><span class="o">()</span>
+</code></pre></div></div>
+
+  </div>
+
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <data class="u-url" href="/schoolprog/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">LU Skolprogrammering</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <p>Programmering för lärare och elever, utvecklat på Lunds universitet.</p>
+      </div>
+
+      <div class="footer-col footer-col-2">
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <ul class="contact-list">
+          
+          <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/lunduniversity"><svg class="svg-icon"><use xlink:href="/schoolprog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">lunduniversity</span></a></li>
+  
+  
+  
+  
+  
+  
+  
+  
+</ul>
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
